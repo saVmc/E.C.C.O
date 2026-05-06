@@ -1,2 +1,2 @@
-## Experimental.Cognitive.Cloning.Operation
+## Experimental.Cognitive.Cloning.Operation - an OOP game 
 
