@@ -1,45 +1,9 @@
-
-assignment
-Assessment 2 - OOP Paradigm Project, Software Development Documentation & Presentation
-Benjamin Clark
-•
-Apr 2 (Edited May 4)
-100 points
-Due Jun 19, 3:15 PM
-Due date:
-T2 W9 - 5 July 2024 (Friday) 3.15 pm for Code and Documentation
-T2 W10 - as allocated for Individual Presentation on Solution
-
-Late submission will incur zero marks without a valid Extension Request.
-
-Extension Requests:
-Students who are seeking an extension due to approved leave or other extenuating circumstances must complete a Request for Extension Form, including relevant documentation. This form must be returned to the Deputy Principal in charge of Year 10 at least two days prior to the task, who will decide whether an extension is warranted and, where appropriate, set a revised due date in consultation with the Head Teacher of the relevant faculty. Requests for extension submitted on the due date of a task will not be considered.
-PDP-8 Hunt the Wumpus Instructions
-https://www.pdp8online.com/games/wumpus.shtml#:~:text=THE%20SUPER%2DBATS%20GENERALLY%20STAY,HIMSELF%20UPON%20A%20PREVIOUS%20HUNTER).
-
-Template - Assessment Two (OOP Task)
-Google Docs
-
-Assessment_Task_2_SWE_2026.docx
-Microsoft Word
-
-Journal of progress and pitfalls - 2026.docx
-Microsoft Word
-
-DRAFT - Project Plan - 11SWE_Ass2.txt
-Text
-
-Class comments
-Your work
-Assigned
-Originality reports available
-
-Private comments
 Week 3 (B Week) - Focus: Preliminary Planning and Research
 
 4-5-2026
 6-5-2026
-8-5-2026
+8-5-2026 - I created a basic room using Unity's 2D tilemaps. I imported and sliced my first tileset, made a Tile Palette, painted some basic floors and walls. I also managed to add collision to the 'wall' layer of the tilemap (which inlcuded a Tilemap Collider, COmposite Collider and Static RigidBody2D.) Mr Clark checked my progress and he approved of my direction going forward :D. Ran into issue, my tutorial I followed mentioned "Used by Composite" boolean for one of the colliders, but in my Unity version it is deprecated. To fix this, I had to go 'Composite Operation -> Merge' instead. My goals going forward are to add the 2D player object and confirm all my collisions work!
+
 
 Week 4 (A Week) - Focus: Identification of Classes, Objects, System Diagramming
 
