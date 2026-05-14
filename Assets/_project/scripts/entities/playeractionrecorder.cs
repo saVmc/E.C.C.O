@@ -1,9 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-/// <summary>
-/// Records player actions for playback/analysis.
-/// </summary>
 public class PlayerActionRecorder : MonoBehaviour
 {
     private PlayerMovement playerMovement;
@@ -99,27 +96,14 @@ public class PlayerActionRecorder : MonoBehaviour
         recordedActions.Add(action);
     }
 
-    /// <summary>
-    /// Get all recorded actions.
-    /// </summary>
     public List<PlayerAction> GetRecordedActions() => new(recordedActions);
 
-    /// <summary>
-    /// Clear all recorded actions.
-    /// </summary>
     public void ClearRecording()
     {
         recordedActions.Clear();
         recordingTime = 0f;
     }
-
-    /// <summary>
-    /// Get recording status.
-    /// </summary>
     public bool IsRecording => isRecording;
 
-    /// <summary>
-    /// Get current recording duration.
-    /// </summary>
     public float RecordingDuration => recordingTime;
 }

@@ -12,12 +12,14 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
 
     private Animator animator;
     private PlayerMovement playerMovement;
+    private SpriteRenderer spriteRenderer;
     private Vector2 facingDirection = Vector2.down;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -28,6 +30,13 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
         if (isMoving)
         {
             facingDirection = movement;
+        }
+
+        // Flip sprite horizontally when moving left/right
+        if (spriteRenderer != null)
+        {
+            // Use facingDirection so sprite faces last non-zero horizontal input
+            spriteRenderer.flipX = facingDirection.x < 0f;
         }
 
         animator.SetFloat(speedParameter, movement.magnitude);

@@ -44,6 +44,12 @@ public sealed class PlayerMovement : MonoBehaviour
             lastRecordedInput = moveInput;
         }
 
+        if (Keyboard.current.leftShiftKey.isPressed != isSprinting)
+        {
+            isSprinting = Keyboard.current.leftShiftKey.isPressed;
+            OnSprintToggled?.Invoke(isSprinting);
+        }
+
         bool wasSprintingLastFrame = isSprinting;
         isSprinting = Keyboard.current.leftShiftKey.isPressed;
 
