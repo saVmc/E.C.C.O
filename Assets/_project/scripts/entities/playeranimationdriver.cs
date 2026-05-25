@@ -9,9 +9,11 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
     [SerializeField] private string moveYParameter = "MoveY";
     [SerializeField] private string isMovingParameter = "IsMoving";
     [SerializeField] private string isSprintingParameter = "IsSprinting";
+    [SerializeField] private string shootTriggerParameter = "Shoot";
 
     private Animator animator;
     private PlayerMovement playerMovement;
+    private PlayerShooter playerShooter;
     private SpriteRenderer spriteRenderer;
     private Vector2 facingDirection = Vector2.down;
 
@@ -19,7 +21,24 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
+        playerShooter = GetComponent<PlayerShooter>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        if (playerShooter != null)
+        {
+            playerShooter.OnShotFired += HandleShotFired;
+        }
+    }
+
+    private void OnDisable()
+    {
+        if (playerShooter != null)
+        {
+            playerShooter.OnShotFired -= HandleShotFired;
+        }
     }
 
     private void Update()
@@ -32,10 +51,8 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
             facingDirection = movement;
         }
 
-        // Flip sprite horizontally when moving left/right
         if (spriteRenderer != null)
         {
-            // Use facingDirection so sprite faces last non-zero horizontal input
             spriteRenderer.flipX = facingDirection.x < 0f;
         }
 
@@ -44,5 +61,10 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
         animator.SetFloat(moveYParameter, facingDirection.y);
         animator.SetBool(isMovingParameter, isMoving);
         animator.SetBool(isSprintingParameter, playerMovement.GetCurrentSpeedMultiplier() > 1f);
+    }
+
+    private void HandleShotFired()
+    {
+        animator.SetTrigger(shootTriggerParameter);
     }
 }

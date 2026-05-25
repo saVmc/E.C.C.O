@@ -7,16 +7,16 @@ Week 3 (B Week) - Focus: Preliminary Planning and Research
 
 Week 4 (A Week) - Focus: Identification of Classes, Objects, System Diagramming
 
-11-5-2026
-13-5-2026
-14-5-2026
-15-5-2026
+11-5-2026 walking 
+13-5-2026 walking / camera / animations
+14-5-2026 camera / animation bugs + starting shooting (pixel art)
+15-5-2026 shooting bugs fixing
 
 Week 5 (B Week) - Focus: Programming, Asset Creation/Identification and Journaling
 
-18-5-2026
-20-5-2026
-22-5-2026
+18-5-2026 fixed up bugs I had from last week, didnt fully resolve but made good progress. I started thinking about how I would intergrate the recording system, and I think I have a good plan for it. I also started working on the player controller, which is coming along nicely. I have basic movement working, and I am now working on adding sprinting and animations. I also started working on the shooting mechanics, which is going to be a bit more complex but I am confident I can get it working. Overall, I am happy with my progress this week and I am excited to keep working on my project!
+20-5-2026 - Shooting clone / cleaning up lines (atlas + tutorial), animations for death, custom cursor,
+2-5-2026 - FLC
 
 Week 6 (A Week) - Focus: Programming, Asset Creation/Identification and Journaling
 

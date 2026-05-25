@@ -10,6 +10,7 @@ public sealed class PlayerMovement : MonoBehaviour
     
     private Rigidbody2D rb;
     private Vector2 moveInput;
+    private Vector2 facingDirection = Vector2.down;
     private bool isSprinting;
     private Vector2 lastRecordedInput;
 
@@ -18,10 +19,14 @@ public sealed class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        if (GetComponent<TimeParadoxDeathController>() == null)
+            gameObject.AddComponent<TimeParadoxDeathController>();
+
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        rb.interpolation = RigidbodyInterpolation2D.Interpolate;
     }
 
     private void Update()
@@ -38,25 +43,20 @@ public sealed class PlayerMovement : MonoBehaviour
 
         moveInput = moveInput.normalized;
 
+        if (moveInput.sqrMagnitude > 0.0001f)
+        {
+            facingDirection = moveInput;
+        }
+
         if (moveInput != lastRecordedInput)
         {
             OnMovementInput?.Invoke(moveInput);
             lastRecordedInput = moveInput;
         }
-
-        if (Keyboard.current.leftShiftKey.isPressed != isSprinting)
-        {
-            isSprinting = Keyboard.current.leftShiftKey.isPressed;
-            OnSprintToggled?.Invoke(isSprinting);
-        }
-
-        bool wasSprintingLastFrame = isSprinting;
+        bool wasSprinting = isSprinting;
         isSprinting = Keyboard.current.leftShiftKey.isPressed;
-
-        if (isSprinting != wasSprintingLastFrame)
-        {
+        if (isSprinting != wasSprinting)
             OnSprintToggled?.Invoke(isSprinting);
-        }
     }
 
     private void FixedUpdate()
@@ -66,6 +66,8 @@ public sealed class PlayerMovement : MonoBehaviour
     }
     public Vector3 GetPosition() => transform.position;
     public Vector2 GetMovementDirection() => moveInput;
+    public Vector2 GetFacingDirection() => facingDirection;
 
     public float GetCurrentSpeedMultiplier() => isSprinting ? sprintMultiplier : 1f;
+    public bool GetIsSprinting() => isSprinting;
 }
