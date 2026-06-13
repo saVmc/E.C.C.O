@@ -9,36 +9,20 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
     [SerializeField] private string moveYParameter = "MoveY";
     [SerializeField] private string isMovingParameter = "IsMoving";
     [SerializeField] private string isSprintingParameter = "IsSprinting";
-    [SerializeField] private string shootTriggerParameter = "Shoot";
 
     private Animator animator;
     private PlayerMovement playerMovement;
-    private PlayerShooter playerShooter;
     private SpriteRenderer spriteRenderer;
+
     private Vector2 facingDirection = Vector2.down;
+    private bool aimFlipOverride = false;
+    private bool aimFlipValue = false;
 
     private void Awake()
     {
         animator = GetComponent<Animator>();
         playerMovement = GetComponent<PlayerMovement>();
-        playerShooter = GetComponent<PlayerShooter>();
         spriteRenderer = GetComponent<SpriteRenderer>();
-    }
-
-    private void OnEnable()
-    {
-        if (playerShooter != null)
-        {
-            playerShooter.OnShotFired += HandleShotFired;
-        }
-    }
-
-    private void OnDisable()
-    {
-        if (playerShooter != null)
-        {
-            playerShooter.OnShotFired -= HandleShotFired;
-        }
     }
 
     private void Update()
@@ -47,14 +31,10 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
         bool isMoving = movement.sqrMagnitude > 0.0001f;
 
         if (isMoving)
-        {
             facingDirection = movement;
-        }
 
         if (spriteRenderer != null)
-        {
-            spriteRenderer.flipX = facingDirection.x < 0f;
-        }
+            spriteRenderer.flipX = aimFlipOverride ? aimFlipValue : facingDirection.x < 0f;
 
         animator.SetFloat(speedParameter, movement.magnitude);
         animator.SetFloat(moveXParameter, facingDirection.x);
@@ -63,8 +43,9 @@ public sealed class PlayerAnimationDriver : MonoBehaviour
         animator.SetBool(isSprintingParameter, playerMovement.GetCurrentSpeedMultiplier() > 1f);
     }
 
-    private void HandleShotFired()
+    public void SetAimFlip(bool flipped)
     {
-        animator.SetTrigger(shootTriggerParameter);
+        aimFlipOverride = true;
+        aimFlipValue = flipped;
     }
 }

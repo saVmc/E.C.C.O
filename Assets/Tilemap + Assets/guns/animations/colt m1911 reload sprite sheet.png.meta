@@ -1,0 +1,949 @@
+fileFormatVersion: 2
+guid: ee8b892742607ca4a808366e8d44853b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1072716509739053378
+    second: colt m1911 reload sprite sheet_0
+  - first:
+      213: 570646449469831590
+    second: colt m1911 reload sprite sheet_1
+  - first:
+      213: -4762341764798679352
+    second: colt m1911 reload sprite sheet_2
+  - first:
+      213: -2924788916140239826
+    second: colt m1911 reload sprite sheet_3
+  - first:
+      213: 1209779164160852497
+    second: colt m1911 reload sprite sheet_4
+  - first:
+      213: 1237021671426452417
+    second: colt m1911 reload sprite sheet_5
+  - first:
+      213: 6500843648699522927
+    second: colt m1911 reload sprite sheet_6
+  - first:
+      213: -8907888729526416506
+    second: colt m1911 reload sprite sheet_7
+  - first:
+      213: -7263602391662701620
+    second: colt m1911 reload sprite sheet_8
+  - first:
+      213: 3487696951702358163
+    second: colt m1911 reload sprite sheet_9
+  - first:
+      213: 5611463007606753534
+    second: colt m1911 reload sprite sheet_10
+  - first:
+      213: -6135528159169764026
+    second: colt m1911 reload sprite sheet_11
+  - first:
+      213: -2872655078943762959
+    second: colt m1911 reload sprite sheet_12
+  - first:
+      213: 8100353007495274034
+    second: colt m1911 reload sprite sheet_13
+  - first:
+      213: -6898918916476605967
+    second: colt m1911 reload sprite sheet_14
+  - first:
+      213: 7035371050820102346
+    second: colt m1911 reload sprite sheet_15
+  - first:
+      213: 2715407854778929683
+    second: colt m1911 reload sprite sheet_16
+  - first:
+      213: -4767870529105835963
+    second: colt m1911 reload sprite sheet_17
+  - first:
+      213: -6399985757883446942
+    second: colt m1911 reload sprite sheet_18
+  - first:
+      213: -1873401184360217207
+    second: colt m1911 reload sprite sheet_19
+  - first:
+      213: 6713362803698234130
+    second: colt m1911 reload sprite sheet_20
+  - first:
+      213: 3845365942794854933
+    second: colt m1911 reload sprite sheet_21
+  - first:
+      213: 7470396228489395444
+    second: colt m1911 reload sprite sheet_22
+  - first:
+      213: 6623779556675652021
+    second: colt m1911 reload sprite sheet_23
+  - first:
+      213: 4898739404031767588
+    second: colt m1911 reload sprite sheet_24
+  - first:
+      213: 4272974607659493021
+    second: colt m1911 reload sprite sheet_25
+  - first:
+      213: 9194622045597902862
+    second: colt m1911 reload sprite sheet_26
+  - first:
+      213: 9041349972331098566
+    second: colt m1911 reload sprite sheet_27
+  - first:
+      213: 7235379020046298342
+    second: colt m1911 reload sprite sheet_28
+  - first:
+      213: 8964084980719062890
+    second: colt m1911 reload sprite sheet_29
+  - first:
+      213: 4146084469544782338
+    second: colt m1911 reload sprite sheet_30
+  - first:
+      213: -4314668674544668225
+    second: colt m1911 reload sprite sheet_31
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 247
+        width: 78
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebe8e449402fc11f0800000000000000
+      internalID: -1072716509739053378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 727
+        y: 247
+        width: 78
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a9bcf02ce75be700800000000000000
+      internalID: 570646449469831590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 247
+        width: 78
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c6fa2a9563c8edb0800000000000000
+      internalID: -4762341764798679352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1731
+        y: 247
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e24167a1aff0967d0800000000000000
+      internalID: -2924788916140239826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2255
+        y: 247
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1120a787dbff9c010800000000000000
+      internalID: 1209779164160852497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2767
+        y: 247
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cb65d8f7a8ca2110800000000000000
+      internalID: 1237021671426452417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3279
+        y: 255
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f6fd6150bd2a73a50800000000000000
+      internalID: 6500843648699522927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3791
+        y: 267
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68b4fd18562d06480800000000000000
+      internalID: -8907888729526416506
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 4303
+        y: 235
+        width: 74
+        height: 58
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc35447eb10823b90800000000000000
+      internalID: -7263602391662701620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 4815
+        y: 235
+        width: 74
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3988e6226e9c66030800000000000000
+      internalID: 3487696951702358163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 5327
+        y: 247
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ef845a6efdbefdd40800000000000000
+      internalID: 5611463007606753534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 5839
+        y: 247
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 645a74b85a93adaa0800000000000000
+      internalID: -6135528159169764026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 6351
+        y: 247
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f5d559fc674228d0800000000000000
+      internalID: -2872655078943762959
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 6823
+        y: 239
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23ed50f842c3a6070800000000000000
+      internalID: 8100353007495274034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 6863
+        y: 219
+        width: 74
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f960392ccd1240a0800000000000000
+      internalID: -6898918916476605967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 7375
+        y: 227
+        width: 74
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac8e23b12b8a2a160800000000000000
+      internalID: 7035371050820102346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 7887
+        y: 231
+        width: 74
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 312576c9e011fa520800000000000000
+      internalID: 2715407854778929683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 8399
+        y: 247
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 548c799d30f15ddb0800000000000000
+      internalID: -4767870529105835963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 8911
+        y: 235
+        width: 74
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2694ccd9cdeae27a0800000000000000
+      internalID: -6399985757883446942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 9423
+        y: 247
+        width: 74
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 985c96c6c875006e0800000000000000
+      internalID: -1873401184360217207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 9935
+        y: 251
+        width: 74
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 213f0caa6e7aa2d50800000000000000
+      internalID: 6713362803698234130
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 10447
+        y: 247
+        width: 74
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5122cab83fb7d5530800000000000000
+      internalID: 3845365942794854933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 10959
+        y: 255
+        width: 78
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fc378a3acd2ca760800000000000000
+      internalID: 7470396228489395444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 5327
+        y: 219
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b9852a99646ceb50800000000000000
+      internalID: 6623779556675652021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_24
+      rect:
+        serializedVersion: 2
+        x: 5839
+        y: 215
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424b5888881dbf340800000000000000
+      internalID: 4898739404031767588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_25
+      rect:
+        serializedVersion: 2
+        x: 6351
+        y: 215
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d96eec734c7ac4b30800000000000000
+      internalID: 4272974607659493021
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_26
+      rect:
+        serializedVersion: 2
+        x: 7347
+        y: 219
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e08a6d7090cd99f70800000000000000
+      internalID: 9194622045597902862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 7871
+        y: 215
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6c178ce85e3597d70800000000000000
+      internalID: 9041349972331098566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_28
+      rect:
+        serializedVersion: 2
+        x: 8387
+        y: 215
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6ec6c2152ea396460800000000000000
+      internalID: 7235379020046298342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 8439
+        y: 231
+        width: 22
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a6f8c24dbc3d66c70800000000000000
+      internalID: 8964084980719062890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_30
+      rect:
+        serializedVersion: 2
+        x: 8907
+        y: 215
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20a0bffabd9d98930800000000000000
+      internalID: 4146084469544782338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: colt m1911 reload sprite sheet_31
+      rect:
+        serializedVersion: 2
+        x: 9423
+        y: 215
+        width: 26
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fb1724a53b73f14c0800000000000000
+      internalID: -4314668674544668225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      colt m1911 reload sprite sheet_0: -1072716509739053378
+      colt m1911 reload sprite sheet_1: 570646449469831590
+      colt m1911 reload sprite sheet_10: 5611463007606753534
+      colt m1911 reload sprite sheet_11: -6135528159169764026
+      colt m1911 reload sprite sheet_12: -2872655078943762959
+      colt m1911 reload sprite sheet_13: 8100353007495274034
+      colt m1911 reload sprite sheet_14: -6898918916476605967
+      colt m1911 reload sprite sheet_15: 7035371050820102346
+      colt m1911 reload sprite sheet_16: 2715407854778929683
+      colt m1911 reload sprite sheet_17: -4767870529105835963
+      colt m1911 reload sprite sheet_18: -6399985757883446942
+      colt m1911 reload sprite sheet_19: -1873401184360217207
+      colt m1911 reload sprite sheet_2: -4762341764798679352
+      colt m1911 reload sprite sheet_20: 6713362803698234130
+      colt m1911 reload sprite sheet_21: 3845365942794854933
+      colt m1911 reload sprite sheet_22: 7470396228489395444
+      colt m1911 reload sprite sheet_23: 6623779556675652021
+      colt m1911 reload sprite sheet_24: 4898739404031767588
+      colt m1911 reload sprite sheet_25: 4272974607659493021
+      colt m1911 reload sprite sheet_26: 9194622045597902862
+      colt m1911 reload sprite sheet_27: 9041349972331098566
+      colt m1911 reload sprite sheet_28: 7235379020046298342
+      colt m1911 reload sprite sheet_29: 8964084980719062890
+      colt m1911 reload sprite sheet_3: -2924788916140239826
+      colt m1911 reload sprite sheet_30: 4146084469544782338
+      colt m1911 reload sprite sheet_31: -4314668674544668225
+      colt m1911 reload sprite sheet_4: 1209779164160852497
+      colt m1911 reload sprite sheet_5: 1237021671426452417
+      colt m1911 reload sprite sheet_6: 6500843648699522927
+      colt m1911 reload sprite sheet_7: -8907888729526416506
+      colt m1911 reload sprite sheet_8: -7263602391662701620
+      colt m1911 reload sprite sheet_9: 3487696951702358163
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

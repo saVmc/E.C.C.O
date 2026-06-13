@@ -1,0 +1,1131 @@
+fileFormatVersion: 2
+guid: 1974e2643222a7847a7f754e75411782
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3995726309106271134
+    second: silenced a205 reload_0
+  - first:
+      213: 2927030945203340203
+    second: silenced a205 reload_1
+  - first:
+      213: -4822297145052543314
+    second: silenced a205 reload_2
+  - first:
+      213: 5386036004705681687
+    second: silenced a205 reload_3
+  - first:
+      213: 8769022372995521511
+    second: silenced a205 reload_4
+  - first:
+      213: 2245818403891153906
+    second: silenced a205 reload_5
+  - first:
+      213: -4474742317842271453
+    second: silenced a205 reload_6
+  - first:
+      213: -4065624904157561934
+    second: silenced a205 reload_7
+  - first:
+      213: -9137795427767314055
+    second: silenced a205 reload_8
+  - first:
+      213: -3058040585848976174
+    second: silenced a205 reload_9
+  - first:
+      213: -505996731780473924
+    second: silenced a205 reload_10
+  - first:
+      213: -2938539567250734561
+    second: silenced a205 reload_11
+  - first:
+      213: -3820640142338175272
+    second: silenced a205 reload_12
+  - first:
+      213: -8543554544520267394
+    second: silenced a205 reload_13
+  - first:
+      213: 2852588721750015878
+    second: silenced a205 reload_14
+  - first:
+      213: -9034461553543494996
+    second: silenced a205 reload_15
+  - first:
+      213: -7209852935255369230
+    second: silenced a205 reload_16
+  - first:
+      213: -9137341790605675129
+    second: silenced a205 reload_17
+  - first:
+      213: 4924918207983434823
+    second: silenced a205 reload_18
+  - first:
+      213: -2252022888264222502
+    second: silenced a205 reload_19
+  - first:
+      213: 3518409238895982436
+    second: silenced a205 reload_20
+  - first:
+      213: -6755801165995385875
+    second: silenced a205 reload_21
+  - first:
+      213: 701924320947663426
+    second: silenced a205 reload_22
+  - first:
+      213: -1584591184938234000
+    second: silenced a205 reload_23
+  - first:
+      213: 1803971745636525790
+    second: silenced a205 reload_24
+  - first:
+      213: -2947340176761638099
+    second: silenced a205 reload_25
+  - first:
+      213: 4230447516179659681
+    second: silenced a205 reload_26
+  - first:
+      213: 1999226268086918496
+    second: silenced a205 reload_27
+  - first:
+      213: -6537841787190689385
+    second: silenced a205 reload_28
+  - first:
+      213: -4362787313710557237
+    second: silenced a205 reload_29
+  - first:
+      213: -8861786784725586246
+    second: silenced a205 reload_30
+  - first:
+      213: 6102799074441301586
+    second: silenced a205 reload_31
+  - first:
+      213: 8158759353972925430
+    second: silenced a205 reload_32
+  - first:
+      213: -4286582102156054137
+    second: silenced a205 reload_33
+  - first:
+      213: -2322842745500258800
+    second: silenced a205 reload_34
+  - first:
+      213: 8347654159093219362
+    second: silenced a205 reload_35
+  - first:
+      213: 3460029515233674644
+    second: silenced a205 reload_36
+  - first:
+      213: -6724889337743356972
+    second: silenced a205 reload_37
+  - first:
+      213: 3358010081217519754
+    second: silenced a205 reload_38
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: silenced a205 reload_0
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 239
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9346f968eba37730800000000000000
+      internalID: 3995726309106271134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_1
+      rect:
+        serializedVersion: 2
+        x: 723
+        y: 239
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba3cb67f227ee9820800000000000000
+      internalID: 2927030945203340203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_2
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 239
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ea643c3db42c31db0800000000000000
+      internalID: -4822297145052543314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_3
+      rect:
+        serializedVersion: 2
+        x: 1763
+        y: 239
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71142f7b53b0fba40800000000000000
+      internalID: 5386036004705681687
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_4
+      rect:
+        serializedVersion: 2
+        x: 2259
+        y: 239
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ebd9d15363d1b970800000000000000
+      internalID: 8769022372995521511
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_5
+      rect:
+        serializedVersion: 2
+        x: 2771
+        y: 239
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2fb87f180ffba2f10800000000000000
+      internalID: 2245818403891153906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_6
+      rect:
+        serializedVersion: 2
+        x: 3251
+        y: 239
+        width: 130
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3237a93f19586e1c0800000000000000
+      internalID: -4474742317842271453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_7
+      rect:
+        serializedVersion: 2
+        x: 3787
+        y: 239
+        width: 130
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bbf4b5b0bff397c0800000000000000
+      internalID: -4065624904157561934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_8
+      rect:
+        serializedVersion: 2
+        x: 4299
+        y: 235
+        width: 130
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9799db9f877003180800000000000000
+      internalID: -9137795427767314055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_9
+      rect:
+        serializedVersion: 2
+        x: 4803
+        y: 227
+        width: 130
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dc8eb31a48af85d0800000000000000
+      internalID: -3058040585848976174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_10
+      rect:
+        serializedVersion: 2
+        x: 5315
+        y: 215
+        width: 130
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cbb57b047a65af8f0800000000000000
+      internalID: -505996731780473924
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_11
+      rect:
+        serializedVersion: 2
+        x: 5827
+        y: 215
+        width: 130
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f12079725d53837d0800000000000000
+      internalID: -2938539567250734561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_12
+      rect:
+        serializedVersion: 2
+        x: 6339
+        y: 227
+        width: 130
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8dec55d780c5afac0800000000000000
+      internalID: -3820640142338175272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_13
+      rect:
+        serializedVersion: 2
+        x: 6851
+        y: 255
+        width: 130
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e79f1be48623f6980800000000000000
+      internalID: -8543554544520267394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_14
+      rect:
+        serializedVersion: 2
+        x: 7331
+        y: 239
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 68ff13a245e669720800000000000000
+      internalID: 2852588721750015878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_15
+      rect:
+        serializedVersion: 2
+        x: 7363
+        y: 239
+        width: 130
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ca2cd1c65152f9280800000000000000
+      internalID: -9034461553543494996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_16
+      rect:
+        serializedVersion: 2
+        x: 7847
+        y: 223
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f9db4f64f471fb90800000000000000
+      internalID: -7209852935255369230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_17
+      rect:
+        serializedVersion: 2
+        x: 7875
+        y: 239
+        width: 130
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 785fd9b9d04a13180800000000000000
+      internalID: -9137341790605675129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_18
+      rect:
+        serializedVersion: 2
+        x: 8367
+        y: 219
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74cb4be4403d85440800000000000000
+      internalID: 4924918207983434823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_19
+      rect:
+        serializedVersion: 2
+        x: 8383
+        y: 207
+        width: 130
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad836f66d153fb0e0800000000000000
+      internalID: -2252022888264222502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_20
+      rect:
+        serializedVersion: 2
+        x: 8879
+        y: 219
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 467f8dabf86e3d030800000000000000
+      internalID: 3518409238895982436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_21
+      rect:
+        serializedVersion: 2
+        x: 8895
+        y: 239
+        width: 130
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: debdcaf12a29e32a0800000000000000
+      internalID: -6755801165995385875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_22
+      rect:
+        serializedVersion: 2
+        x: 9411
+        y: 239
+        width: 130
+        height: 62
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 242fa41737cbdb900800000000000000
+      internalID: 701924320947663426
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_23
+      rect:
+        serializedVersion: 2
+        x: 9923
+        y: 199
+        width: 130
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 07f8a8b76b6620ae0800000000000000
+      internalID: -1584591184938234000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_24
+      rect:
+        serializedVersion: 2
+        x: 10435
+        y: 227
+        width: 130
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ed6a18baebef80910800000000000000
+      internalID: 1803971745636525790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_25
+      rect:
+        serializedVersion: 2
+        x: 10947
+        y: 259
+        width: 130
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d23b2e399b1f817d0800000000000000
+      internalID: -2947340176761638099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_26
+      rect:
+        serializedVersion: 2
+        x: 11459
+        y: 243
+        width: 130
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab72d22a9195ba30800000000000000
+      internalID: 4230447516179659681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_27
+      rect:
+        serializedVersion: 2
+        x: 11971
+        y: 243
+        width: 130
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06d53fec2bdaebb10800000000000000
+      internalID: 1999226268086918496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_28
+      rect:
+        serializedVersion: 2
+        x: 12479
+        y: 243
+        width: 134
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7914bc4988be445a0800000000000000
+      internalID: -6537841787190689385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_29
+      rect:
+        serializedVersion: 2
+        x: 12991
+        y: 243
+        width: 134
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc793bf9d044473c0800000000000000
+      internalID: -4362787313710557237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_30
+      rect:
+        serializedVersion: 2
+        x: 13543
+        y: 243
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: abe2e2dfedb940580800000000000000
+      internalID: -8861786784725586246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_31
+      rect:
+        serializedVersion: 2
+        x: 14035
+        y: 243
+        width: 126
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25e08a79c6f71b450800000000000000
+      internalID: 6102799074441301586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_32
+      rect:
+        serializedVersion: 2
+        x: 6355
+        y: 183
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f3a37dc76cb93170800000000000000
+      internalID: 8158759353972925430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_33
+      rect:
+        serializedVersion: 2
+        x: 6867
+        y: 187
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 781f0741a400384c0800000000000000
+      internalID: -4286582102156054137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_34
+      rect:
+        serializedVersion: 2
+        x: 7387
+        y: 191
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01e2d5574da93cfd0800000000000000
+      internalID: -2322842745500258800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_35
+      rect:
+        serializedVersion: 2
+        x: 7911
+        y: 195
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 220409cda33d8d370800000000000000
+      internalID: 8347654159093219362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_36
+      rect:
+        serializedVersion: 2
+        x: 8927
+        y: 199
+        width: 30
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 495ced7138e740030800000000000000
+      internalID: 3460029515233674644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_37
+      rect:
+        serializedVersion: 2
+        x: 9407
+        y: 203
+        width: 26
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4dbcefdf6c46ca2a0800000000000000
+      internalID: -6724889337743356972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: silenced a205 reload_38
+      rect:
+        serializedVersion: 2
+        x: 9443
+        y: 119
+        width: 34
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a80a62b906c0a9e20800000000000000
+      internalID: 3358010081217519754
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      silenced a205 reload_0: 3995726309106271134
+      silenced a205 reload_1: 2927030945203340203
+      silenced a205 reload_10: -505996731780473924
+      silenced a205 reload_11: -2938539567250734561
+      silenced a205 reload_12: -3820640142338175272
+      silenced a205 reload_13: -8543554544520267394
+      silenced a205 reload_14: 2852588721750015878
+      silenced a205 reload_15: -9034461553543494996
+      silenced a205 reload_16: -7209852935255369230
+      silenced a205 reload_17: -9137341790605675129
+      silenced a205 reload_18: 4924918207983434823
+      silenced a205 reload_19: -2252022888264222502
+      silenced a205 reload_2: -4822297145052543314
+      silenced a205 reload_20: 3518409238895982436
+      silenced a205 reload_21: -6755801165995385875
+      silenced a205 reload_22: 701924320947663426
+      silenced a205 reload_23: -1584591184938234000
+      silenced a205 reload_24: 1803971745636525790
+      silenced a205 reload_25: -2947340176761638099
+      silenced a205 reload_26: 4230447516179659681
+      silenced a205 reload_27: 1999226268086918496
+      silenced a205 reload_28: -6537841787190689385
+      silenced a205 reload_29: -4362787313710557237
+      silenced a205 reload_3: 5386036004705681687
+      silenced a205 reload_30: -8861786784725586246
+      silenced a205 reload_31: 6102799074441301586
+      silenced a205 reload_32: 8158759353972925430
+      silenced a205 reload_33: -4286582102156054137
+      silenced a205 reload_34: -2322842745500258800
+      silenced a205 reload_35: 8347654159093219362
+      silenced a205 reload_36: 3460029515233674644
+      silenced a205 reload_37: -6724889337743356972
+      silenced a205 reload_38: 3358010081217519754
+      silenced a205 reload_4: 8769022372995521511
+      silenced a205 reload_5: 2245818403891153906
+      silenced a205 reload_6: -4474742317842271453
+      silenced a205 reload_7: -4065624904157561934
+      silenced a205 reload_8: -9137795427767314055
+      silenced a205 reload_9: -3058040585848976174
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

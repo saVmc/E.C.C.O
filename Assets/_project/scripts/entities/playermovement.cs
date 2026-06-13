@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System;
+using System.Collections;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public sealed class PlayerMovement : MonoBehaviour
@@ -62,8 +63,22 @@ public sealed class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         float currentSpeed = moveSpeed * (isSprinting ? sprintMultiplier : 1f);
-        rb.linearVelocity = moveInput * currentSpeed;
+        rb.linearVelocity = moveInput * currentSpeed * externalSpeedMultiplier;
     }
+
+    private float externalSpeedMultiplier = 1f;
+
+public void ApplySpeedBoost(float multiplier, float duration)
+{
+    StartCoroutine(SpeedBoostRoutine(multiplier, duration));
+}
+
+private IEnumerator SpeedBoostRoutine(float multiplier, float duration)
+{
+    externalSpeedMultiplier = multiplier;
+    yield return new WaitForSeconds(duration);
+    externalSpeedMultiplier = 1f;
+}
     public Vector3 GetPosition() => transform.position;
     public Vector2 GetMovementDirection() => moveInput;
     public Vector2 GetFacingDirection() => facingDirection;
@@ -71,3 +86,4 @@ public sealed class PlayerMovement : MonoBehaviour
     public float GetCurrentSpeedMultiplier() => isSprinting ? sprintMultiplier : 1f;
     public bool GetIsSprinting() => isSprinting;
 }
+

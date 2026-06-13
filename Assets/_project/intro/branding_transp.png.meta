@@ -1,0 +1,975 @@
+fileFormatVersion: 2
+guid: 12ab484f7ac863049a04fff463f4984f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 8761687615579180256
+    second: branding_transp_0
+  - first:
+      213: -6305674513951755712
+    second: branding_transp_1
+  - first:
+      213: -5204829068975864747
+    second: branding_transp_2
+  - first:
+      213: -6847594866969080245
+    second: branding_transp_3
+  - first:
+      213: -1486717469255236456
+    second: branding_transp_4
+  - first:
+      213: 8457646323668436801
+    second: branding_transp_5
+  - first:
+      213: 4345650010494784638
+    second: branding_transp_6
+  - first:
+      213: 2179535459319010699
+    second: branding_transp_7
+  - first:
+      213: 7401052712039725790
+    second: branding_transp_8
+  - first:
+      213: -3618913798787047291
+    second: branding_transp_9
+  - first:
+      213: -7204619352282570508
+    second: branding_transp_10
+  - first:
+      213: 3545203200891830766
+    second: branding_transp_11
+  - first:
+      213: -883730344441050610
+    second: branding_transp_12
+  - first:
+      213: 3725286056225789750
+    second: branding_transp_13
+  - first:
+      213: 4556522384992198782
+    second: branding_transp_14
+  - first:
+      213: -2158238939355077212
+    second: branding_transp_15
+  - first:
+      213: -2900202687218448958
+    second: branding_transp_16
+  - first:
+      213: -3596954892034334569
+    second: branding_transp_17
+  - first:
+      213: -1550861815769866533
+    second: branding_transp_18
+  - first:
+      213: 6211962185868295730
+    second: branding_transp_19
+  - first:
+      213: 7883130395438078322
+    second: branding_transp_20
+  - first:
+      213: -2175383426378203813
+    second: branding_transp_21
+  - first:
+      213: 5104928887181304855
+    second: branding_transp_22
+  - first:
+      213: -1981065847138412132
+    second: branding_transp_23
+  - first:
+      213: 2196188098307969680
+    second: branding_transp_24
+  - first:
+      213: -3305860772345170592
+    second: branding_transp_25
+  - first:
+      213: -5843611305819145652
+    second: branding_transp_26
+  - first:
+      213: 7043096622201023680
+    second: branding_transp_27
+  - first:
+      213: -6887514517778866992
+    second: branding_transp_28
+  - first:
+      213: -3092286364164454699
+    second: branding_transp_29
+  - first:
+      213: 2248205038198205492
+    second: branding_transp_30
+  - first:
+      213: -9124533092234674282
+    second: branding_transp_31
+  - first:
+      213: 7369888874573570470
+    second: branding_transp_32
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: branding_transp_0
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 278
+        width: 41
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ec49870774c79970800000000000000
+      internalID: 8761687615579180256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_1
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 278
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 042fbae307ebd78a0800000000000000
+      internalID: -6305674513951755712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_2
+      rect:
+        serializedVersion: 2
+        x: 227
+        y: 278
+        width: 56
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5540113c98bb4c7b0800000000000000
+      internalID: -5204829068975864747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_3
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 278
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4e0584afb478f0a0800000000000000
+      internalID: -6847594866969080245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_4
+      rect:
+        serializedVersion: 2
+        x: 334
+        y: 278
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8948ca3b65e1e5be0800000000000000
+      internalID: -1486717469255236456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_5
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 281
+        width: 105
+        height: 99
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 147452655889f5570800000000000000
+      internalID: 8457646323668436801
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_6
+      rect:
+        serializedVersion: 2
+        x: 625
+        y: 304
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e74d6b909a9de4c30800000000000000
+      internalID: 4345650010494784638
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_7
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 304
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b85d31cd3f34f3e10800000000000000
+      internalID: 2179535459319010699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_8
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 304
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: edab119aa32d5b660800000000000000
+      internalID: 7401052712039725790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_9
+      rect:
+        serializedVersion: 2
+        x: 734
+        y: 304
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 580e986e21907cdc0800000000000000
+      internalID: -3618913798787047291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_10
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 304
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f0ea4deedc040c90800000000000000
+      internalID: -7204619352282570508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_11
+      rect:
+        serializedVersion: 2
+        x: 813
+        y: 304
+        width: 28
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee14cb52787133130800000000000000
+      internalID: 3545203200891830766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_12
+      rect:
+        serializedVersion: 2
+        x: 843
+        y: 304
+        width: 29
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e0a8b561feb5cb3f0800000000000000
+      internalID: -883730344441050610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_13
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 201
+        width: 41
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 637dd044eefd2b330800000000000000
+      internalID: 3725286056225789750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_14
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 201
+        width: 33
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e706398b7f40c3f30800000000000000
+      internalID: 4556522384992198782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_15
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 201
+        width: 41
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4a523579e156c02e0800000000000000
+      internalID: -2158238939355077212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_16
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 201
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2c506bb950960c7d0800000000000000
+      internalID: -2900202687218448958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_17
+      rect:
+        serializedVersion: 2
+        x: 311
+        y: 201
+        width: 33
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 790a03b459c051ec0800000000000000
+      internalID: -3596954892034334569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_18
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 201
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bded157356b3a7ae0800000000000000
+      internalID: -1550861815769866533
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_19
+      rect:
+        serializedVersion: 2
+        x: 395
+        y: 201
+        width: 40
+        height: 71
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23eb6d612b2553650800000000000000
+      internalID: 6211962185868295730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_20
+      rect:
+        serializedVersion: 2
+        x: 611
+        y: 199
+        width: 54
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 279db2af351866d60800000000000000
+      internalID: 7883130395438078322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_21
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 199
+        width: 47
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5d7474ac4c7fc1e0800000000000000
+      internalID: -2175383426378203813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_22
+      rect:
+        serializedVersion: 2
+        x: 716
+        y: 196
+        width: 48
+        height: 90
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 714621c96c958d640800000000000000
+      internalID: 5104928887181304855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_23
+      rect:
+        serializedVersion: 2
+        x: 765
+        y: 188
+        width: 67
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c9918a0bb17d184e0800000000000000
+      internalID: -1981065847138412132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_24
+      rect:
+        serializedVersion: 2
+        x: 834
+        y: 199
+        width: 47
+        height: 87
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0925693807d6a7e10800000000000000
+      internalID: 2196188098307969680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_25
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 172
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 065b77b84293f12d0800000000000000
+      internalID: -3305860772345170592
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_26
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 172
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4a71376a7257eea0800000000000000
+      internalID: -5843611305819145652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_27
+      rect:
+        serializedVersion: 2
+        x: 156
+        y: 172
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0ccab0ddf0b1eb160800000000000000
+      internalID: 7043096622201023680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_28
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 172
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0dcd176a902aa60a0800000000000000
+      internalID: -6887514517778866992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_29
+      rect:
+        serializedVersion: 2
+        x: 178
+        y: 172
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5d681387fedf515d0800000000000000
+      internalID: -3092286364164454699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_30
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 172
+        width: 11
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43c2c0c129a333f10800000000000000
+      internalID: 2248205038198205492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_31
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 172
+        width: 13
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 69f3e081f752f5180800000000000000
+      internalID: -9124533092234674282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: branding_transp_32
+      rect:
+        serializedVersion: 2
+        x: 213
+        y: 172
+        width: 35
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a1af0352ea174660800000000000000
+      internalID: 7369888874573570470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      branding_transp_0: 8761687615579180256
+      branding_transp_1: -6305674513951755712
+      branding_transp_10: -7204619352282570508
+      branding_transp_11: 3545203200891830766
+      branding_transp_12: -883730344441050610
+      branding_transp_13: 3725286056225789750
+      branding_transp_14: 4556522384992198782
+      branding_transp_15: -2158238939355077212
+      branding_transp_16: -2900202687218448958
+      branding_transp_17: -3596954892034334569
+      branding_transp_18: -1550861815769866533
+      branding_transp_19: 6211962185868295730
+      branding_transp_2: -5204829068975864747
+      branding_transp_20: 7883130395438078322
+      branding_transp_21: -2175383426378203813
+      branding_transp_22: 5104928887181304855
+      branding_transp_23: -1981065847138412132
+      branding_transp_24: 2196188098307969680
+      branding_transp_25: -3305860772345170592
+      branding_transp_26: -5843611305819145652
+      branding_transp_27: 7043096622201023680
+      branding_transp_28: -6887514517778866992
+      branding_transp_29: -3092286364164454699
+      branding_transp_3: -6847594866969080245
+      branding_transp_30: 2248205038198205492
+      branding_transp_31: -9124533092234674282
+      branding_transp_32: 7369888874573570470
+      branding_transp_4: -1486717469255236456
+      branding_transp_5: 8457646323668436801
+      branding_transp_6: 4345650010494784638
+      branding_transp_7: 2179535459319010699
+      branding_transp_8: 7401052712039725790
+      branding_transp_9: -3618913798787047291
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

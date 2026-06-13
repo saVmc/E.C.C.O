@@ -84,6 +84,7 @@ public sealed class RecordingManager : MonoBehaviour
         if (actionRecorder != null)
             actionRecorder.StartRecording();
 
+        GameSfxManager.Instance?.PlayRecordingStart();
         OnRecordingStarted?.Invoke();
     }
 
@@ -97,6 +98,7 @@ public sealed class RecordingManager : MonoBehaviour
         if (actionRecorder != null)
             actionRecorder.StopRecording();
 
+        GameSfxManager.Instance?.PlayRecordingStop();
         OnRecordingStopped?.Invoke();
     }
 

@@ -1,0 +1,1183 @@
+fileFormatVersion: 2
+guid: 26a6d17b7b0061e4fbcea5934821b592
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7022590080788010567
+    second: mauser reload sprite sheet_0
+  - first:
+      213: 3283005611592351993
+    second: mauser reload sprite sheet_1
+  - first:
+      213: -644929197950156425
+    second: mauser reload sprite sheet_2
+  - first:
+      213: -6064940667561154192
+    second: mauser reload sprite sheet_3
+  - first:
+      213: 543607942573423274
+    second: mauser reload sprite sheet_4
+  - first:
+      213: -2603229785913012389
+    second: mauser reload sprite sheet_5
+  - first:
+      213: -3802033462530024700
+    second: mauser reload sprite sheet_6
+  - first:
+      213: -3801024790979380785
+    second: mauser reload sprite sheet_7
+  - first:
+      213: -7248464917464750862
+    second: mauser reload sprite sheet_8
+  - first:
+      213: -1691639419077698639
+    second: mauser reload sprite sheet_9
+  - first:
+      213: 1435192012821632839
+    second: mauser reload sprite sheet_10
+  - first:
+      213: 7784750320004534674
+    second: mauser reload sprite sheet_11
+  - first:
+      213: 611682589234621456
+    second: mauser reload sprite sheet_12
+  - first:
+      213: 6015779796582569669
+    second: mauser reload sprite sheet_13
+  - first:
+      213: -8868377893620797288
+    second: mauser reload sprite sheet_14
+  - first:
+      213: -1160440389734793712
+    second: mauser reload sprite sheet_15
+  - first:
+      213: -8716762469486563375
+    second: mauser reload sprite sheet_16
+  - first:
+      213: -1565828718498036431
+    second: mauser reload sprite sheet_17
+  - first:
+      213: -7426977362447199263
+    second: mauser reload sprite sheet_18
+  - first:
+      213: -314931153160392188
+    second: mauser reload sprite sheet_19
+  - first:
+      213: -5866991512731276678
+    second: mauser reload sprite sheet_20
+  - first:
+      213: -54863802907698645
+    second: mauser reload sprite sheet_21
+  - first:
+      213: -149310110351289913
+    second: mauser reload sprite sheet_22
+  - first:
+      213: 2575744009742148381
+    second: mauser reload sprite sheet_23
+  - first:
+      213: -1919194299104810700
+    second: mauser reload sprite sheet_24
+  - first:
+      213: -31051443473877792
+    second: mauser reload sprite sheet_25
+  - first:
+      213: 4325087582752185588
+    second: mauser reload sprite sheet_26
+  - first:
+      213: 8364053426750220962
+    second: mauser reload sprite sheet_27
+  - first:
+      213: -6984410408112866075
+    second: mauser reload sprite sheet_28
+  - first:
+      213: -6492537795221370739
+    second: mauser reload sprite sheet_29
+  - first:
+      213: -7933418245525751523
+    second: mauser reload sprite sheet_30
+  - first:
+      213: 4773965073254520410
+    second: mauser reload sprite sheet_31
+  - first:
+      213: -2426191831145753055
+    second: mauser reload sprite sheet_32
+  - first:
+      213: 5653694714054429409
+    second: mauser reload sprite sheet_33
+  - first:
+      213: 2819341304817439080
+    second: mauser reload sprite sheet_34
+  - first:
+      213: 4453180060782564521
+    second: mauser reload sprite sheet_35
+  - first:
+      213: 7858401901524190366
+    second: mauser reload sprite sheet_36
+  - first:
+      213: 5740325862154877708
+    second: mauser reload sprite sheet_37
+  - first:
+      213: 7520875113019364222
+    second: mauser reload sprite sheet_38
+  - first:
+      213: -8381560914468183397
+    second: mauser reload sprite sheet_39
+  - first:
+      213: -166860350690514745
+    second: mauser reload sprite sheet_40
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 2195
+        y: 299
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b9e27f578fba8e90800000000000000
+      internalID: -7022590080788010567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 2751
+        y: 287
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f0839aa5349f8d20800000000000000
+      internalID: 3283005611592351993
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 3319
+        y: 283
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 77147eabf40cc07f0800000000000000
+      internalID: -644929197950156425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 3839
+        y: 283
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0796236a89005dba0800000000000000
+      internalID: -6064940667561154192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 4339
+        y: 283
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aaa7b2a2b884b8700800000000000000
+      internalID: 543607942573423274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 4851
+        y: 275
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5f40fd5d487fdbd0800000000000000
+      internalID: -2603229785913012389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 5363
+        y: 287
+        width: 22
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40bdfb9b5b67c3bc0800000000000000
+      internalID: -3802033462530024700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 6867
+        y: 215
+        width: 90
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc9783f571c004bc0800000000000000
+      internalID: -3801024790979380785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 7379
+        y: 215
+        width: 90
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2f4e1a3cf87486b90800000000000000
+      internalID: -7248464917464750862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 7891
+        y: 215
+        width: 90
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bb53d939e61688e0800000000000000
+      internalID: -1691639419077698639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 8403
+        y: 215
+        width: 90
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74716bc1883dae310800000000000000
+      internalID: 1435192012821632839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 8915
+        y: 215
+        width: 90
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2919af0bb2df80c60800000000000000
+      internalID: 7784750320004534674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 9427
+        y: 215
+        width: 90
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01cee96f2122d7800800000000000000
+      internalID: 611682589234621456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 9963
+        y: 287
+        width: 14
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c6964e1ad75c7350800000000000000
+      internalID: 6015779796582569669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 10475
+        y: 287
+        width: 14
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8903eccda413de480800000000000000
+      internalID: -8868377893620797288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 10987
+        y: 287
+        width: 14
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01e77d22d9945efe0800000000000000
+      internalID: -1160440389734793712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 11483
+        y: 299
+        width: 14
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1dfebc6a7b6d70780800000000000000
+      internalID: -8716762469486563375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 11967
+        y: 303
+        width: 14
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 135c1de931f054ae0800000000000000
+      internalID: -1565828718498036431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 12479
+        y: 303
+        width: 14
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e3977c40731ee890800000000000000
+      internalID: -7426977362447199263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 12967
+        y: 311
+        width: 14
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 402bb27e8c321abf0800000000000000
+      internalID: -314931153160392188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7aab67cd42449ea0800000000000000
+      internalID: -5866991512731276678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 207
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b2ad8a479a51d3ff0800000000000000
+      internalID: -54863802907698645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c11327ee3b8dedf0800000000000000
+      internalID: -149310110351289913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 1747
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d13650da781eeb320800000000000000
+      internalID: 2575744009742148381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_24
+      rect:
+        serializedVersion: 2
+        x: 2259
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43927ea04f6ad55e0800000000000000
+      internalID: -1919194299104810700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_25
+      rect:
+        serializedVersion: 2
+        x: 2771
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e4f9fd60eea19ff0800000000000000
+      internalID: -31051443473877792
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_26
+      rect:
+        serializedVersion: 2
+        x: 3283
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4fc9560cd3cc50c30800000000000000
+      internalID: 4325087582752185588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 3795
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2aae5d7e646131470800000000000000
+      internalID: 8364053426750220962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_28
+      rect:
+        serializedVersion: 2
+        x: 4307
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ec34e22db3621f90800000000000000
+      internalID: -6984410408112866075
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 4819
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d884801364fd5e5a0800000000000000
+      internalID: -6492537795221370739
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_30
+      rect:
+        serializedVersion: 2
+        x: 5331
+        y: 211
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d19b5d48326d6e190800000000000000
+      internalID: -7933418245525751523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_31
+      rect:
+        serializedVersion: 2
+        x: 5843
+        y: 199
+        width: 90
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a561579c0f7804240800000000000000
+      internalID: 4773965073254520410
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_32
+      rect:
+        serializedVersion: 2
+        x: 6355
+        y: 207
+        width: 90
+        height: 98
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1265a93526f645ed0800000000000000
+      internalID: -2426191831145753055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_33
+      rect:
+        serializedVersion: 2
+        x: 9967
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1eac7bb4365f57e40800000000000000
+      internalID: 5653694714054429409
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_34
+      rect:
+        serializedVersion: 2
+        x: 10455
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 861da3eaaff402720800000000000000
+      internalID: 2819341304817439080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_35
+      rect:
+        serializedVersion: 2
+        x: 10971
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a41ccbdbafdccd30800000000000000
+      internalID: 4453180060782564521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_36
+      rect:
+        serializedVersion: 2
+        x: 11483
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e948a92d4e6ae0d60800000000000000
+      internalID: 7858401901524190366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_37
+      rect:
+        serializedVersion: 2
+        x: 11995
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0bbab445fbb9af40800000000000000
+      internalID: 5740325862154877708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_38
+      rect:
+        serializedVersion: 2
+        x: 12495
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e73589761148f5860800000000000000
+      internalID: 7520875113019364222
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_39
+      rect:
+        serializedVersion: 2
+        x: 13019
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b9263d571c6beab80800000000000000
+      internalID: -8381560914468183397
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: mauser reload sprite sheet_40
+      rect:
+        serializedVersion: 2
+        x: 13523
+        y: 215
+        width: 90
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c8aef525613fadf0800000000000000
+      internalID: -166860350690514745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      mauser reload sprite sheet_0: -7022590080788010567
+      mauser reload sprite sheet_1: 3283005611592351993
+      mauser reload sprite sheet_10: 1435192012821632839
+      mauser reload sprite sheet_11: 7784750320004534674
+      mauser reload sprite sheet_12: 611682589234621456
+      mauser reload sprite sheet_13: 6015779796582569669
+      mauser reload sprite sheet_14: -8868377893620797288
+      mauser reload sprite sheet_15: -1160440389734793712
+      mauser reload sprite sheet_16: -8716762469486563375
+      mauser reload sprite sheet_17: -1565828718498036431
+      mauser reload sprite sheet_18: -7426977362447199263
+      mauser reload sprite sheet_19: -314931153160392188
+      mauser reload sprite sheet_2: -644929197950156425
+      mauser reload sprite sheet_20: -5866991512731276678
+      mauser reload sprite sheet_21: -54863802907698645
+      mauser reload sprite sheet_22: -149310110351289913
+      mauser reload sprite sheet_23: 2575744009742148381
+      mauser reload sprite sheet_24: -1919194299104810700
+      mauser reload sprite sheet_25: -31051443473877792
+      mauser reload sprite sheet_26: 4325087582752185588
+      mauser reload sprite sheet_27: 8364053426750220962
+      mauser reload sprite sheet_28: -6984410408112866075
+      mauser reload sprite sheet_29: -6492537795221370739
+      mauser reload sprite sheet_3: -6064940667561154192
+      mauser reload sprite sheet_30: -7933418245525751523
+      mauser reload sprite sheet_31: 4773965073254520410
+      mauser reload sprite sheet_32: -2426191831145753055
+      mauser reload sprite sheet_33: 5653694714054429409
+      mauser reload sprite sheet_34: 2819341304817439080
+      mauser reload sprite sheet_35: 4453180060782564521
+      mauser reload sprite sheet_36: 7858401901524190366
+      mauser reload sprite sheet_37: 5740325862154877708
+      mauser reload sprite sheet_38: 7520875113019364222
+      mauser reload sprite sheet_39: -8381560914468183397
+      mauser reload sprite sheet_4: 543607942573423274
+      mauser reload sprite sheet_40: -166860350690514745
+      mauser reload sprite sheet_5: -2603229785913012389
+      mauser reload sprite sheet_6: -3802033462530024700
+      mauser reload sprite sheet_7: -3801024790979380785
+      mauser reload sprite sheet_8: -7248464917464750862
+      mauser reload sprite sheet_9: -1691639419077698639
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

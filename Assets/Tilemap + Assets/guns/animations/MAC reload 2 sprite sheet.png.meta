@@ -1,0 +1,1495 @@
+fileFormatVersion: 2
+guid: 2e03b516bc1324a46ab2817a49a8db66
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2267970240389385184
+    second: MAC reload 2 sprite sheet_0
+  - first:
+      213: -8744369709943542957
+    second: MAC reload 2 sprite sheet_1
+  - first:
+      213: 5286108362931174337
+    second: MAC reload 2 sprite sheet_2
+  - first:
+      213: 7935022462534522377
+    second: MAC reload 2 sprite sheet_3
+  - first:
+      213: 6017056067266393183
+    second: MAC reload 2 sprite sheet_4
+  - first:
+      213: 6608056152395579716
+    second: MAC reload 2 sprite sheet_5
+  - first:
+      213: 1223102048032729572
+    second: MAC reload 2 sprite sheet_6
+  - first:
+      213: 5175063989966760565
+    second: MAC reload 2 sprite sheet_7
+  - first:
+      213: 8032152597389402523
+    second: MAC reload 2 sprite sheet_8
+  - first:
+      213: 5568738401550561508
+    second: MAC reload 2 sprite sheet_9
+  - first:
+      213: 5528545393666916034
+    second: MAC reload 2 sprite sheet_10
+  - first:
+      213: -2120998328728262282
+    second: MAC reload 2 sprite sheet_11
+  - first:
+      213: 7522675087848703720
+    second: MAC reload 2 sprite sheet_12
+  - first:
+      213: -984874100952902257
+    second: MAC reload 2 sprite sheet_13
+  - first:
+      213: -3762731767968583358
+    second: MAC reload 2 sprite sheet_14
+  - first:
+      213: -8081044436115910878
+    second: MAC reload 2 sprite sheet_15
+  - first:
+      213: 7173705464136406326
+    second: MAC reload 2 sprite sheet_16
+  - first:
+      213: -9201035358133087337
+    second: MAC reload 2 sprite sheet_17
+  - first:
+      213: 2913517018345411444
+    second: MAC reload 2 sprite sheet_18
+  - first:
+      213: -7181658784493964835
+    second: MAC reload 2 sprite sheet_19
+  - first:
+      213: -8449253564166514973
+    second: MAC reload 2 sprite sheet_20
+  - first:
+      213: -2255650732573306242
+    second: MAC reload 2 sprite sheet_21
+  - first:
+      213: 3744722895420024460
+    second: MAC reload 2 sprite sheet_22
+  - first:
+      213: 3072321104435242382
+    second: MAC reload 2 sprite sheet_23
+  - first:
+      213: -7086270316424112295
+    second: MAC reload 2 sprite sheet_24
+  - first:
+      213: -4094466692614488108
+    second: MAC reload 2 sprite sheet_25
+  - first:
+      213: 590543082739779430
+    second: MAC reload 2 sprite sheet_26
+  - first:
+      213: 1232852883360788441
+    second: MAC reload 2 sprite sheet_27
+  - first:
+      213: 7656639859714055010
+    second: MAC reload 2 sprite sheet_28
+  - first:
+      213: -6982369710961448976
+    second: MAC reload 2 sprite sheet_29
+  - first:
+      213: 8644549180636143843
+    second: MAC reload 2 sprite sheet_30
+  - first:
+      213: 71256283270604114
+    second: MAC reload 2 sprite sheet_31
+  - first:
+      213: -7147617716384498723
+    second: MAC reload 2 sprite sheet_32
+  - first:
+      213: -1296706110326000920
+    second: MAC reload 2 sprite sheet_33
+  - first:
+      213: 8467859788178855373
+    second: MAC reload 2 sprite sheet_34
+  - first:
+      213: 4171428223716961281
+    second: MAC reload 2 sprite sheet_35
+  - first:
+      213: 3456502397883334480
+    second: MAC reload 2 sprite sheet_36
+  - first:
+      213: 2449650133450639338
+    second: MAC reload 2 sprite sheet_37
+  - first:
+      213: -2307697908693984219
+    second: MAC reload 2 sprite sheet_38
+  - first:
+      213: -4606890268019692795
+    second: MAC reload 2 sprite sheet_39
+  - first:
+      213: -1488462935630374174
+    second: MAC reload 2 sprite sheet_40
+  - first:
+      213: -3794446624779056697
+    second: MAC reload 2 sprite sheet_41
+  - first:
+      213: -5727658608483935162
+    second: MAC reload 2 sprite sheet_42
+  - first:
+      213: 3223976324994285753
+    second: MAC reload 2 sprite sheet_43
+  - first:
+      213: -5084862693604890713
+    second: MAC reload 2 sprite sheet_44
+  - first:
+      213: -3252284266669200460
+    second: MAC reload 2 sprite sheet_45
+  - first:
+      213: 8653217623848263464
+    second: MAC reload 2 sprite sheet_46
+  - first:
+      213: -7046816755544617375
+    second: MAC reload 2 sprite sheet_47
+  - first:
+      213: 6206636835352315709
+    second: MAC reload 2 sprite sheet_48
+  - first:
+      213: 9057813901943466693
+    second: MAC reload 2 sprite sheet_49
+  - first:
+      213: 6788800868812674074
+    second: MAC reload 2 sprite sheet_50
+  - first:
+      213: -5969642491513783215
+    second: MAC reload 2 sprite sheet_51
+  - first:
+      213: 1757918291148714731
+    second: MAC reload 2 sprite sheet_52
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0eb019bdae2797f10800000000000000
+      internalID: 2267970240389385184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 719
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35b21261412c5a680800000000000000
+      internalID: -8744369709943542957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1231
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cbfbb09c870c5940800000000000000
+      internalID: 5286108362931174337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1743
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9069d1c53ecde1e60800000000000000
+      internalID: 7935022462534522377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2239
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f54b50b0d90e08350800000000000000
+      internalID: 6017056067266393183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2747
+        y: 239
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4418f534f0884bb50800000000000000
+      internalID: 6608056152395579716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3259
+        y: 239
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e92b0915d459f010800000000000000
+      internalID: 1223102048032729572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3759
+        y: 231
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57a62ebb74581d740800000000000000
+      internalID: 5175063989966760565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 4271
+        y: 231
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b91602d2b30f77f60800000000000000
+      internalID: 8032152597389402523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 4783
+        y: 231
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e07f7f5212284d40800000000000000
+      internalID: 5568738401550561508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 5295
+        y: 231
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ce732a7eb659bc40800000000000000
+      internalID: 5528545393666916034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 5883
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67964fee143b092e0800000000000000
+      internalID: -2120998328728262282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 6339
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e607e3b229e56860800000000000000
+      internalID: 7522675087848703720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 6847
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f85583829360552f0800000000000000
+      internalID: -984874100952902257
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 7355
+        y: 255
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 241b721946718cbc0800000000000000
+      internalID: -3762731767968583358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 7375
+        y: 231
+        width: 118
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22f0a2b86ec5adf80800000000000000
+      internalID: -8081044436115910878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 7867
+        y: 231
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 63511299c1f1e8360800000000000000
+      internalID: 7173705464136406326
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 7887
+        y: 231
+        width: 118
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7931ba8471b5f4080800000000000000
+      internalID: -9201035358133087337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 8387
+        y: 223
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 473988daa44ee6820800000000000000
+      internalID: 2913517018345411444
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 8399
+        y: 231
+        width: 118
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dd17c24b26f955c90800000000000000
+      internalID: -7181658784493964835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 8911
+        y: 227
+        width: 118
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e6d6a246a83eba80800000000000000
+      internalID: -8449253564166514973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 9423
+        y: 231
+        width: 118
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e725e931c9152b0e0800000000000000
+      internalID: -2255650732573306242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 9431
+        y: 227
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c8668cb02ade7f330800000000000000
+      internalID: 3744722895420024460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 9935
+        y: 227
+        width: 118
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e856cc144c313aa20800000000000000
+      internalID: 3072321104435242382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_24
+      rect:
+        serializedVersion: 2
+        x: 10447
+        y: 227
+        width: 118
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 957552f11b288ad90800000000000000
+      internalID: -7086270316424112295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_25
+      rect:
+        serializedVersion: 2
+        x: 10959
+        y: 227
+        width: 118
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4df7b0a8c388d27c0800000000000000
+      internalID: -4094466692614488108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_26
+      rect:
+        serializedVersion: 2
+        x: 11471
+        y: 247
+        width: 118
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 667c44f0ec7023800800000000000000
+      internalID: 590543082739779430
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 11983
+        y: 259
+        width: 118
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9df290d5a29fb1110800000000000000
+      internalID: 1232852883360788441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_28
+      rect:
+        serializedVersion: 2
+        x: 12495
+        y: 259
+        width: 118
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26b5a53c269d14a60800000000000000
+      internalID: 7656639859714055010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 13007
+        y: 259
+        width: 118
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f722b7fdb3a91f90800000000000000
+      internalID: -6982369710961448976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_30
+      rect:
+        serializedVersion: 2
+        x: 13519
+        y: 259
+        width: 118
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3e02633ddab97f770800000000000000
+      internalID: 8644549180636143843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_31
+      rect:
+        serializedVersion: 2
+        x: 14031
+        y: 259
+        width: 118
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 255eb5c46372df000800000000000000
+      internalID: 71256283270604114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_32
+      rect:
+        serializedVersion: 2
+        x: 14543
+        y: 259
+        width: 118
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddbfc908e8f8ecc90800000000000000
+      internalID: -7147617716384498723
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_33
+      rect:
+        serializedVersion: 2
+        x: 15055
+        y: 259
+        width: 118
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8e2b0f3b9ac210ee0800000000000000
+      internalID: -1296706110326000920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_34
+      rect:
+        serializedVersion: 2
+        x: 15567
+        y: 255
+        width: 118
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dc5173adc91e38570800000000000000
+      internalID: 8467859788178855373
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_35
+      rect:
+        serializedVersion: 2
+        x: 16079
+        y: 251
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c20b84ed3e3e930800000000000000
+      internalID: 4171428223716961281
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_36
+      rect:
+        serializedVersion: 2
+        x: 16571
+        y: 239
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 05f3f171e96f7ff20800000000000000
+      internalID: 3456502397883334480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_37
+      rect:
+        serializedVersion: 2
+        x: 17083
+        y: 239
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ae7405c41d7eef120800000000000000
+      internalID: 2449650133450639338
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_38
+      rect:
+        serializedVersion: 2
+        x: 17579
+        y: 227
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52c126f8af869ffd0800000000000000
+      internalID: -2307697908693984219
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_39
+      rect:
+        serializedVersion: 2
+        x: 18091
+        y: 227
+        width: 118
+        height: 74
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50b6b77a5b90110c0800000000000000
+      internalID: -4606890268019692795
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_40
+      rect:
+        serializedVersion: 2
+        x: 18659
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2ea9a64a8dae75be0800000000000000
+      internalID: -1488462935630374174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_41
+      rect:
+        serializedVersion: 2
+        x: 19127
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c94dda06ea675bc0800000000000000
+      internalID: -3794446624779056697
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_42
+      rect:
+        serializedVersion: 2
+        x: 19659
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 64c5b9e87d44380b0800000000000000
+      internalID: -5727658608483935162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_43
+      rect:
+        serializedVersion: 2
+        x: 20171
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9b0cd8fd26dddbc20800000000000000
+      internalID: 3223976324994285753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_44
+      rect:
+        serializedVersion: 2
+        x: 20683
+        y: 239
+        width: 118
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a76b082250fe69b0800000000000000
+      internalID: -5084862693604890713
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_45
+      rect:
+        serializedVersion: 2
+        x: 11495
+        y: 199
+        width: 26
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bb2798d0b09dd2d0800000000000000
+      internalID: -3252284266669200460
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_46
+      rect:
+        serializedVersion: 2
+        x: 12015
+        y: 211
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82f10a90597661870800000000000000
+      internalID: 8653217623848263464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_47
+      rect:
+        serializedVersion: 2
+        x: 12527
+        y: 211
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16e0e781f7da43e90800000000000000
+      internalID: -7046816755544617375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_48
+      rect:
+        serializedVersion: 2
+        x: 13039
+        y: 211
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d37870d4157622650800000000000000
+      internalID: 6206636835352315709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_49
+      rect:
+        serializedVersion: 2
+        x: 13551
+        y: 211
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ca6fe2e0c1d3bd70800000000000000
+      internalID: 9057813901943466693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_50
+      rect:
+        serializedVersion: 2
+        x: 14063
+        y: 195
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a14517ceb6aa63e50800000000000000
+      internalID: 6788800868812674074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_51
+      rect:
+        serializedVersion: 2
+        x: 14575
+        y: 187
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 15c3e3158c1972da0800000000000000
+      internalID: -5969642491513783215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MAC reload 2 sprite sheet_52
+      rect:
+        serializedVersion: 2
+        x: 15087
+        y: 199
+        width: 18
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be2b4183f51656810800000000000000
+      internalID: 1757918291148714731
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      MAC reload 2 sprite sheet_0: 2267970240389385184
+      MAC reload 2 sprite sheet_1: -8744369709943542957
+      MAC reload 2 sprite sheet_10: 5528545393666916034
+      MAC reload 2 sprite sheet_11: -2120998328728262282
+      MAC reload 2 sprite sheet_12: 7522675087848703720
+      MAC reload 2 sprite sheet_13: -984874100952902257
+      MAC reload 2 sprite sheet_14: -3762731767968583358
+      MAC reload 2 sprite sheet_15: -8081044436115910878
+      MAC reload 2 sprite sheet_16: 7173705464136406326
+      MAC reload 2 sprite sheet_17: -9201035358133087337
+      MAC reload 2 sprite sheet_18: 2913517018345411444
+      MAC reload 2 sprite sheet_19: -7181658784493964835
+      MAC reload 2 sprite sheet_2: 5286108362931174337
+      MAC reload 2 sprite sheet_20: -8449253564166514973
+      MAC reload 2 sprite sheet_21: -2255650732573306242
+      MAC reload 2 sprite sheet_22: 3744722895420024460
+      MAC reload 2 sprite sheet_23: 3072321104435242382
+      MAC reload 2 sprite sheet_24: -7086270316424112295
+      MAC reload 2 sprite sheet_25: -4094466692614488108
+      MAC reload 2 sprite sheet_26: 590543082739779430
+      MAC reload 2 sprite sheet_27: 1232852883360788441
+      MAC reload 2 sprite sheet_28: 7656639859714055010
+      MAC reload 2 sprite sheet_29: -6982369710961448976
+      MAC reload 2 sprite sheet_3: 7935022462534522377
+      MAC reload 2 sprite sheet_30: 8644549180636143843
+      MAC reload 2 sprite sheet_31: 71256283270604114
+      MAC reload 2 sprite sheet_32: -7147617716384498723
+      MAC reload 2 sprite sheet_33: -1296706110326000920
+      MAC reload 2 sprite sheet_34: 8467859788178855373
+      MAC reload 2 sprite sheet_35: 4171428223716961281
+      MAC reload 2 sprite sheet_36: 3456502397883334480
+      MAC reload 2 sprite sheet_37: 2449650133450639338
+      MAC reload 2 sprite sheet_38: -2307697908693984219
+      MAC reload 2 sprite sheet_39: -4606890268019692795
+      MAC reload 2 sprite sheet_4: 6017056067266393183
+      MAC reload 2 sprite sheet_40: -1488462935630374174
+      MAC reload 2 sprite sheet_41: -3794446624779056697
+      MAC reload 2 sprite sheet_42: -5727658608483935162
+      MAC reload 2 sprite sheet_43: 3223976324994285753
+      MAC reload 2 sprite sheet_44: -5084862693604890713
+      MAC reload 2 sprite sheet_45: -3252284266669200460
+      MAC reload 2 sprite sheet_46: 8653217623848263464
+      MAC reload 2 sprite sheet_47: -7046816755544617375
+      MAC reload 2 sprite sheet_48: 6206636835352315709
+      MAC reload 2 sprite sheet_49: 9057813901943466693
+      MAC reload 2 sprite sheet_5: 6608056152395579716
+      MAC reload 2 sprite sheet_50: 6788800868812674074
+      MAC reload 2 sprite sheet_51: -5969642491513783215
+      MAC reload 2 sprite sheet_52: 1757918291148714731
+      MAC reload 2 sprite sheet_6: 1223102048032729572
+      MAC reload 2 sprite sheet_7: 5175063989966760565
+      MAC reload 2 sprite sheet_8: 8032152597389402523
+      MAC reload 2 sprite sheet_9: 5568738401550561508
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -7,9 +7,7 @@ using PlayerAction = PlayerActionRecorder.PlayerAction;
 public sealed class GhostPlayer : MonoBehaviour
 {
     [SerializeField] private Projectile projectilePrefab;
-    [SerializeField] private float projectileSpeed = 12f;
-    [SerializeField] private float projectileLifetime = 2f;
-    [SerializeField] private int projectileDamage = 1;
+
 
     private List<PlayerAction> recordedActions;
     private RecordingVisualsManager visualsManager;
@@ -172,49 +170,55 @@ public sealed class GhostPlayer : MonoBehaviour
 
 
     private void ReplayShot(PlayerAction action)
+{
+    if (projectilePrefab == null)
+        return;
+
+    Vector2 shootDirection = action.shootDirection;
+
+    ProjectileProfile profile = null;
+    if (playerShooter != null)
     {
-        if (projectilePrefab == null)
-            return;
+        Gun activeGun = playerShooter.GetActiveGun();
+        if (activeGun != null && activeGun.CurrentProfile != null)
+            profile = activeGun.CurrentProfile.ProjectileProfile;
+    }
 
-        Vector2 shootDirection = action.shootDirection;
+    LayerMask mask = profile != null ? profile.HitMask : ~0;
+    bool rotate = profile != null && profile.RotateToDirection;
+    float speed = profile != null ? profile.Speed : 12f;
+float lifetime = profile != null ? profile.Lifetime : 2f;
+int dmg = profile != null ? profile.Damage : 1;
 
-        Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
-        projectile.Initialize(shootDirection, projectileSpeed, projectileLifetime, projectileDamage, gameObject);
+    Projectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+    projectile.Initialize(shootDirection, speed, lifetime, dmg, gameObject, mask, rotate);
 
-        SpriteRenderer projectileSprite = projectile.GetComponent<SpriteRenderer>();
-        if (projectileSprite != null && spriteRenderer != null)
+    if (profile != null)
+        projectile.ApplyProfile(profile);
+
+    projectile.transform.right = shootDirection;
+
+    GameSfxManager.Instance?.PlayShoot();
+
+    Transform gun = transform.Find("Gun");
+    if (gun != null)
+    {
+        Transform muzzleLight = gun.Find("MuzzleLight");
+        if (muzzleLight != null)
         {
-            projectileSprite.color = spriteRenderer.color;
-        }
-
-        if (projectile != null)
-        {
-            projectile.transform.rotation = Quaternion.identity;
-            projectile.transform.right = shootDirection;
-            
-            if (projectileSprite != null)
-                projectileSprite.flipX = shootDirection.x < 0f;
-        }
-
-        Transform gun = transform.Find("Gun");
-        if (gun != null)
-        {
-            Transform muzzleLight = gun.Find("MuzzleLight");
-            if (muzzleLight != null)
-            {
-                float muzzleX = shootDirection.x < 0f ? -0.6f : 0.6f;
-                Vector3 pos = muzzleLight.localPosition;
-                pos.x = muzzleX;
-                muzzleLight.localPosition = pos;
-            }
-        }
-
-        if (animator != null && !animatedShotIndices.Contains(currentActionIndex))
-        {
-            animator.SetTrigger("Shoot");
-            animatedShotIndices.Add(currentActionIndex);
+            float muzzleX = shootDirection.x < 0f ? -0.6f : 0.6f;
+            Vector3 pos = muzzleLight.localPosition;
+            pos.x = muzzleX;
+            muzzleLight.localPosition = pos;
         }
     }
+
+    if (animator != null && !animatedShotIndices.Contains(currentActionIndex))
+    {
+        animator.SetTrigger("Shoot");
+        animatedShotIndices.Add(currentActionIndex);
+    }
+}
 
     public void StopPlayback()
     {

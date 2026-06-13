@@ -1,0 +1,455 @@
+fileFormatVersion: 2
+guid: edf953f9dadadbf45915beab2f3396e5
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -711186834581182730
+    second: grenade charge sprite sheet_0
+  - first:
+      213: 1204528235971424009
+    second: grenade charge sprite sheet_1
+  - first:
+      213: 5549815573932367352
+    second: grenade charge sprite sheet_2
+  - first:
+      213: -5528338444922612423
+    second: grenade charge sprite sheet_3
+  - first:
+      213: 2765963345714081918
+    second: grenade charge sprite sheet_4
+  - first:
+      213: -134503517549500363
+    second: grenade charge sprite sheet_5
+  - first:
+      213: -5215019030448868905
+    second: grenade charge sprite sheet_6
+  - first:
+      213: -6488869266042551057
+    second: grenade charge sprite sheet_7
+  - first:
+      213: 8093149531589665815
+    second: grenade charge sprite sheet_8
+  - first:
+      213: -7868671556785292968
+    second: grenade charge sprite sheet_9
+  - first:
+      213: -3784954899700254735
+    second: grenade charge sprite sheet_10
+  - first:
+      213: 1001961247756023565
+    second: grenade charge sprite sheet_11
+  - first:
+      213: 1630589667687331363
+    second: grenade charge sprite sheet_12
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 231
+        y: 235
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f6aadb875b5126f0800000000000000
+      internalID: -711186834581182730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 731
+        y: 235
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90f210b7c0857b010800000000000000
+      internalID: 1204528235971424009
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1239
+        y: 235
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8fd5b2d3cd7e40d40800000000000000
+      internalID: 5549815573932367352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1751
+        y: 235
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 935904889756743b0800000000000000
+      internalID: -5528338444922612423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2263
+        y: 235
+        width: 38
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e70f90b120da26620800000000000000
+      internalID: 2765963345714081918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2775
+        y: 235
+        width: 46
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 538eb6f63c5222ef0800000000000000
+      internalID: -134503517549500363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3275
+        y: 263
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7d1713972d780a7b0800000000000000
+      internalID: -5215019030448868905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3315
+        y: 235
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe4859338c7e2f5a0800000000000000
+      internalID: -6488869266042551057
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 3787
+        y: 263
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7146580ae94a05070800000000000000
+      internalID: 8093149531589665815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 3815
+        y: 235
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 859b79bb8ecdcc290800000000000000
+      internalID: -7868671556785292968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 4327
+        y: 235
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f7fd708293297bc0800000000000000
+      internalID: -3784954899700254735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 4839
+        y: 235
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d07743b327ea7ed00800000000000000
+      internalID: 1001961247756023565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: grenade charge sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 5351
+        y: 235
+        width: 34
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 326fcecd9a401a610800000000000000
+      internalID: 1630589667687331363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      grenade charge sprite sheet_0: -711186834581182730
+      grenade charge sprite sheet_1: 1204528235971424009
+      grenade charge sprite sheet_10: -3784954899700254735
+      grenade charge sprite sheet_11: 1001961247756023565
+      grenade charge sprite sheet_12: 1630589667687331363
+      grenade charge sprite sheet_2: 5549815573932367352
+      grenade charge sprite sheet_3: -5528338444922612423
+      grenade charge sprite sheet_4: 2765963345714081918
+      grenade charge sprite sheet_5: -134503517549500363
+      grenade charge sprite sheet_6: -5215019030448868905
+      grenade charge sprite sheet_7: -6488869266042551057
+      grenade charge sprite sheet_8: 8093149531589665815
+      grenade charge sprite sheet_9: -7868671556785292968
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

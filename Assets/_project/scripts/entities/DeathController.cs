@@ -4,11 +4,14 @@ public sealed class TimeParadoxDeathController : MonoBehaviour, IDamageable
 {
     [SerializeField] private int maxHealth = 1;
     [SerializeField] private string deathTriggerName = "Die";
+    [SerializeField] private float explosionDelay = 0.45f;
     [SerializeField] private float destroyDelay = 1.5f;
+    [SerializeField] private float boomDelayJitter = 0.1f;
     [SerializeField] private ParticleSystem deathExplosionPrefab;
 
     private int currentHealth;
     private bool isDead;
+    private bool isDying;
     private Animator animator;
     private Rigidbody2D body;
     private Collider2D[] colliders;
@@ -45,7 +48,7 @@ public sealed class TimeParadoxDeathController : MonoBehaviour, IDamageable
 
     public void TakeDamage(int amount)
     {
-        if (isDead || amount <= 0)
+        if (isDead || isDying || amount <= 0)
             return;
 
         currentHealth -= amount;
@@ -62,7 +65,7 @@ public sealed class TimeParadoxDeathController : MonoBehaviour, IDamageable
 
     private void DieInternal(bool triggerPartner)
     {
-        if (isDead)
+        if (isDead || isDying)
             return;
 
         isDead = true;
@@ -99,8 +102,22 @@ public sealed class TimeParadoxDeathController : MonoBehaviour, IDamageable
             animator.SetTrigger(deathTriggerName);
         }
 
+        StartCoroutine(DeathSequence());
+    }
+
+    private System.Collections.IEnumerator DeathSequence()
+    {
+        float delayedExplosion = Mathf.Max(0f, explosionDelay + Random.Range(-boomDelayJitter, boomDelayJitter));
+        yield return new WaitForSeconds(delayedExplosion);
+
+        GameSfxManager.Instance?.PlayDeath(Random.Range(0.9f, 1.1f));
         SpawnDeathExplosion();
-        Destroy(gameObject, destroyDelay);
+
+        float remainingDestroyDelay = Mathf.Max(0f, destroyDelay - delayedExplosion);
+        yield return new WaitForSeconds(remainingDestroyDelay);
+
+        isDead = true;
+        Destroy(gameObject);
     }
 
     private void SpawnDeathExplosion()

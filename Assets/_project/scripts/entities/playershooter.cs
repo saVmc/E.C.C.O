@@ -5,152 +5,135 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(PlayerMovement))]
 public sealed class PlayerShooter : MonoBehaviour
 {
-    [SerializeField] private Projectile projectilePrefab;
-    [SerializeField] private Transform firePoint;
-    [SerializeField] private float fireCooldown = 0.2f;
-    [SerializeField] private float projectileSpeed = 12f;
-    [SerializeField] private float projectileLifetime = 2f;
-    [SerializeField] private int projectileDamage = 1;
-    [SerializeField] private Color projectileTintColor = Color.white;
-    [SerializeField] private GameObject muzzleFlash;
-    [SerializeField] private float muzzleDuration = 0.08f;
-    [SerializeField] private bool allowVerticalShooting = false;
+    [SerializeField] private Gun activeGun;
+    [SerializeField] private GunProfile startingProfile;
+    [SerializeField] private bool applyStartingProfileOnStart = true;
 
-    private enum SpriteFacing { Right, Up }
-    [SerializeField] private SpriteFacing projectileSpriteFacing = SpriteFacing.Right;
-
-    private PlayerMovement playerMovement;
-    private float nextFireTime;
-    private bool firedThisFrame = false;
+    private bool firedThisFrame;
+    private bool wasRecentlyFired = false;
+    private float fireCooldownTimer = 0f;
+    private const float VISIBILITY_COOLDOWN = 0.2f;
 
     public event Action OnShotFired;
 
     private void Awake()
     {
-        playerMovement = GetComponent<PlayerMovement>();
+        if (activeGun == null)
+            activeGun = GetComponentInChildren<Gun>();
 
-        if (firePoint == null)
-        {
-            firePoint = transform;
-        }
-        if (muzzleFlash != null)
-            muzzleFlash.SetActive(false);
+        if (activeGun != null)
+            activeGun.OnShotFired += HandleShotFired;
+    }
+
+    private void Start()
+    {
+        if (applyStartingProfileOnStart && activeGun != null && startingProfile != null)
+            activeGun.ApplyProfile(startingProfile);
+
+        // Initially show the gun when idle
+        if (activeGun != null)
+            activeGun.ShowGun();
     }
 
     private void Update()
     {
         firedThisFrame = false;
 
-        if (!CanFire())
+        if (fireCooldownTimer > 0f)
         {
-            return;
+            fireCooldownTimer -= Time.deltaTime;
         }
 
+        bool isMoving = false;
+        PlayerMovement playerMovement = GetComponent<PlayerMovement>();
+        if (playerMovement != null)
+        {
+            isMoving = playerMovement.GetMovementDirection().sqrMagnitude > 0.0001f;
+        }
+
+        if (isMoving && !wasRecentlyFired && activeGun != null)
+        {
+            activeGun.HideGun();
+        }
+        else if ((!isMoving || wasRecentlyFired) && activeGun != null)
+        {
+            activeGun.ShowGun();
+        }
+
+        if (wasRecentlyFired && fireCooldownTimer <= 0f)
+        {
+            wasRecentlyFired = false;
+        }
+
+        if (activeGun == null)
+            return;
+
         bool firePressed = false;
+        bool reloadPressed = false;
 
         if (Keyboard.current != null)
         {
-            firePressed |= Keyboard.current.spaceKey.wasPressedThisFrame;
+            firePressed |= Keyboard.current.spaceKey.isPressed;
+            reloadPressed |= Keyboard.current.rKey.wasPressedThisFrame;
         }
 
         if (Mouse.current != null)
         {
-            firePressed |= Mouse.current.leftButton.wasPressedThisFrame;
+            firePressed |= Mouse.current.leftButton.isPressed;
         }
 
-        if (firePressed)
-        {
-            Fire();
-        }
+        activeGun.HandleInput(firePressed, reloadPressed);
     }
 
-    private bool CanFire()
-    {
-        return projectilePrefab != null && Time.time >= nextFireTime;
-    }
-
-    private void Fire()
+    private void HandleShotFired()
     {
         firedThisFrame = true;
-        Vector2 direction = playerMovement.GetFacingDirection();
+        wasRecentlyFired = true;
+        fireCooldownTimer = VISIBILITY_COOLDOWN;
 
-        if (direction.sqrMagnitude < 0.0001f)
+        // Ensure gun is visible when shooting
+        if (activeGun != null)
         {
-            direction = Vector2.right;
+            activeGun.ShowGun();
         }
 
-        if (!allowVerticalShooting)
-        {
-            direction.y = 0f;
-            if (Mathf.Approximately(direction.x, 0f))
-                direction.x = 1f;
-        }
-
-        if (firePoint != null)
-        {
-            firePoint.localRotation = Quaternion.Euler(0, 0, (direction.x < 0f) ? 180f : 0f);
-            
-            Vector3 fpLocalPos = firePoint.localPosition;
-            fpLocalPos.x = Mathf.Abs(firePoint.localPosition.x);
-            if (direction.x < 0f)
-                fpLocalPos.x = -fpLocalPos.x;
-            firePoint.localPosition = fpLocalPos;
-        }
-
-        Projectile projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        projectile.Initialize(direction, projectileSpeed, projectileLifetime, projectileDamage, gameObject);
-
-        SpriteRenderer projectileSprite = projectile.GetComponent<SpriteRenderer>();
-        if (projectileSprite != null)
-        {
-            projectileSprite.color = projectileTintColor;
-        }
-
-        if (projectile != null)
-        {
-            projectile.transform.rotation = Quaternion.identity;
-            if (projectileSpriteFacing == SpriteFacing.Right)
-                projectile.transform.right = direction;
-            else
-                projectile.transform.up = direction;
-        }
-
-        nextFireTime = Time.time + fireCooldown;
         OnShotFired?.Invoke();
-        if (muzzleFlash != null)
-        {
-            if (muzzleFlash.transform.parent == firePoint)
-            {
-                muzzleFlash.transform.localPosition = Vector3.zero;
-                muzzleFlash.transform.localRotation = Quaternion.identity; 
-            }
-            else
-            {
-                muzzleFlash.transform.position = firePoint.position;
-                if (projectileSpriteFacing == SpriteFacing.Right)
-                    muzzleFlash.transform.right = direction;
-                else
-                    muzzleFlash.transform.up = direction;
-            }
-            StartCoroutine(MuzzleFlashCoroutine());
-        }
+        GameSfxManager.Instance?.PlayShoot();
     }
 
-    private System.Collections.IEnumerator MuzzleFlashCoroutine()
+    private void OnDestroy()
     {
-        muzzleFlash.SetActive(true);
-        yield return new WaitForSeconds(muzzleDuration);
-        if (muzzleFlash != null)
-            muzzleFlash.SetActive(false);
+        if (activeGun != null)
+            activeGun.OnShotFired -= HandleShotFired;
     }
 
-    public Color GetProjectileTintColor()
+    public void EquipWeapon(GunProfile profile)
     {
-        return projectileTintColor;
+        if (activeGun == null || profile == null)
+            return;
+
+        activeGun.ApplyProfile(profile);
     }
 
+    public void ApplyUpgrade(GunUpgrade upgrade)
+    {
+        if (activeGun == null || upgrade == null)
+            return;
+
+        activeGun.ApplyUpgrade(upgrade);
+    }
+
+    public void SetStartingProfile(GunProfile profile)
+    {
+        startingProfile = profile;
+
+        if (activeGun != null && profile != null)
+            activeGun.ApplyProfile(profile);
+    }
 
     public bool FiredThisFrame() => firedThisFrame;
 
-    public Projectile GetProjectilePrefab() => projectilePrefab;
+    public Projectile GetProjectilePrefab() => activeGun != null ? activeGun.GetProjectilePrefab() : null;
+
+    public Gun GetActiveGun() => activeGun;
 }

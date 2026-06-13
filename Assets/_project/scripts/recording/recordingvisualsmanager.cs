@@ -174,8 +174,17 @@ public sealed class RecordingVisualsManager : MonoBehaviour
             return;
 
         ParticleSystem explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+        float boomScale = Random.Range(0.85f, 1.2f);
+        float boomSpeed = Random.Range(0.9f, 1.25f);
+        float boomLifetime = Random.Range(0.85f, 1.15f);
+        explosion.transform.localScale *= boomScale;
+
+        ParticleSystem.MainModule main = explosion.main;
+        main.startSpeedMultiplier *= boomSpeed;
+        main.startLifetimeMultiplier *= boomLifetime;
+        main.stopAction = ParticleSystemStopAction.Destroy;
+
         explosion.Play();
-        Destroy(explosion.gameObject, explosion.main.duration + explosion.main.startLifetime.constantMax);
     }
 
 

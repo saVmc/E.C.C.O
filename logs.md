@@ -1,7 +1,7 @@
 Week 3 (B Week) - Focus: Preliminary Planning and Research
 
-4-5-2026
-6-5-2026
+4-5-2026 - Ideating 
+6-5-2026 - Setting up version control with unity and project
 8-5-2026 - I created a basic room using Unity's 2D tilemaps. I imported and sliced my first tileset, made a Tile Palette, painted some basic floors and walls. I also managed to add collision to the 'wall' layer of the tilemap (which inlcuded a Tilemap Collider, COmposite Collider and Static RigidBody2D.) Mr Clark checked my progress and he approved of my direction going forward :D. Ran into issue, my tutorial I followed mentioned "Used by Composite" boolean for one of the colliders, but in my Unity version it is deprecated. To fix this, I had to go 'Composite Operation -> Merge' instead. My goals going forward are to add the 2D player object and confirm all my collisions work!
 
 
@@ -20,23 +20,23 @@ Week 5 (B Week) - Focus: Programming, Asset Creation/Identification and Journali
 
 Week 6 (A Week) - Focus: Programming, Asset Creation/Identification and Journaling
 
-25-5-2026
-27-5-2026
-28-5-2026
-29-5-2026
+25-5-2026 - Worked on ui and menu scene. Started making pixel art background 
+27-5-2026 - Worked on intro animation scene 
+28-5-2026 - sick
+29-5-2026 - Minecraft 
 
 Week 7 (B Week) - Focus: Programming, Asset Creation/Identification and Journaling
 
-1-6-2026
-3-6-2026
-5-6-2026
+1-6-2026 - Started enemy class + changing direction of project
+3-6-2026 - made gun class and gun profiles, started working on weapon draft manager + bug fixes regardung
+5-6-2026 - Got UI working for gun, showing icon and ammo. 
 
 Week 8 (A Week) - Focus: Programming, Journaling and Testing and Evaluating
 
 8-6-2026
-10-6-2026
-11-6-2026
-12-6-2026
+10-6-2026 
+11-6-2026 - Classified Enemies - basic enemy addition
+12-6-2026 - Classified Projectiles
 
 Week 9 (B Week) - Focus: Final Documentation, Creating Presentations and Testing and Evaluating
 

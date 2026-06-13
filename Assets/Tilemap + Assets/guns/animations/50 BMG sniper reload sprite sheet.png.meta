@@ -1,0 +1,1391 @@
+fileFormatVersion: 2
+guid: 9a39c0af85e665c4ba1c47bd2a166960
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5881133628726299346
+    second: 50 BMG sniper reload sprite sheet_0
+  - first:
+      213: 147736017394254884
+    second: 50 BMG sniper reload sprite sheet_1
+  - first:
+      213: 2946226725138206437
+    second: 50 BMG sniper reload sprite sheet_2
+  - first:
+      213: 6942192083598522534
+    second: 50 BMG sniper reload sprite sheet_3
+  - first:
+      213: 8138243210551366763
+    second: 50 BMG sniper reload sprite sheet_4
+  - first:
+      213: -6059793953945409260
+    second: 50 BMG sniper reload sprite sheet_5
+  - first:
+      213: -5604279334889836957
+    second: 50 BMG sniper reload sprite sheet_6
+  - first:
+      213: -2802331740926752738
+    second: 50 BMG sniper reload sprite sheet_7
+  - first:
+      213: 4393907265688971123
+    second: 50 BMG sniper reload sprite sheet_8
+  - first:
+      213: 7624010310515753422
+    second: 50 BMG sniper reload sprite sheet_9
+  - first:
+      213: 5176137948564880716
+    second: 50 BMG sniper reload sprite sheet_10
+  - first:
+      213: 811230540803832880
+    second: 50 BMG sniper reload sprite sheet_11
+  - first:
+      213: 4334781158558828967
+    second: 50 BMG sniper reload sprite sheet_12
+  - first:
+      213: 8421936982016296265
+    second: 50 BMG sniper reload sprite sheet_13
+  - first:
+      213: 1864138412315001285
+    second: 50 BMG sniper reload sprite sheet_14
+  - first:
+      213: -2397851647871838500
+    second: 50 BMG sniper reload sprite sheet_15
+  - first:
+      213: 1294574637065016470
+    second: 50 BMG sniper reload sprite sheet_16
+  - first:
+      213: 2289741662039626230
+    second: 50 BMG sniper reload sprite sheet_17
+  - first:
+      213: -4089336647727352848
+    second: 50 BMG sniper reload sprite sheet_18
+  - first:
+      213: 3786731095529615997
+    second: 50 BMG sniper reload sprite sheet_19
+  - first:
+      213: 4902838032662397437
+    second: 50 BMG sniper reload sprite sheet_20
+  - first:
+      213: 2309539493931118701
+    second: 50 BMG sniper reload sprite sheet_21
+  - first:
+      213: 778344941564468445
+    second: 50 BMG sniper reload sprite sheet_22
+  - first:
+      213: -1305547133979269876
+    second: 50 BMG sniper reload sprite sheet_23
+  - first:
+      213: 5528163069947301105
+    second: 50 BMG sniper reload sprite sheet_24
+  - first:
+      213: -7396175680711724214
+    second: 50 BMG sniper reload sprite sheet_25
+  - first:
+      213: -6945611642738623865
+    second: 50 BMG sniper reload sprite sheet_26
+  - first:
+      213: -989074235984663874
+    second: 50 BMG sniper reload sprite sheet_27
+  - first:
+      213: 3646879710154786743
+    second: 50 BMG sniper reload sprite sheet_28
+  - first:
+      213: -7574001691842127656
+    second: 50 BMG sniper reload sprite sheet_29
+  - first:
+      213: -2908014115827790251
+    second: 50 BMG sniper reload sprite sheet_30
+  - first:
+      213: -5273635864336047629
+    second: 50 BMG sniper reload sprite sheet_31
+  - first:
+      213: -9087781102858833315
+    second: 50 BMG sniper reload sprite sheet_32
+  - first:
+      213: 5025665523520757357
+    second: 50 BMG sniper reload sprite sheet_33
+  - first:
+      213: -4851147384060470051
+    second: 50 BMG sniper reload sprite sheet_34
+  - first:
+      213: 3145326252829711355
+    second: 50 BMG sniper reload sprite sheet_35
+  - first:
+      213: 5038561446886031559
+    second: 50 BMG sniper reload sprite sheet_36
+  - first:
+      213: -4990709454927312039
+    second: 50 BMG sniper reload sprite sheet_37
+  - first:
+      213: 3270516745665202897
+    second: 50 BMG sniper reload sprite sheet_38
+  - first:
+      213: 8477765441109562536
+    second: 50 BMG sniper reload sprite sheet_39
+  - first:
+      213: -8542388131545973669
+    second: 50 BMG sniper reload sprite sheet_40
+  - first:
+      213: -7619168582738351484
+    second: 50 BMG sniper reload sprite sheet_41
+  - first:
+      213: -213513011776606575
+    second: 50 BMG sniper reload sprite sheet_42
+  - first:
+      213: -1121328937541775593
+    second: 50 BMG sniper reload sprite sheet_43
+  - first:
+      213: -9036376402320925761
+    second: 50 BMG sniper reload sprite sheet_44
+  - first:
+      213: -4954867059440600393
+    second: 50 BMG sniper reload sprite sheet_45
+  - first:
+      213: -8853805074270362119
+    second: 50 BMG sniper reload sprite sheet_46
+  - first:
+      213: 2398631521489284909
+    second: 50 BMG sniper reload sprite sheet_47
+  - first:
+      213: -3011159772085023855
+    second: 50 BMG sniper reload sprite sheet_48
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 27
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 65
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_0
+      rect:
+        serializedVersion: 2
+        x: 143
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2dac5d030ebfd9150800000000000000
+      internalID: 5881133628726299346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_1
+      rect:
+        serializedVersion: 2
+        x: 655
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424c055002ddc0200800000000000000
+      internalID: 147736017394254884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_2
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ee00a3c89913e820800000000000000
+      internalID: 2946226725138206437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1667
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6a83b613bee975060800000000000000
+      internalID: 6942192083598522534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_4
+      rect:
+        serializedVersion: 2
+        x: 2163
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b6416ace419d0f070800000000000000
+      internalID: 8138243210551366763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2671
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 419260b418947eba0800000000000000
+      internalID: -6059793953945409260
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_6
+      rect:
+        serializedVersion: 2
+        x: 3179
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 36e24dd33a99932b0800000000000000
+      internalID: -5604279334889836957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3691
+        y: 247
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e184247012e1c19d0800000000000000
+      internalID: -2802331740926752738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_8
+      rect:
+        serializedVersion: 2
+        x: 4203
+        y: 231
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3772663d06b4afc30800000000000000
+      internalID: 4393907265688971123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_9
+      rect:
+        serializedVersion: 2
+        x: 4715
+        y: 251
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ec10532dbfcedc960800000000000000
+      internalID: 7624010310515753422
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_10
+      rect:
+        serializedVersion: 2
+        x: 5227
+        y: 247
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4df0a43a0655d740800000000000000
+      internalID: 5176137948564880716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_11
+      rect:
+        serializedVersion: 2
+        x: 5739
+        y: 267
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 03c7f87f0e1124b00800000000000000
+      internalID: 811230540803832880
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_12
+      rect:
+        serializedVersion: 2
+        x: 6251
+        y: 223
+        width: 262
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a984fe3f7c382c30800000000000000
+      internalID: 4334781158558828967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_13
+      rect:
+        serializedVersion: 2
+        x: 6771
+        y: 215
+        width: 262
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9458ec5501bb0e470800000000000000
+      internalID: 8421936982016296265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_14
+      rect:
+        serializedVersion: 2
+        x: 7283
+        y: 215
+        width: 262
+        height: 94
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c142366200ced910800000000000000
+      internalID: 1864138412315001285
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_15
+      rect:
+        serializedVersion: 2
+        x: 7779
+        y: 203
+        width: 262
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd6938071ae19bed0800000000000000
+      internalID: -2397851647871838500
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_16
+      rect:
+        serializedVersion: 2
+        x: 8299
+        y: 207
+        width: 262
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6949d7106c047f110800000000000000
+      internalID: 1294574637065016470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_17
+      rect:
+        serializedVersion: 2
+        x: 8811
+        y: 207
+        width: 262
+        height: 106
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6f1d849f8ebc6cf10800000000000000
+      internalID: 2289741662039626230
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_18
+      rect:
+        serializedVersion: 2
+        x: 9323
+        y: 231
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0f379313cf1cf37c0800000000000000
+      internalID: -4089336647727352848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_19
+      rect:
+        serializedVersion: 2
+        x: 9835
+        y: 227
+        width: 262
+        height: 86
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d72f7f05edb2d8430800000000000000
+      internalID: 3786731095529615997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_20
+      rect:
+        serializedVersion: 2
+        x: 10347
+        y: 199
+        width: 262
+        height: 114
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df10e10e6316a0440800000000000000
+      internalID: 4902838032662397437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_21
+      rect:
+        serializedVersion: 2
+        x: 10859
+        y: 211
+        width: 262
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d60ff7aeee12d0020800000000000000
+      internalID: 2309539493931118701
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_22
+      rect:
+        serializedVersion: 2
+        x: 11371
+        y: 195
+        width: 262
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc1caab99c3dca00800000000000000
+      internalID: 778344941564468445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_23
+      rect:
+        serializedVersion: 2
+        x: 11883
+        y: 195
+        width: 262
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c05e2a97cc3c1ede0800000000000000
+      internalID: -1305547133979269876
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_24
+      rect:
+        serializedVersion: 2
+        x: 12395
+        y: 195
+        width: 262
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1fc44acc50bf7bc40800000000000000
+      internalID: 5528163069947301105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_25
+      rect:
+        serializedVersion: 2
+        x: 12907
+        y: 195
+        width: 262
+        height: 118
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a437bcea7618b5990800000000000000
+      internalID: -7396175680711724214
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_26
+      rect:
+        serializedVersion: 2
+        x: 13419
+        y: 231
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78a3fb6a20b3c9f90800000000000000
+      internalID: -6945611642738623865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_27
+      rect:
+        serializedVersion: 2
+        x: 13931
+        y: 231
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ebaa4a3093a1642f0800000000000000
+      internalID: -989074235984663874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_28
+      rect:
+        serializedVersion: 2
+        x: 14443
+        y: 231
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b70b5e36c15c9230800000000000000
+      internalID: 3646879710154786743
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_29
+      rect:
+        serializedVersion: 2
+        x: 14955
+        y: 211
+        width: 262
+        height: 102
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8d8da8d079db3e690800000000000000
+      internalID: -7574001691842127656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_30
+      rect:
+        serializedVersion: 2
+        x: 15467
+        y: 259
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 55e4348a198a4a7d0800000000000000
+      internalID: -2908014115827790251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_31
+      rect:
+        serializedVersion: 2
+        x: 15975
+        y: 231
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3f16d7f4f1840d6b0800000000000000
+      internalID: -5273635864336047629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_32
+      rect:
+        serializedVersion: 2
+        x: 16527
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d52779f6c37b1e180800000000000000
+      internalID: -9087781102858833315
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_33
+      rect:
+        serializedVersion: 2
+        x: 17039
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6ed161aa20ceb540800000000000000
+      internalID: 5025665523520757357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_34
+      rect:
+        serializedVersion: 2
+        x: 17551
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddc920c18234dacb0800000000000000
+      internalID: -4851147384060470051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_35
+      rect:
+        serializedVersion: 2
+        x: 18063
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bfb10a2ff8176ab20800000000000000
+      internalID: 3145326252829711355
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_36
+      rect:
+        serializedVersion: 2
+        x: 18575
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c0ce94c0f09ce540800000000000000
+      internalID: 5038561446886031559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_37
+      rect:
+        serializedVersion: 2
+        x: 19087
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95bcfd151307dbab0800000000000000
+      internalID: -4990709454927312039
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_38
+      rect:
+        serializedVersion: 2
+        x: 19563
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1da4759f6a5336d20800000000000000
+      internalID: 3270516745665202897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_39
+      rect:
+        serializedVersion: 2
+        x: 20075
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a41b6660c217a570800000000000000
+      internalID: 8477765441109562536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_40
+      rect:
+        serializedVersion: 2
+        x: 20587
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b5c70bdf047537980800000000000000
+      internalID: -8542388131545973669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_41
+      rect:
+        serializedVersion: 2
+        x: 21163
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a6016ca86434690800000000000000
+      internalID: -7619168582738351484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_42
+      rect:
+        serializedVersion: 2
+        x: 21647
+        y: 223
+        width: 262
+        height: 82
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19ea12a0c03790df0800000000000000
+      internalID: -213513011776606575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_43
+      rect:
+        serializedVersion: 2
+        x: 9411
+        y: 199
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 71fc479b54d3070f0800000000000000
+      internalID: -1121328937541775593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_44
+      rect:
+        serializedVersion: 2
+        x: 9935
+        y: 195
+        width: 42
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbb50f2f987589280800000000000000
+      internalID: -9036376402320925761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_45
+      rect:
+        serializedVersion: 2
+        x: 10875
+        y: 199
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7ba32c459a6cc3bb0800000000000000
+      internalID: -4954867059440600393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_46
+      rect:
+        serializedVersion: 2
+        x: 13499
+        y: 195
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9f56095c137f02580800000000000000
+      internalID: -8853805074270362119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_47
+      rect:
+        serializedVersion: 2
+        x: 14011
+        y: 179
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2f6c6909a6a94120800000000000000
+      internalID: 2398631521489284909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: 50 BMG sniper reload sprite sheet_48
+      rect:
+        serializedVersion: 2
+        x: 14523
+        y: 179
+        width: 38
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19b0dee14263636d0800000000000000
+      internalID: -3011159772085023855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      50 BMG sniper reload sprite sheet_0: 5881133628726299346
+      50 BMG sniper reload sprite sheet_1: 147736017394254884
+      50 BMG sniper reload sprite sheet_10: 5176137948564880716
+      50 BMG sniper reload sprite sheet_11: 811230540803832880
+      50 BMG sniper reload sprite sheet_12: 4334781158558828967
+      50 BMG sniper reload sprite sheet_13: 8421936982016296265
+      50 BMG sniper reload sprite sheet_14: 1864138412315001285
+      50 BMG sniper reload sprite sheet_15: -2397851647871838500
+      50 BMG sniper reload sprite sheet_16: 1294574637065016470
+      50 BMG sniper reload sprite sheet_17: 2289741662039626230
+      50 BMG sniper reload sprite sheet_18: -4089336647727352848
+      50 BMG sniper reload sprite sheet_19: 3786731095529615997
+      50 BMG sniper reload sprite sheet_2: 2946226725138206437
+      50 BMG sniper reload sprite sheet_20: 4902838032662397437
+      50 BMG sniper reload sprite sheet_21: 2309539493931118701
+      50 BMG sniper reload sprite sheet_22: 778344941564468445
+      50 BMG sniper reload sprite sheet_23: -1305547133979269876
+      50 BMG sniper reload sprite sheet_24: 5528163069947301105
+      50 BMG sniper reload sprite sheet_25: -7396175680711724214
+      50 BMG sniper reload sprite sheet_26: -6945611642738623865
+      50 BMG sniper reload sprite sheet_27: -989074235984663874
+      50 BMG sniper reload sprite sheet_28: 3646879710154786743
+      50 BMG sniper reload sprite sheet_29: -7574001691842127656
+      50 BMG sniper reload sprite sheet_3: 6942192083598522534
+      50 BMG sniper reload sprite sheet_30: -2908014115827790251
+      50 BMG sniper reload sprite sheet_31: -5273635864336047629
+      50 BMG sniper reload sprite sheet_32: -9087781102858833315
+      50 BMG sniper reload sprite sheet_33: 5025665523520757357
+      50 BMG sniper reload sprite sheet_34: -4851147384060470051
+      50 BMG sniper reload sprite sheet_35: 3145326252829711355
+      50 BMG sniper reload sprite sheet_36: 5038561446886031559
+      50 BMG sniper reload sprite sheet_37: -4990709454927312039
+      50 BMG sniper reload sprite sheet_38: 3270516745665202897
+      50 BMG sniper reload sprite sheet_39: 8477765441109562536
+      50 BMG sniper reload sprite sheet_4: 8138243210551366763
+      50 BMG sniper reload sprite sheet_40: -8542388131545973669
+      50 BMG sniper reload sprite sheet_41: -7619168582738351484
+      50 BMG sniper reload sprite sheet_42: -213513011776606575
+      50 BMG sniper reload sprite sheet_43: -1121328937541775593
+      50 BMG sniper reload sprite sheet_44: -9036376402320925761
+      50 BMG sniper reload sprite sheet_45: -4954867059440600393
+      50 BMG sniper reload sprite sheet_46: -8853805074270362119
+      50 BMG sniper reload sprite sheet_47: 2398631521489284909
+      50 BMG sniper reload sprite sheet_48: -3011159772085023855
+      50 BMG sniper reload sprite sheet_5: -6059793953945409260
+      50 BMG sniper reload sprite sheet_6: -5604279334889836957
+      50 BMG sniper reload sprite sheet_7: -2802331740926752738
+      50 BMG sniper reload sprite sheet_8: 4393907265688971123
+      50 BMG sniper reload sprite sheet_9: 7624010310515753422
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
