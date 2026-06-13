@@ -2,8 +2,10 @@ using System.Collections;
 using UnityEngine;
 
 public sealed class DashAbility : Ability
+
 {
     [SerializeField] private float dashDistance = 4f;
+    [SerializeField] private int fireTrailDamage = 1;
     [SerializeField] private float dashDuration = 0.12f;
     [SerializeField] private float speedBoostMultiplier = 1.5f;
     [SerializeField] private float speedBoostDuration = 1f;
@@ -15,11 +17,14 @@ public sealed class DashAbility : Ability
 
     private Rigidbody2D rb;
     private PlayerMovement playerMovement;
+    private SpriteRenderer playerSprite;
+private Material playerMaterial;
 
     private void Awake()
     {
         rb = GetComponentInParent<Rigidbody2D>();
         playerMovement = GetComponentInParent<PlayerMovement>();
+        playerSprite = GetComponentInParent<SpriteRenderer>();
     }
 
     protected override void Activate()
@@ -42,8 +47,23 @@ public sealed class DashAbility : Ability
     PlayerMovement movement = GetComponentInParent<PlayerMovement>();
     if (movement != null) movement.enabled = false;
 
-    if (phaseThrough)
-        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), true);
+    int enemyLayer = LayerMask.NameToLayer("Enemy");
+
+    if (phaseThrough && enemyLayer >= 0)
+    {
+        Physics2D.IgnoreLayerCollision(gameObject.layer, enemyLayer, true);
+        if (playerSprite != null)
+        {
+            Color c = playerSprite.color;
+            c.a = 0.5f;
+            playerSprite.color = new Color(0.3f, 0.6f, 1f, 0.5f);
+        }
+    }
+
+    // Star 5 outline
+    bool hasOutline = definition != null && definition.StarLevel >= 5;
+    if (hasOutline && playerSprite != null)
+        playerSprite.material.SetFloat("_Outline", 1f);
 
     while (elapsed < dashDuration)
     {
@@ -51,22 +71,33 @@ public sealed class DashAbility : Ability
         rb.linearVelocity = direction * speed;
 
         if (leaveFireTrail && fireTrailPrefab != null)
-            Instantiate(fireTrailPrefab, transform.position, Quaternion.identity);
+        {
+            GameObject trail = Instantiate(fireTrailPrefab, transform.position, Quaternion.identity);
+            FireTrail ft = trail.GetComponent<FireTrail>();
+            if (ft != null) ft.SetDamage(fireTrailDamage);
+            Destroy(trail, 8f);
+        }
 
         yield return null;
     }
 
     rb.linearVelocity = Vector2.zero;
 
-    if (phaseThrough)
-        Physics2D.IgnoreLayerCollision(gameObject.layer, LayerMask.NameToLayer("Enemy"), false);
+    if (phaseThrough && enemyLayer >= 0)
+    {
+        Physics2D.IgnoreLayerCollision(gameObject.layer, enemyLayer, false);
+        if (playerSprite != null)
+            playerSprite.color = Color.white;
+    }
+
+    if (hasOutline && playerSprite != null)
+        playerSprite.material.SetFloat("_Outline", 0f);
 
     if (movement != null) movement.enabled = true;
 
     if (speedBoostMultiplier > 1f)
         StartCoroutine(SpeedBoostRoutine());
 }
-
     private IEnumerator SpeedBoostRoutine()
 {
     PlayerMovement movement = GetComponentInParent<PlayerMovement>();

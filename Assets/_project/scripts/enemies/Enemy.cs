@@ -132,6 +132,42 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             spriteRenderer.sprite = profile.Sprite;
     }
 
+    public void ExecutionKill()
+{
+    if (isDead) return;
+    isDead = true;
+    rb.linearVelocity = Vector2.zero;
+    OnDeath?.Invoke(profile != null ? profile.CalculateExpDrop() : 0);
+    if (expOrbPrefab != null && profile != null && profile.ExpOrbProfile != null)
+    {
+        ExpOrb orb = Instantiate(expOrbPrefab, transform.position, Quaternion.identity);
+        orb.SetProfile(profile.ExpOrbProfile);
+        orb.SetExpValue(profile.CalculateExpDrop());
+    }
+    StartCoroutine(ExecutionPoofAndDestroy());
+}
+
+private IEnumerator ExecutionPoofAndDestroy()
+{
+    float duration = profile != null ? profile.PoofDuration : 0.18f;
+    float peak = profile != null ? profile.PoofScalePeak : 1.6f;
+    Vector3 originalScale = transform.localScale;
+    float elapsed = 0f;
+
+    while (elapsed < duration)
+    {
+        elapsed += Time.deltaTime;
+        float t = elapsed / duration;
+        float scale = Mathf.Lerp(1f, peak, Mathf.Sin(t * Mathf.PI));
+        transform.localScale = originalScale * scale;
+        float alpha = Mathf.Lerp(1f, 0f, t * t);
+        spriteRenderer.color = new Color(1f, 0.9f, 0f, alpha);
+        yield return null;
+    }
+
+    Destroy(gameObject);
+}
+
     public float CurrentHealth => currentHealth;
     public float MaxHealth => profile != null ? profile.MaxHealth : 1f;
     public bool IsDead => isDead;

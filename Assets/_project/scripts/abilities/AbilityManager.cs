@@ -90,44 +90,65 @@ public sealed class AbilityManager : MonoBehaviour
     }
 
     public List<UpgradeOffer> GenerateUpgradeOffers(int count = 3)
+{
+    List<UpgradeOffer> allOffers = new List<UpgradeOffer>();
+
+    // Ability upgrades
+    foreach (AbilitySlot slot in slots)
     {
-        List<UpgradeOffer> offers = new List<UpgradeOffer>();
-        List<UpgradeOffer> upgradeOffers = new List<UpgradeOffer>();
-        List<UpgradeOffer> newAbilityOffers = new List<UpgradeOffer>();
-
-        foreach (AbilitySlot slot in slots)
+        if (!slot.IsEmpty && !slot.Ability.Definition.IsMaxStar)
         {
-            if (!slot.IsEmpty && !slot.Ability.Definition.IsMaxStar)
-            {
-                upgradeOffers.Add(new UpgradeOffer(
-                    slot.Ability.Definition.NextStarDefinition,
-                    slot.Ability,
-                    false
-                ));
-            }
+            allOffers.Add(new UpgradeOffer(
+                slot.Ability.Definition.NextStarDefinition,
+                slot.Ability,
+                false
+            ));
         }
-
-        if (!AllSlotsFull())
-        {
-            foreach (AbilityDefinition def in availableAbilityPool)
-            {
-                if (!HasAbilityOfType<Ability>())
-                    newAbilityOffers.Add(new UpgradeOffer(def, null, true));
-            }
-        }
-
-        Shuffle(upgradeOffers);
-        Shuffle(newAbilityOffers);
-
-        int upgradeCount = Mathf.Min(upgradeOffers.Count, Mathf.CeilToInt(count * 0.6f));
-        int newCount = Mathf.Min(newAbilityOffers.Count, count - upgradeCount);
-
-        for (int i = 0; i < upgradeCount; i++) offers.Add(upgradeOffers[i]);
-        for (int i = 0; i < newCount; i++) offers.Add(newAbilityOffers[i]);
-
-        Shuffle(offers);
-        return offers;
     }
+
+    // New abilities
+    if (!AllSlotsFull())
+    {
+        foreach (AbilityDefinition def in availableAbilityPool)
+        {
+            bool alreadyHas = false;
+            foreach (AbilitySlot slot in slots)
+            {
+                if (!slot.IsEmpty && slot.Ability.Definition.AbilityName == def.AbilityName)
+                {
+                    alreadyHas = true;
+                    break;
+                }
+            }
+            if (!alreadyHas)
+                allOffers.Add(new UpgradeOffer(def, null, true));
+        }
+    }
+
+    PlayerShooter shooter = FindAnyObjectByType<PlayerShooter>();
+    if (shooter != null)
+    {
+        Gun gun = shooter.GetActiveGun();
+        if (gun != null && gun.CurrentProfile != null)
+        {
+            int nextStar = gun.appliedUpgrades.Count + 1;
+            GunUpgrade gunUpgrade = gun.CurrentProfile.GetUpgradeForStar(nextStar);
+            if (gunUpgrade != null)
+            {
+                GunUpgradeOffer gunOffer = new GunUpgradeOffer(gunUpgrade, gun.CurrentProfile.DisplayName);
+                allOffers.Add(new UpgradeOffer(null, null, false, gunOffer));
+            }
+        }
+    }
+
+    Shuffle(allOffers);
+
+    List<UpgradeOffer> result = new List<UpgradeOffer>();
+    for (int i = 0; i < Mathf.Min(count, allOffers.Count); i++)
+        result.Add(allOffers[i]);
+
+    return result;
+}
 
     private void Shuffle<T>(List<T> list)
     {

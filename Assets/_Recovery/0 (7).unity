@@ -51808,7 +51808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerShooter
   activeGun: {fileID: 753602981}
-  startingProfile: {fileID: 11400000, guid: 607ec84f3d9f7d64c813e6320e42ce3e, type: 2}
+  startingProfile: {fileID: 11400000, guid: 0db2f2ab216dd454fb0471eaffe6357f, type: 2}
   applyStartingProfileOnStart: 1
 --- !u!114 &1551772405
 MonoBehaviour:

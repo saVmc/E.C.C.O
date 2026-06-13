@@ -17,6 +17,7 @@ public sealed class PlayerMovement : MonoBehaviour
 
     public event Action<Vector2> OnMovementInput;
     public event Action<bool> OnSprintToggled;
+    public void SetMoveSpeed(float speed) => moveSpeed = speed;
 
     private void Awake()
     {

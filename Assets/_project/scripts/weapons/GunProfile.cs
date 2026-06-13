@@ -33,6 +33,30 @@ public sealed class GunProfile : ScriptableObject
     [SerializeField] private int pelletCount = 1;
     [SerializeField] private float spreadAngle = 0f;
 
+    [Header("Player Stats")]
+    [SerializeField] private float playerMoveSpeed = 5f;
+
+    [Header("Upgrades")]
+    [SerializeField] private GunUpgrade starOneUpgrade;
+    [SerializeField] private GunUpgrade starTwoUpgrade;
+    [SerializeField] private GunUpgrade starThreeUpgrade;
+    [SerializeField] private GunUpgrade starFourUpgrade;
+    [SerializeField] private GunUpgrade starFiveUpgrade;
+
+public GunUpgrade GetUpgradeForStar(int star)
+{
+    return star switch
+    {
+        1 => starOneUpgrade,
+        2 => starTwoUpgrade,
+        3 => starThreeUpgrade,
+        4 => starFourUpgrade,
+        5 => starFiveUpgrade,
+        _ => null
+    };
+}
+    public float PlayerMoveSpeed => playerMoveSpeed;
+
     public string DisplayName => displayName;
     public Projectile ProjectilePrefab => projectilePrefab;
     public ProjectileProfile ProjectileProfile => projectileProfile;

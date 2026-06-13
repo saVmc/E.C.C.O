@@ -46,16 +46,29 @@ public float ProjectileScale => Mathf.Max(0.01f, projectileScale);
     protected bool firedThisFrame;
     protected Coroutine reloadRoutine;
     protected GunProfile currentProfile;
-    protected readonly List<GunUpgrade> appliedUpgrades = new List<GunUpgrade>();
+    public List<GunUpgrade> appliedUpgrades = new List<GunUpgrade>();
     protected Transform gunVisualTransform;
     protected SpriteRenderer playerSpriteRenderer;
     protected PlayerMovement playerMovement;
     protected PlayerAnimationDriver playerAnimationDriver;
     protected Vector3 visualRestLocalPosition;
     protected Quaternion visualRestLocalRotation = Quaternion.identity;
+    protected int piercingCount = 2;
     protected Vector3 recoilOffset = Vector3.zero;
     protected float recoilRotation;
     protected float aimRotation;
+    protected bool isTripleShot = false;
+protected bool isExplosive = false;
+protected float explosionRadius = 2f;
+protected bool isExecutioner = false;
+protected float executionThreshold = 0.2f;
+protected bool isDoubleBarrel = false;
+protected int pelletCountBonus = 0;
+protected float spreadAngleDelta = 0f;
+protected bool isRicochet = false;
+protected int ricochetCount = 1;
+protected bool isInfiniteMag = false;
+    protected bool isPiercing = false;
 
     public event Action OnShotFired;
 
@@ -172,6 +185,9 @@ public virtual void ApplyProfile(GunProfile profile)
 {
     if (profile == null)
         return;
+    
+    if (playerMovement != null)
+        playerMovement.SetMoveSpeed(profile.PlayerMoveSpeed);
 
     currentProfile = profile;
 
@@ -231,6 +247,14 @@ public virtual void ApplyProfile(GunProfile profile)
     {
         if (upgrade == null)
             return;
+        if (upgrade.IsTripleShot) isTripleShot = true;
+if (upgrade.IsExplosive) { isExplosive = true; explosionRadius = upgrade.ExplosionRadius; }
+if (upgrade.IsExecutioner) { isExecutioner = true; executionThreshold = upgrade.ExecutionThreshold; }
+if (upgrade.IsDoubleBarrel) isDoubleBarrel = true;
+if (upgrade.PelletCountBonus != 0) pelletCountBonus += upgrade.PelletCountBonus;
+if (upgrade.SpreadAngleDelta != 0) spreadAngleDelta += upgrade.SpreadAngleDelta;
+if (upgrade.IsRicochet) { isRicochet = true; ricochetCount = upgrade.RicochetCount; }
+if (upgrade.IsInfiniteMag) isInfiniteMag = true;
 
         appliedUpgrades.Add(upgrade);
         ApplyUpgradeInternal(upgrade);
@@ -257,8 +281,8 @@ public virtual void ApplyProfile(GunProfile profile)
         firePoint.localRotation = Quaternion.Euler(0f, 0f, angle);
     }
 
-    int pellets = currentProfile != null ? Mathf.Max(1, currentProfile.PelletCount) : 1;
-    float spread = currentProfile != null ? currentProfile.SpreadAngle : 0f;
+    int pellets = (currentProfile != null ? Mathf.Max(1, currentProfile.PelletCount) : 1) + pelletCountBonus;
+    float spread = (currentProfile != null ? currentProfile.SpreadAngle : 0f) + spreadAngleDelta;
 
     LayerMask mask = currentProjectileProfile != null ? currentProjectileProfile.HitMask : ~0;
     bool rotate = currentProjectileProfile != null && currentProjectileProfile.RotateToDirection;
@@ -287,6 +311,36 @@ public virtual void ApplyProfile(GunProfile profile)
         if (currentProjectileProfile != null)
             projectile.ApplyProfile(currentProjectileProfile);
         projectile.transform.right = pelletDirection;
+
+        if (isPiercing)
+    projectile.SetPiercing(piercingCount);
+        if (isExplosive)
+    projectile.SetExplosive(explosionRadius);
+
+if (isRicochet)
+    projectile.SetRicochet(ricochetCount);
+
+if (isExecutioner)
+    projectile.SetExecutioner(executionThreshold);
+        if (isDoubleBarrel)
+{
+    float doubleBarrelDelay = 0.08f;
+    StartCoroutine(FireDelayed(direction, doubleBarrelDelay));
+}
+        if (isTripleShot)
+{
+    Vector2 left = Quaternion.Euler(0, 0, 15f) * direction;
+    Vector2 right = Quaternion.Euler(0, 0, -15f) * direction;
+    foreach (Vector2 triDir in new[] { left, right })
+    {
+        Projectile tp = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        tp.Initialize(triDir.normalized, projectileSpeed, projectileLifetime, projectileDamage, transform.root.gameObject, mask, rotate);
+        if (currentProjectileProfile != null) tp.ApplyProfile(currentProjectileProfile);
+        tp.transform.right = triDir.normalized;
+        if (isPiercing) tp.SetPiercing(piercingCount);
+        if (isExplosive) tp.SetExplosive(explosionRadius);
+    }
+}
     }
 
     ApplyRecoil(direction);
@@ -298,6 +352,36 @@ public virtual void ApplyProfile(GunProfile profile)
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         muzzleFlash.transform.rotation = Quaternion.Euler(0f, 0f, angle);
         StartCoroutine(MuzzleFlashCoroutine());
+    }
+}
+
+
+    private IEnumerator FireDelayed(Vector2 direction, float delay)
+{
+    yield return new WaitForSeconds(delay);
+    int pellets = (currentProfile != null ? Mathf.Max(1, currentProfile.PelletCount) : 1) + pelletCountBonus;
+    float spread = (currentProfile != null ? currentProfile.SpreadAngle : 0f) + spreadAngleDelta;
+    LayerMask mask = currentProjectileProfile != null ? currentProjectileProfile.HitMask : ~0;
+    bool rotate = currentProjectileProfile != null && currentProjectileProfile.RotateToDirection;
+
+    for (int i = 0; i < pellets; i++)
+    {
+        Vector2 pelletDirection = direction.normalized;
+        if (pellets > 1 && spread > 0f)
+        {
+            float sliceSize = spread / pellets;
+            float sliceStart = -spread / 2f + i * sliceSize;
+            float angleOffset = sliceStart + UnityEngine.Random.Range(0f, sliceSize);
+            float rad = angleOffset * Mathf.Deg2Rad;
+            float cos = Mathf.Cos(rad); float sin = Mathf.Sin(rad);
+            pelletDirection = new Vector2(pelletDirection.x * cos - pelletDirection.y * sin, pelletDirection.x * sin + pelletDirection.y * cos).normalized;
+        }
+        Projectile projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+        projectile.Initialize(pelletDirection, projectileSpeed, projectileLifetime, projectileDamage, transform.root.gameObject, mask, rotate);
+        if (currentProjectileProfile != null) projectile.ApplyProfile(currentProjectileProfile);
+        projectile.transform.right = pelletDirection;
+        if (isPiercing) projectile.SetPiercing(piercingCount);
+        if (isExplosive) projectile.SetExplosive(explosionRadius);
     }
 }
 
@@ -360,9 +444,16 @@ public virtual void ApplyProfile(GunProfile profile)
 
         if (firePoint != null)
             firePoint.localPosition += (Vector3)upgrade.FirePointOffsetDelta;
+        
 
         if (aimPivot != null)
             aimPivot.localPosition += (Vector3)upgrade.AimPivotOffsetDelta;
+        
+        if (upgrade.IsPiercing)
+{
+    isPiercing = true;
+    piercingCount = upgrade.PierceCount;
+}
     }
 
     protected virtual void ApplyRecoil(Vector2 direction)
@@ -446,9 +537,12 @@ public virtual void ApplyProfile(GunProfile profile)
     }
 
     protected bool CanFire()
-    {
-        return projectilePrefab != null && !isReloading && ammoInMagazine > 0 && Time.time >= nextFireTime;
-    }
+{
+    if (isInfiniteMag && playerMovement != null && playerMovement.GetMovementDirection().sqrMagnitude > 0.001f)
+        return projectilePrefab != null && !isReloading && Time.time >= nextFireTime;
+
+    return projectilePrefab != null && !isReloading && ammoInMagazine > 0 && Time.time >= nextFireTime;
+}
 
     public bool FiredThisFrame() => firedThisFrame;
     public bool IsReloading => isReloading;

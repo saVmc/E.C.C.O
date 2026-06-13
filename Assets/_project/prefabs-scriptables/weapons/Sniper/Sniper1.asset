@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392f39f25a78afd43a9044752d5efd37, type: 3}
+  m_Name: Sniper1
+  m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
+  displayName: Recon Scope
+  fireCooldownMultiplier: 0.9
+  projectileSpeedMultiplier: 1
+  projectileLifetimeMultiplier: 1
+  projectileDamageBonus: 2
+  magazineSizeBonus: 0
+  reloadTimeMultiplier: 1
+  firePointOffsetDelta: {x: 0, y: 0}
+  aimPivotOffsetDelta: {x: 0, y: 0}
+  pierceCount: 0
+  isPiercing: 0
+  description: A fancy new scope! +2 damager per shot
+  icon: {fileID: 6495033326967414993, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
+  starLevel: 1
+  nextStarUpgrade: {fileID: 11400000, guid: 97d3812d6cd091244ae23f3cf775033f, type: 2}
