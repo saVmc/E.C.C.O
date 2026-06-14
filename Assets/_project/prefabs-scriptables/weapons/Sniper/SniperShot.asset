@@ -17,7 +17,7 @@ MonoBehaviour:
   maxRange: 25
   sprite: {fileID: 21300000, guid: 163fa462d67547f4dac02a77df9c38cb, type: 3}
   tintColor: {r: 0.94716984, g: 0.8808243, b: 0.0696973, a: 1}
-  scale: 0.3
+  scale: 0.6
   hitMask:
     serializedVersion: 2
     m_Bits: 4294967295

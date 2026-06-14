@@ -14,6 +14,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected Transform player;
 
     private bool isDead = false;
+    private float slowMultiplier = 1f;
+    private float slowRemainingTime = 0f;
 
     public event System.Action<int> OnDeath;
 
@@ -22,6 +24,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         rb.freezeRotation = true;
+
+        rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
@@ -42,6 +46,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (isDead || player == null)
             return;
 
+        if (slowRemainingTime > 0f)
+        {
+            slowRemainingTime -= Time.deltaTime;
+            if (slowRemainingTime <= 0f)
+                slowMultiplier = 1f;
+        }
+
         MoveTowardPlayer();
     }
 
@@ -51,7 +62,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             return;
 
         Vector2 direction = ((Vector2)player.position - rb.position).normalized;
-        rb.linearVelocity = direction * profile.MoveSpeed;
+        rb.linearVelocity = direction * profile.MoveSpeed * slowMultiplier;
     }
 
     public virtual void TakeDamage(int amount)
@@ -130,6 +141,19 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         currentHealth = profile.MaxHealth;
         if (profile.Sprite != null)
             spriteRenderer.sprite = profile.Sprite;
+    }
+
+    public void ApplySlow(float multiplier, float duration)
+    {
+        slowMultiplier = Mathf.Min(slowMultiplier, multiplier);
+        slowRemainingTime = Mathf.Max(slowRemainingTime, duration);
+    }
+
+    public void PullToward(Vector2 target, float pullForce)
+    {
+        if (isDead) return;
+        Vector2 direction = ((Vector2)target - rb.position).normalized;
+        rb.linearVelocity = direction * pullForce;
     }
 
     public void ExecutionKill()

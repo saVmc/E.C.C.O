@@ -67,6 +67,7 @@ protected int pelletCountBonus = 0;
 protected float spreadAngleDelta = 0f;
 protected bool isRicochet = false;
 protected int ricochetCount = 1;
+protected bool gun5StarTrail = false;
 protected bool isInfiniteMag = false;
     protected bool isPiercing = false;
 
@@ -311,6 +312,9 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         if (currentProjectileProfile != null)
             projectile.ApplyProfile(currentProjectileProfile);
         projectile.transform.right = pelletDirection;
+
+        if (gun5StarTrail)
+            projectile.EnableTrail(projectileTintColor);
 
         if (isPiercing)
     projectile.SetPiercing(piercingCount);

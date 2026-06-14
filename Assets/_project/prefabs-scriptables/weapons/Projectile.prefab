@@ -195,3 +195,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebedecbcf68b3994592c15b4b32098ba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StraightProjectile
+  explosionVFXPrefab: {fileID: 7660051777827735630, guid: e1b17fc9fcead0e4b838d374f652e21c, type: 3}

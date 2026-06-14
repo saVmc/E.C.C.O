@@ -24,7 +24,9 @@ public sealed class GunUpgrade : ScriptableObject
 [SerializeField] private bool isRicochet = false;
 [SerializeField] private int ricochetCount = 1;
 [SerializeField] private bool isInfiniteMag = false;
+[SerializeField] private bool enablesBulletTrail = false;
 
+public bool EnablesBulletTrail => enablesBulletTrail;
 public bool IsTripleShot => isTripleShot;
 public bool IsExplosive => isExplosive;
 public float ExplosionRadius => explosionRadius;

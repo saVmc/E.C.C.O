@@ -3,6 +3,7 @@ using UnityEngine.Rendering.Universal;
 
 public abstract class Projectile : MonoBehaviour
 {
+    [SerializeField] private GameObject explosionVFXPrefab;
     protected Vector2 direction;
     protected float speed;
     protected float lifetime;
@@ -10,6 +11,7 @@ public abstract class Projectile : MonoBehaviour
     protected GameObject owner;
     protected LayerMask hitMask;
     private int pierceCount = 0;
+    private TrailRenderer trail;
 private int maxPierceCount = 0;
     private float destroyTime;
     private bool rotateToDirection;
@@ -39,6 +41,21 @@ public void SetRicochet(int count) { isRicochet = true; ricochetCount = count; }
         destroyTime = Time.time + lifetime;
     }
 
+    private void Awake()
+{
+    trail = GetComponent<TrailRenderer>();
+    if (trail != null) trail.enabled = false;
+}
+
+public void EnableTrail(Color color)
+{
+    if (trail != null)
+    {
+        trail.enabled = true;
+        trail.startColor = color;
+        trail.endColor = new Color(color.r, color.g, color.b, 0f);
+    }
+}
     public virtual void ApplyProfile(ProjectileProfile profile)
     {
         if (profile == null)
@@ -123,6 +140,12 @@ else
 
     private void Explode()
 {
+    if (explosionVFXPrefab != null)
+    {
+        GameObject vfx = Instantiate(explosionVFXPrefab, transform.position, Quaternion.identity);
+        Destroy(vfx, 1f);
+    }
+
     Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, explosionRadius);
     foreach (Collider2D hit in hits)
     {

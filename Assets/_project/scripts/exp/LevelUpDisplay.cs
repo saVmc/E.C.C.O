@@ -164,9 +164,12 @@ public class LevelUpDisplay : MonoBehaviour
         if (cardLayout != null)
             LayoutRebuilder.ForceRebuildLayoutImmediate(cardLayout.GetComponent<RectTransform>());
 
+        // Force canvas update to ensure all card content renders properly
+        Canvas.ForceUpdateCanvases();
+
         for (int i = 0; i < cardTransforms.Length; i++)
         {
-            if (cardTransforms[i].gameObject.activeSelf)
+            if (cardTransforms[i] != null && cardTransforms[i].gameObject.activeSelf)
             {
                 cardRestPositions[i] = cardTransforms[i].anchoredPosition;
                 cardTransforms[i].anchoredPosition = cardRestPositions[i] + Vector2.down * cardSlideDistance;
@@ -180,7 +183,7 @@ public class LevelUpDisplay : MonoBehaviour
             float t = Mathf.SmoothStep(0f, 1f, elapsed / cardAnimDuration);
             for (int i = 0; i < cardTransforms.Length; i++)
             {
-                if (cardTransforms[i].gameObject.activeSelf)
+                if (cardTransforms[i] != null && cardTransforms[i].gameObject.activeSelf)
                     cardTransforms[i].anchoredPosition = Vector2.Lerp(
                         cardRestPositions[i] + Vector2.down * cardSlideDistance,
                         cardRestPositions[i],

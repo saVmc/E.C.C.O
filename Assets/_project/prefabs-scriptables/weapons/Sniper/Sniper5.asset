@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392f39f25a78afd43a9044752d5efd37, type: 3}
   m_Name: Sniper5
   m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
-  displayName: Explosive Tip
+  displayName: Execution
   fireCooldownMultiplier: 0.9
   projectileSpeedMultiplier: 1.75
   projectileLifetimeMultiplier: 1
@@ -24,7 +24,7 @@ MonoBehaviour:
   isTripleShot: 0
   isExplosive: 1
   explosionRadius: 2
-  isExecutioner: 0
+  isExecutioner: 1
   executionThreshold: 0.2
   isDoubleBarrel: 0
   pelletCountBonus: 0
@@ -32,9 +32,10 @@ MonoBehaviour:
   isRicochet: 0
   ricochetCount: 1
   isInfiniteMag: 0
+  enablesBulletTrail: 1
   pierceCount: 2
   isPiercing: 1
-  description: Why not add explosions?! Bullets now detonate in a small radius.
+  description: The final form. Bullets now insta-kill enemies below 20% HP.
   icon: {fileID: 6495033326967414993, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
-  starLevel: 4
+  starLevel: 5
   nextStarUpgrade: {fileID: 0}

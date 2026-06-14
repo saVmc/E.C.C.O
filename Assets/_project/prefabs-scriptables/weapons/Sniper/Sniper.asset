@@ -17,9 +17,9 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6300398710149701733, guid: d20405f838e288c41995d821db6a20eb, type: 3}
   projectileProfile: {fileID: 11400000, guid: 911f8f2fee2284e47b38688854366893, type: 2}
   weaponSprite: {fileID: 21300000, guid: bf52a7ac963901246bec7d36ca8783f7, type: 3}
-  fireCooldown: 1
-  magazineSize: 5
-  reloadTime: 1.5
+  fireCooldown: 0.9
+  magazineSize: 7
+  reloadTime: 1.2
   allowVerticalAim: 1
   firePointLocalPosition: {x: 8, y: 0}
   aimPivotLocalPosition: {x: 0, y: 0}
@@ -33,4 +33,4 @@ MonoBehaviour:
   starTwoUpgrade: {fileID: 11400000, guid: 97d3812d6cd091244ae23f3cf775033f, type: 2}
   starThreeUpgrade: {fileID: 11400000, guid: a64bef7c0518d544c88bb4e2ca5cf9ec, type: 2}
   starFourUpgrade: {fileID: 11400000, guid: cc22190d2ea36cc46a0edda588d80110, type: 2}
-  starFiveUpgrade: {fileID: 0}
+  starFiveUpgrade: {fileID: 11400000, guid: ef46a7a0d6c394848bbc687aed1a88ee, type: 2}

@@ -76,6 +76,9 @@ public sealed class UpgradeCardUI : MonoBehaviour
             selectButton.onClick.RemoveAllListeners();
             selectButton.onClick.AddListener(OnSelected);
         }
+
+        // Force layout rebuild for this card
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 
     public void PopulateGunUpgrade(GunUpgradeOffer offer, LevelUpDisplay display)
@@ -112,6 +115,9 @@ public sealed class UpgradeCardUI : MonoBehaviour
             selectButton.onClick.RemoveAllListeners();
             selectButton.onClick.AddListener(OnGunUpgradeSelected);
         }
+
+        // Force layout rebuild for this card
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 
     private void OnGunUpgradeSelected()

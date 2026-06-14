@@ -37,4 +37,4 @@ MonoBehaviour:
   description: Why not add explosions?! Bullets now detonate in a small radius.
   icon: {fileID: 6495033326967414993, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 4
-  nextStarUpgrade: {fileID: 0}
+  nextStarUpgrade: {fileID: 11400000, guid: ef46a7a0d6c394848bbc687aed1a88ee, type: 2}
