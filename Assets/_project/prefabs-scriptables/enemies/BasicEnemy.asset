@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18287d08a5ac683408eb9c84babfbe09, type: 3}
   m_Name: BasicEnemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyProfile
-  maxHealth: 10
+  maxHealth: 25
   moveSpeed: 2
   contactDamage: 1
   sprite: {fileID: 0}

@@ -16,6 +16,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     private bool isDead = false;
     private float slowMultiplier = 1f;
     private float slowRemainingTime = 0f;
+    private bool isStunned = false;
 
     public event System.Action<int> OnDeath;
 
@@ -50,7 +51,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         {
             slowRemainingTime -= Time.deltaTime;
             if (slowRemainingTime <= 0f)
+            {
                 slowMultiplier = 1f;
+                isStunned = false;
+                UpdateHealthVisual();
+            }
         }
 
         MoveTowardPlayer();
@@ -83,7 +88,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             return;
 
         float t = 1f - Mathf.Clamp01(currentHealth / profile.MaxHealth);
-        spriteRenderer.color = Color.Lerp(Color.white, Color.red, t);
+        Color healthColor = Color.Lerp(Color.white, Color.red, t);
+        spriteRenderer.color = isStunned ? Color.Lerp(healthColor, new Color(0.3f, 0.6f, 1f), 0.6f) : healthColor;
     }
 
     protected virtual void Die()
@@ -147,6 +153,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         slowMultiplier = Mathf.Min(slowMultiplier, multiplier);
         slowRemainingTime = Mathf.Max(slowRemainingTime, duration);
+        isStunned = slowMultiplier == 0f;
+        UpdateHealthVisual();
     }
 
     public void PullToward(Vector2 target, float pullForce)

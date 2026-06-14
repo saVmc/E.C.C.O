@@ -19,3 +19,6 @@ MonoBehaviour:
   starLevel: 0
   cooldown: 15
   nextStarDefinition: {fileID: 11400000, guid: 121d34a21969fea4cb59a466ccb22f8b, type: 2}
+  vfxPrefabA: {fileID: 1412517935126699208, guid: bce86bda808e1b843937220f31b775a8, type: 3}
+  vfxPrefabB: {fileID: 3610551855836226412, guid: 7e351d5bade735843806ef031071e73d, type: 3}
+  vfxPrefabC: {fileID: 0}

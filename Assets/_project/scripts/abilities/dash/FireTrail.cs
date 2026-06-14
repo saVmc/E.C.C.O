@@ -35,6 +35,8 @@ public sealed class FireTrail : MonoBehaviour
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 0.4f);
             foreach (Collider2D hit in hits)
             {
+                if (hit.CompareTag("Player") || hit.transform.root.CompareTag("Player"))
+                    continue;
                 IDamageable damageable = hit.GetComponentInParent<IDamageable>();
                 if (damageable != null)
                     damageable.TakeDamage(damage);

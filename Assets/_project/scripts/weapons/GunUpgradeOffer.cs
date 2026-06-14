@@ -9,7 +9,8 @@ public sealed class GunUpgradeOffer
     public int StarLevel { get; private set; }
 
     public string GunName { get; private set; }
-public string UpgradeName { get; private set; }
+    public string UpgradeName { get; private set; }
+    public bool IsMaxStar => Upgrade != null && Upgrade.IsMaxStar;
 
 public GunUpgradeOffer(GunUpgrade upgrade, string gunName)
 {

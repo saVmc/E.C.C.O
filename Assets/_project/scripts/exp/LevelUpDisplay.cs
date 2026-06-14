@@ -90,58 +90,85 @@ public class LevelUpDisplay : MonoBehaviour
     }
 
     private IEnumerator ShowLevelUpRoutine(int newLevel)
+{
+    Debug.Log($"ShowLevelUpRoutine started, isShowing was: {isShowing}", this);
+    isShowing = true;
+
+    // FORCE CARDS ARRAY REBUILD AT START OF ROUTINE
+    if (cards == null || cards.Count == 0)
     {
-        Debug.Log($"ShowLevelUpRoutine started, isShowing was: {isShowing}", this);
-        isShowing = true;
+        Debug.LogError("[LevelUpDisplay] Cards list is null or empty! Check Inspector assignment!");
+        isShowing = false;
+        yield break;
+    }
 
-        if (darkOverlay != null)
+    // Force cardTransforms rebuild at start
+    cardTransforms = new RectTransform[cards.Count];
+    cardRestPositions = new Vector2[cards.Count];
+    for (int i = 0; i < cards.Count; i++)
+    {
+        if (cards[i] != null)
         {
-            darkOverlay.gameObject.SetActive(true);
-            darkOverlay.alpha = 0f;
-            float fadeElapsed = 0f;
-            while (fadeElapsed < overlayFadeDuration)
-            {
-                fadeElapsed += Time.unscaledDeltaTime;
-                darkOverlay.alpha = Mathf.Lerp(0f, overlayAlpha, fadeElapsed / overlayFadeDuration);
-                yield return null;
-            }
-            darkOverlay.alpha = overlayAlpha;
-        }
-
-        // Show text
-        if (levelUpText != null)
-        {
-            levelUpText.text = $"LEVEL UP!";
-            levelUpText.gameObject.SetActive(true);
-            levelUpText.alpha = 0f;
-
-            float textElapsed = 0f;
-            float halfDuration = levelUpTextDuration * 0.5f;
-
-            while (textElapsed < halfDuration)
-            {
-                textElapsed += Time.unscaledDeltaTime;
-                levelUpText.alpha = Mathf.Lerp(0f, 1f, textElapsed / halfDuration);
-                yield return null;
-            }
-
-            yield return new WaitForSecondsRealtime(halfDuration);
+            cardTransforms[i] = cards[i].GetComponent<RectTransform>();
+            cards[i].gameObject.SetActive(false); // Explicitly disable all cards initially
         }
         else
         {
-            yield return new WaitForSecondsRealtime(delayBeforeCards);
+            Debug.LogError($"[LevelUpDisplay] Card at index {i} is null!");
+        }
+    }
+
+    if (darkOverlay != null)
+    {
+        darkOverlay.gameObject.SetActive(true);
+        darkOverlay.alpha = 0f;
+        float fadeElapsed = 0f;
+        while (fadeElapsed < overlayFadeDuration)
+        {
+            fadeElapsed += Time.unscaledDeltaTime;
+            darkOverlay.alpha = Mathf.Lerp(0f, overlayAlpha, fadeElapsed / overlayFadeDuration);
+            yield return null;
+        }
+        darkOverlay.alpha = overlayAlpha;
+    }
+
+    // Show text
+    if (levelUpText != null)
+    {
+        levelUpText.text = $"LEVEL UP!";
+        levelUpText.gameObject.SetActive(true);
+        levelUpText.alpha = 0f;
+
+        float textElapsed = 0f;
+        float halfDuration = levelUpTextDuration * 0.5f;
+
+        while (textElapsed < halfDuration)
+        {
+            textElapsed += Time.unscaledDeltaTime;
+            levelUpText.alpha = Mathf.Lerp(0f, 1f, textElapsed / halfDuration);
+            yield return null;
         }
 
-        if (AbilityManager.Instance != null)
-            AbilityManager.Instance.enabled = false;
+        yield return new WaitForSecondsRealtime(halfDuration);
+    }
+    else
+    {
+        yield return new WaitForSecondsRealtime(delayBeforeCards);
+    }
 
-        Time.timeScale = 0f;
+    if (AbilityManager.Instance != null)
+        AbilityManager.Instance.enabled = false;
 
-        List<UpgradeOffer> offers = AbilityManager.Instance != null
-            ? AbilityManager.Instance.GenerateUpgradeOffers(3)
-            : new List<UpgradeOffer>();
+    Time.timeScale = 0f;
 
-        for (int i = 0; i < cards.Count; i++)
+    List<UpgradeOffer> offers = AbilityManager.Instance != null
+        ? AbilityManager.Instance.GenerateUpgradeOffers(3)
+        : new List<UpgradeOffer>();
+
+    // Activate cards based on offers
+    for (int i = 0; i < cards.Count; i++)
+    {
+        if (cards[i] != null)
         {
             if (i < offers.Count)
             {
@@ -153,53 +180,72 @@ public class LevelUpDisplay : MonoBehaviour
                 cards[i].gameObject.SetActive(false);
             }
         }
-        
-        Debug.Log($"Offers generated: {offers.Count}");
-        for (int i = 0; i < offers.Count; i++)
-            Debug.Log($"Offer {i}: {(offers[i].IsGunUpgrade ? offers[i].GunUpgrade.UpgradeName : offers[i].Definition?.DisplayName)}");
-
-        if (cardContainer != null)
-            cardContainer.SetActive(true);
-
-        if (cardLayout != null)
-            LayoutRebuilder.ForceRebuildLayoutImmediate(cardLayout.GetComponent<RectTransform>());
-
-        // Force canvas update to ensure all card content renders properly
-        Canvas.ForceUpdateCanvases();
-
-        for (int i = 0; i < cardTransforms.Length; i++)
-        {
-            if (cardTransforms[i] != null && cardTransforms[i].gameObject.activeSelf)
-            {
-                cardRestPositions[i] = cardTransforms[i].anchoredPosition;
-                cardTransforms[i].anchoredPosition = cardRestPositions[i] + Vector2.down * cardSlideDistance;
-            }
-        }
-
-        float elapsed = 0f;
-        while (elapsed < cardAnimDuration)
-        {
-            elapsed += Time.unscaledDeltaTime;
-            float t = Mathf.SmoothStep(0f, 1f, elapsed / cardAnimDuration);
-            for (int i = 0; i < cardTransforms.Length; i++)
-            {
-                if (cardTransforms[i] != null && cardTransforms[i].gameObject.activeSelf)
-                    cardTransforms[i].anchoredPosition = Vector2.Lerp(
-                        cardRestPositions[i] + Vector2.down * cardSlideDistance,
-                        cardRestPositions[i],
-                        t
-                    );
-            }
-            yield return null;
-        }
-
-        if (pickPromptText != null)
-            StartCoroutine(FadeInPickPrompt());
-
-        foreach (PulseUI pulser in cardPulsers)
-            pulser.SetPulsing(true);
     }
 
+    Debug.Log($"[LevelUpDisplay] Cards count: {cards.Count}, Offers count: {offers.Count}");
+    for (int i = 0; i < offers.Count; i++)
+        Debug.Log($"Offer {i}: {(offers[i].IsGunUpgrade ? offers[i].GunUpgrade.UpgradeName : offers[i].Definition?.DisplayName)}");
+
+    if (offers.Count < cards.Count)
+        Debug.LogWarning($"[LevelUpDisplay] Only {offers.Count} offers for {cards.Count} cards! Check AbilityManager.availableAbilityPool size.");
+
+    if (cardContainer != null)
+        cardContainer.SetActive(true);
+
+    // Rebuild cardTransforms and cardRestPositions AGAIN to match current cards state
+    if (cardContainer != null && cards.Count > 0)
+    {
+        cardTransforms = new RectTransform[cards.Count];
+        cardRestPositions = new Vector2[cards.Count];
+        for (int i = 0; i < cards.Count; i++)
+        {
+            if (cards[i] != null)
+                cardTransforms[i] = cards[i].GetComponent<RectTransform>();
+        }
+    }
+
+    if (cardLayout != null)
+        LayoutRebuilder.ForceRebuildLayoutImmediate(cardLayout.GetComponent<RectTransform>());
+
+    // Force canvas update to ensure all card content renders properly
+    Canvas.ForceUpdateCanvases();
+
+    for (int i = 0; i < cards.Count; i++)
+        Debug.Log($"[LevelUpDisplay] Card {i} active: {cards[i].gameObject.activeSelf}, pos: {cards[i].GetComponent<RectTransform>().anchoredPosition}, parent: {cards[i].transform.parent?.name}");
+
+    // Now set positions for animation - only for active cards
+    for (int i = 0; i < cardTransforms.Length; i++)
+    {
+        if (cardTransforms[i] != null && cards[i] != null && cards[i].gameObject.activeSelf)
+        {
+            cardRestPositions[i] = cardTransforms[i].anchoredPosition;
+            cardTransforms[i].anchoredPosition = cardRestPositions[i] + Vector2.down * cardSlideDistance;
+        }
+    }
+
+    float elapsed = 0f;
+    while (elapsed < cardAnimDuration)
+    {
+        elapsed += Time.unscaledDeltaTime;
+        float t = Mathf.SmoothStep(0f, 1f, elapsed / cardAnimDuration);
+        for (int i = 0; i < cardTransforms.Length; i++)
+        {
+            if (cardTransforms[i] != null && cards[i] != null && cards[i].gameObject.activeSelf)
+                cardTransforms[i].anchoredPosition = Vector2.Lerp(
+                    cardRestPositions[i] + Vector2.down * cardSlideDistance,
+                    cardRestPositions[i],
+                    t
+                );
+        }
+        yield return null;
+    }
+
+    if (pickPromptText != null)
+        StartCoroutine(FadeInPickPrompt());
+
+    foreach (PulseUI pulser in cardPulsers)
+        pulser.SetPulsing(true);
+}
     private IEnumerator FadeInPickPrompt()
     {
         if (pickPromptText == null) yield break;
@@ -238,7 +284,6 @@ public class LevelUpDisplay : MonoBehaviour
         if (AbilityManager.Instance != null)
             AbilityManager.Instance.enabled = true;
 
-        Time.timeScale = 1f;
         isShowing = false;
 
         if (pendingLevelUps > 0)
@@ -246,6 +291,10 @@ public class LevelUpDisplay : MonoBehaviour
             pendingLevelUps--;
             isShowing = true;
             StartCoroutine(ShowLevelUpRoutine(PlayerProgression.Instance.CurrentLevel));
+        }
+        else
+        {
+            Time.timeScale = 1f;
         }
     }
 }

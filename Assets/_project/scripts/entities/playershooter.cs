@@ -68,6 +68,9 @@ public sealed class PlayerShooter : MonoBehaviour
         if (activeGun == null)
             return;
 
+        if (Time.timeScale == 0f)
+            return;
+
         bool firePressed = false;
         bool reloadPressed = false;
 

@@ -127,8 +127,17 @@ private Material playerMaterial;
     {
         if (definition == null) return;
 
+        if (definition.VfxPrefabA != null) fireTrailPrefab = definition.VfxPrefabA;
+        if (definition.VfxPrefabB != null) speedBoostParticlePrefab = definition.VfxPrefabB;
+
         switch (definition.StarLevel)
         {
+                case 0:
+    dashDistance = 4f;
+    speedBoostMultiplier = 1f;
+    phaseThrough = false;
+    leaveFireTrail = false;
+    break;
             case 1: dashDistance = 5f; break;
             case 2: dashDistance = 6f; speedBoostMultiplier = 2f; break;
             case 3: phaseThrough = true; break;

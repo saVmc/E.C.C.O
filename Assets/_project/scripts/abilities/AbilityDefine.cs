@@ -16,6 +16,15 @@ public sealed class AbilityDefinition : ScriptableObject
     [Header("Upgrade Chain")]
     [SerializeField] private AbilityDefinition nextStarDefinition;
 
+    [Header("VFX Prefabs")]
+[SerializeField] private GameObject vfxPrefabA;
+[SerializeField] private GameObject vfxPrefabB;
+[SerializeField] private GameObject vfxPrefabC;
+
+public GameObject VfxPrefabA => vfxPrefabA;
+public GameObject VfxPrefabB => vfxPrefabB;
+public GameObject VfxPrefabC => vfxPrefabC;
+
     public string AbilityName => abilityName;
     public string DisplayName => displayName;
     public string Description => description;

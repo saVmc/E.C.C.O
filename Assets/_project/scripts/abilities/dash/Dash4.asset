@@ -18,4 +18,7 @@ MonoBehaviour:
   icon: {fileID: 21300000, guid: 012d699a1de63304d9059815d87aafa0, type: 3}
   starLevel: 4
   cooldown: 12
-  nextStarDefinition: {fileID: 0}
+  nextStarDefinition: {fileID: 11400000, guid: 12d79f6f32babad479cc2bbe92294342, type: 2}
+  vfxPrefabA: {fileID: 1412517935126699208, guid: bce86bda808e1b843937220f31b775a8, type: 3}
+  vfxPrefabB: {fileID: 3610551855836226412, guid: 7e351d5bade735843806ef031071e73d, type: 3}
+  vfxPrefabC: {fileID: 0}

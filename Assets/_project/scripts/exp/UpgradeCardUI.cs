@@ -12,6 +12,7 @@ public sealed class UpgradeCardUI : MonoBehaviour
     [SerializeField] private Button selectButton;
     [SerializeField] private Image newAbilityBackground;
     [SerializeField] private Image upgradeBackground;
+    [SerializeField] private Image maxedBackground; 
 
     private UpgradeOffer offer_field;
     private LevelUpDisplay display;
@@ -20,22 +21,23 @@ public sealed class UpgradeCardUI : MonoBehaviour
     public void Populate(UpgradeOffer upgradeOffer, LevelUpDisplay levelUpDisplay)
     {
         if (upgradeOffer == null)
-    {
-        gameObject.SetActive(false);
-        return;
-    }
+        {
+            gameObject.SetActive(false);
+            return;
+        }
 
-    if (upgradeOffer.IsGunUpgrade)
-    {
-        PopulateGunUpgrade(upgradeOffer.GunUpgrade, levelUpDisplay);
-        return;
-    }
+        if (upgradeOffer.IsGunUpgrade)
+        {
+            PopulateGunUpgrade(upgradeOffer.GunUpgrade, levelUpDisplay);
+            return;
+        }
 
-    if (upgradeOffer.Definition == null)
-    {
-        gameObject.SetActive(false);
-        return;
-    }
+        if (upgradeOffer.Definition == null)
+        {
+            gameObject.SetActive(false);
+            return;
+        }
+
         offer_field = upgradeOffer;
         display = levelUpDisplay;
 
@@ -50,6 +52,18 @@ public sealed class UpgradeCardUI : MonoBehaviour
 
         if (upgradeBackground != null)
             upgradeBackground.gameObject.SetActive(!offer_field.IsNewAbility);
+        
+        bool isMaxed = !upgradeOffer.IsNewAbility && !upgradeOffer.IsGunUpgrade
+    && upgradeOffer.Definition != null
+    && upgradeOffer.Definition.IsMaxStar;
+
+Debug.Log($"[UpgradeCardUI] {upgradeOffer.Definition?.DisplayName} | isMaxed={isMaxed} | IsMaxStar={upgradeOffer.Definition?.IsMaxStar} | maxedBackground assigned={maxedBackground != null}");
+
+if (maxedBackground != null)
+    maxedBackground.gameObject.SetActive(isMaxed);
+
+if (upgradeBackground != null)
+    upgradeBackground.gameObject.SetActive(!offer_field.IsNewAbility && !isMaxed);
 
         gameObject.SetActive(true);
 
@@ -99,7 +113,7 @@ public sealed class UpgradeCardUI : MonoBehaviour
             abilityNameText.text = offer.GunName;
 
         if (starText != null)
-            starText.text = BuildStarString(offer.StarLevel);
+            starText.text = BuildStarString(gunOffer.StarLevel);
 
         if (upgradeNameText != null)
             upgradeNameText.text = offer.UpgradeName;
@@ -107,8 +121,10 @@ public sealed class UpgradeCardUI : MonoBehaviour
         if (descriptionText != null)
             descriptionText.text = offer.Description;
 
+        bool isGunMaxed = offer.IsMaxStar;
         if (newAbilityBackground != null) newAbilityBackground.gameObject.SetActive(false);
-        if (upgradeBackground != null) upgradeBackground.gameObject.SetActive(true);
+        if (maxedBackground != null) maxedBackground.gameObject.SetActive(isGunMaxed);
+        if (upgradeBackground != null) upgradeBackground.gameObject.SetActive(!isGunMaxed);
 
         if (selectButton != null)
         {

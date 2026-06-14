@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c112cb78b2377d40a9c22b2325222c3, type: 3}
   m_Name: SniperShot
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileProfile
-  damage: 2
+  damage: 3
   speed: 25
   maxRange: 25
   sprite: {fileID: 21300000, guid: 163fa462d67547f4dac02a77df9c38cb, type: 3}

@@ -13,18 +13,30 @@ MonoBehaviour:
   m_Name: Sniper2
   m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
   displayName: Deathly Load
-  fireCooldownMultiplier: 0.9
+  fireCooldownMultiplier: 0.7
   projectileSpeedMultiplier: 1.75
   projectileLifetimeMultiplier: 1
-  projectileDamageBonus: 0
+  projectileDamageBonus: 2
   magazineSizeBonus: 0
   reloadTimeMultiplier: 1
   firePointOffsetDelta: {x: 0, y: 0}
   aimPivotOffsetDelta: {x: 0, y: 0}
+  isTripleShot: 0
+  isExplosive: 0
+  explosionRadius: 2
+  isExecutioner: 0
+  executionThreshold: 0.2
+  isDoubleBarrel: 0
+  pelletCountBonus: 0
+  spreadAngleDelta: 0
+  isRicochet: 0
+  ricochetCount: 1
+  isInfiniteMag: 0
+  enablesBulletTrail: 0
   pierceCount: 2
   isPiercing: 0
-  description: 'Supercharged rounds ... are they lollipops? Bullet speed increased
-    significantly '
+  description: 'Supercharged rounds ... are they lollipops? Bullet and fire speed
+    increased significantly '
   icon: {fileID: 6495033326967414993, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 2
   nextStarUpgrade: {fileID: 11400000, guid: a64bef7c0518d544c88bb4e2ca5cf9ec, type: 2}

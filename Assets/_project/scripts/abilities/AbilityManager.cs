@@ -93,7 +93,18 @@ public sealed class AbilityManager : MonoBehaviour
 {
     List<UpgradeOffer> allOffers = new List<UpgradeOffer>();
 
-    // Ability upgrades
+    Debug.Log($"[GenerateUpgradeOffers] === START GENERATION ===");
+    Debug.Log($"[GenerateUpgradeOffers] Pool size: {availableAbilityPool.Count}, Slots full: {AllSlotsFull()}");
+    
+    for (int i = 0; i < slots.Count; i++)
+    {
+        if (!slots[i].IsEmpty)
+            Debug.Log($"  Slot {i}: {slots[i].Ability.GetAbilityName()}, Star {slots[i].Ability.GetStarLevel()}, IsMaxStar: {slots[i].Ability.Definition.IsMaxStar}");
+        else
+            Debug.Log($"  Slot {i}: EMPTY");
+    }
+
+    // Ability upgrades (only if not max star)
     foreach (AbilitySlot slot in slots)
     {
         if (!slot.IsEmpty && !slot.Ability.Definition.IsMaxStar)
@@ -103,12 +114,20 @@ public sealed class AbilityManager : MonoBehaviour
                 slot.Ability,
                 false
             ));
+            Debug.Log($"  + Added ability upgrade: {slot.Ability.Definition.NextStarDefinition.DisplayName} (to star {slot.Ability.Definition.NextStarDefinition.StarLevel})");
+        }
+        else if (!slot.IsEmpty && slot.Ability.Definition.IsMaxStar)
+        {
+            Debug.Log($"  - Skipped {slot.Ability.GetAbilityName()}: MAX STAR");
         }
     }
+
+    Debug.Log($"  Ability upgrades total: {allOffers.Count}");
 
     // New abilities
     if (!AllSlotsFull())
     {
+        Debug.Log($"  Checking for new abilities from pool of {availableAbilityPool.Count}:");
         foreach (AbilityDefinition def in availableAbilityPool)
         {
             bool alreadyHas = false;
@@ -117,14 +136,25 @@ public sealed class AbilityManager : MonoBehaviour
                 if (!slot.IsEmpty && slot.Ability.Definition.AbilityName == def.AbilityName)
                 {
                     alreadyHas = true;
+                    Debug.Log($"    - {def.DisplayName}: ALREADY OWNED");
                     break;
                 }
             }
             if (!alreadyHas)
+            {
                 allOffers.Add(new UpgradeOffer(def, null, true));
+                Debug.Log($"    + {def.DisplayName}: ADDED as new ability");
+            }
         }
     }
+    else
+    {
+        Debug.Log($"  All slots full - skipping new abilities");
+    }
 
+    Debug.Log($"  After new abilities total: {allOffers.Count}");
+
+    // Gun upgrade
     PlayerShooter shooter = FindAnyObjectByType<PlayerShooter>();
     if (shooter != null)
     {
@@ -132,20 +162,40 @@ public sealed class AbilityManager : MonoBehaviour
         if (gun != null && gun.CurrentProfile != null)
         {
             int nextStar = gun.appliedUpgrades.Count + 1;
+            Debug.Log($"  Gun: {gun.CurrentProfile.DisplayName}, Applied upgrades: {gun.appliedUpgrades.Count}, Next star: {nextStar}");
             GunUpgrade gunUpgrade = gun.CurrentProfile.GetUpgradeForStar(nextStar);
             if (gunUpgrade != null)
             {
                 GunUpgradeOffer gunOffer = new GunUpgradeOffer(gunUpgrade, gun.CurrentProfile.DisplayName);
                 allOffers.Add(new UpgradeOffer(null, null, false, gunOffer));
+                Debug.Log($"  + Added gun upgrade: {gunUpgrade.DisplayName} (star {nextStar})");
+            }
+            else
+            {
+                Debug.Log($"  - No gun upgrade for star {nextStar}");
             }
         }
+        else
+        {
+            Debug.Log($"  - Gun or profile is NULL");
+        }
     }
+    else
+    {
+        Debug.Log($"  - PlayerShooter not found");
+    }
+
+    Debug.Log($"  === TOTAL OFFERS BEFORE SHUFFLE: {allOffers.Count} ===");
 
     Shuffle(allOffers);
 
     List<UpgradeOffer> result = new List<UpgradeOffer>();
     for (int i = 0; i < Mathf.Min(count, allOffers.Count); i++)
         result.Add(allOffers[i]);
+
+    Debug.Log($"  Final result: {result.Count} offers");
+    foreach (var offer in result)
+        Debug.Log($"    Offer: {(offer.IsGunUpgrade ? offer.GunUpgrade.UpgradeName : offer.Definition?.DisplayName)}");
 
     return result;
 }
