@@ -85,6 +85,12 @@ public sealed class PlayerShooter : MonoBehaviour
             firePressed |= Mouse.current.leftButton.isPressed;
         }
 
+        if (firePressed && activeGun.LocksMovementWhileFiring)
+        {
+            PlayerMovement pm = GetComponent<PlayerMovement>();
+            if (pm != null) pm.LockMovementThisFrame();
+        }
+
         activeGun.HandleInput(firePressed, reloadPressed);
     }
 

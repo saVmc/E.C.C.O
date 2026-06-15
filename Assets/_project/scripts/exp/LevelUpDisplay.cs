@@ -261,6 +261,68 @@ public class LevelUpDisplay : MonoBehaviour
         }
     }
 
+    public void ShowDropOffer(UpgradeOffer offer)
+    {
+        if (isShowing) return;
+        StartCoroutine(ShowDropRoutine(offer));
+    }
+
+    private IEnumerator ShowDropRoutine(UpgradeOffer offer)
+    {
+        isShowing = true;
+
+        if (darkOverlay != null)
+        {
+            darkOverlay.gameObject.SetActive(true);
+            darkOverlay.alpha = 0f;
+            float t = 0f;
+            while (t < overlayFadeDuration)
+            {
+                t += Time.unscaledDeltaTime;
+                darkOverlay.alpha = Mathf.Lerp(0f, overlayAlpha, t / overlayFadeDuration);
+                yield return null;
+            }
+        }
+
+        if (AbilityManager.Instance != null) AbilityManager.Instance.enabled = false;
+        Time.timeScale = 0f;
+
+        // Only show the first card slot
+        for (int i = 0; i < cards.Count; i++)
+            if (cards[i] != null) cards[i].gameObject.SetActive(i == 0);
+
+        if (cards.Count > 0 && cards[0] != null)
+            cards[0].Populate(offer, this);
+
+        if (cardContainer != null) cardContainer.SetActive(true);
+
+        cardTransforms = new RectTransform[cards.Count];
+        cardRestPositions = new Vector2[cards.Count];
+        for (int i = 0; i < cards.Count; i++)
+            if (cards[i] != null) cardTransforms[i] = cards[i].GetComponent<RectTransform>();
+
+        Canvas.ForceUpdateCanvases();
+
+        if (cardTransforms[0] != null)
+        {
+            cardRestPositions[0] = cardTransforms[0].anchoredPosition;
+            cardTransforms[0].anchoredPosition = cardRestPositions[0] + Vector2.down * cardSlideDistance;
+
+            float elapsed = 0f;
+            while (elapsed < cardAnimDuration)
+            {
+                elapsed += Time.unscaledDeltaTime;
+                float t = Mathf.SmoothStep(0f, 1f, elapsed / cardAnimDuration);
+                cardTransforms[0].anchoredPosition = Vector2.Lerp(
+                    cardRestPositions[0] + Vector2.down * cardSlideDistance, cardRestPositions[0], t);
+                yield return null;
+            }
+        }
+
+        if (cardPulsers.Count > 0) cardPulsers[0].SetPulsing(true);
+        if (pickPromptText != null) StartCoroutine(FadeInPickPrompt());
+    }
+
     public void HideCards()
     {
         foreach (PulseUI pulser in cardPulsers)

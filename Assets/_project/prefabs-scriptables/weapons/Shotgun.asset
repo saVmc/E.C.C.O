@@ -28,3 +28,9 @@ MonoBehaviour:
   ammoIcon: {fileID: 6066325612735239030, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   pelletCount: 5
   spreadAngle: 30
+  playerMoveSpeed: 4.5
+  starOneUpgrade: {fileID: 11400000, guid: b1000000000000000000000000000001, type: 2}
+  starTwoUpgrade: {fileID: 11400000, guid: b2000000000000000000000000000002, type: 2}
+  starThreeUpgrade: {fileID: 11400000, guid: b3000000000000000000000000000003, type: 2}
+  starFourUpgrade: {fileID: 11400000, guid: b4000000000000000000000000000004, type: 2}
+  starFiveUpgrade: {fileID: 11400000, guid: b5000000000000000000000000000005, type: 2}

@@ -70,6 +70,34 @@ protected int ricochetCount = 1;
 protected bool gun5StarTrail = false;
 protected bool isInfiniteMag = false;
     protected bool isPiercing = false;
+    protected bool isBurstFire = false;
+    protected int burstCount = 3;
+    protected float burstDelay = 0.1f;
+    protected bool slowsEnemies = false;
+    protected float slowMultiplier = 0.4f;
+    protected float slowDuration = 2f;
+    protected int slowEveryNthBullet = 0;
+    protected Color periodicSlowTint = new Color(0.2f, 0.9f, 1f, 1f);
+    private int bulletsFiredTotal = 0;
+    protected bool marksEnemies = false;
+    protected float markDamageMultiplier = 2f;
+    protected float markDuration = 8f;
+    protected int markEveryNthBullet = 0;
+    private int markBulletCounter = 0;
+    private bool markIsReady = false;
+    private float markGlowPulse = 0f;
+    protected bool isChainKill = false;
+    protected bool shockwaveOnKill = false;
+    protected float shockwaveRadius = 3f;
+    protected float shockwaveDamage = 15f;
+    protected bool shockwaveMarks = false;
+    protected int ammoOnKill = 0;
+    protected bool speedBoostOnFire = false;
+    protected float speedBoostMultiplier = 1.6f;
+    protected float speedBoostDuration = 1.5f;
+    protected bool suppressiveFire = false;
+    protected float suppressiveSlowMultiplier = 0.6f;
+    protected float suppressiveRange = 5f;
 
     public event Action OnShotFired;
 
@@ -141,6 +169,7 @@ protected bool isInfiniteMag = false;
         firedThisFrame = false;
         AimAtCursor();
         UpdateRecoil();
+        UpdateMarkReadyGlow();
     }
 
     public void HandleInput(bool firePressed, bool reloadPressed)
@@ -217,8 +246,13 @@ public virtual void ApplyProfile(GunProfile profile)
     if (gunSpriteRenderer == null)
         gunSpriteRenderer = GetComponentInChildren<SpriteRenderer>(true);
 
-    if (gunSpriteRenderer != null && profile.WeaponSprite != null)
-        gunSpriteRenderer.sprite = profile.WeaponSprite;
+    if (gunSpriteRenderer != null)
+    {
+        if (gunVisualTransform == null)
+            gunVisualTransform = gunSpriteRenderer.transform;
+        if (profile.WeaponSprite != null)
+            gunSpriteRenderer.sprite = profile.WeaponSprite;
+    }
 
     ApplyWeaponSortingOrder();
 
@@ -233,11 +267,19 @@ public virtual void ApplyProfile(GunProfile profile)
         gunVisualTransform.localPosition = profile.VisualLocalPosition;
         CacheVisualRestPose();
     }
+    isBurstFire = profile.IsBurstFire;
+    burstCount = profile.BurstCount;
+    burstDelay = profile.BurstDelay;
+
     ammoInMagazine = magazineSize;
     isReloading = false;
     nextFireTime = 0f;
     recoilOffset = Vector3.zero;
     recoilRotation = 0f;
+    bulletsFiredTotal = 0;
+    markBulletCounter = 0;
+    markIsReady = false;
+    markGlowPulse = 0f;
 
     for (int i = 0; i < appliedUpgrades.Count; i++)
         ApplyUpgradeInternal(appliedUpgrades[i]);
@@ -256,6 +298,13 @@ if (upgrade.PelletCountBonus != 0) pelletCountBonus += upgrade.PelletCountBonus;
 if (upgrade.SpreadAngleDelta != 0) spreadAngleDelta += upgrade.SpreadAngleDelta;
 if (upgrade.IsRicochet) { isRicochet = true; ricochetCount = upgrade.RicochetCount; }
 if (upgrade.IsInfiniteMag) isInfiniteMag = true;
+        if (upgrade.SlowsEnemies) { slowsEnemies = true; slowMultiplier = upgrade.SlowMultiplier; slowDuration = upgrade.SlowDuration; slowEveryNthBullet = upgrade.SlowEveryNthBullet; periodicSlowTint = upgrade.PeriodicSlowTint; }
+        if (upgrade.MarksEnemies) { marksEnemies = true; markDamageMultiplier = upgrade.MarkDamageMultiplier; markDuration = upgrade.MarkDuration; markEveryNthBullet = upgrade.MarkEveryNthBullet; }
+        if (upgrade.IsChainKill) isChainKill = true;
+        if (upgrade.ShockwaveOnKill) { shockwaveOnKill = true; shockwaveRadius = upgrade.ShockwaveRadius; shockwaveDamage = upgrade.ShockwaveDamage; shockwaveMarks = upgrade.ShockwaveMarks; }
+        if (upgrade.AmmoOnKill > 0) ammoOnKill = upgrade.AmmoOnKill;
+        if (upgrade.SpeedBoostOnFire) { speedBoostOnFire = true; speedBoostMultiplier = upgrade.SpeedBoostMultiplier; speedBoostDuration = upgrade.SpeedBoostDuration; }
+        if (upgrade.SuppressiveFire) { suppressiveFire = true; suppressiveSlowMultiplier = upgrade.SuppressiveSlowMultiplier; suppressiveRange = upgrade.SuppressiveRange; }
 
         appliedUpgrades.Add(upgrade);
         ApplyUpgradeInternal(upgrade);
@@ -316,16 +365,15 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         if (gun5StarTrail)
             projectile.EnableTrail(projectileTintColor);
 
-        if (isPiercing)
-    projectile.SetPiercing(piercingCount);
-        if (isExplosive)
-    projectile.SetExplosive(explosionRadius);
-
-if (isRicochet)
-    projectile.SetRicochet(ricochetCount);
-
-if (isExecutioner)
-    projectile.SetExecutioner(executionThreshold);
+        if (isPiercing) projectile.SetPiercing(piercingCount);
+        if (isExplosive) projectile.SetExplosive(explosionRadius);
+        if (isRicochet) projectile.SetRicochet(ricochetCount);
+        if (isExecutioner) projectile.SetExecutioner(executionThreshold);
+        ApplySlowToProjectile(projectile);
+        ApplyMarkToProjectile(projectile);
+        if (isChainKill) projectile.SetChainKill();
+        if (shockwaveOnKill) projectile.SetShockwaveOnKill(shockwaveRadius, shockwaveDamage, shockwaveMarks);
+        if (ammoOnKill > 0) projectile.SetAmmoOnKillCallback(OnProjectileKill);
         if (isDoubleBarrel)
 {
     float doubleBarrelDelay = 0.08f;
@@ -347,6 +395,14 @@ if (isExecutioner)
 }
     }
 
+    if (isBurstFire && burstCount > 1)
+        StartCoroutine(BurstFireRoutine(direction));
+
+    if (speedBoostOnFire && playerMovement != null)
+        playerMovement.ApplySpeedBoost(speedBoostMultiplier, speedBoostDuration);
+
+    if (suppressiveFire) ApplySuppressiveFire();
+
     ApplyRecoil(direction);
     OnShotFired?.Invoke();
 
@@ -359,6 +415,36 @@ if (isExecutioner)
     }
 }
 
+
+    private IEnumerator BurstFireRoutine(Vector2 direction)
+    {
+        LayerMask mask = currentProjectileProfile != null ? currentProjectileProfile.HitMask : ~0;
+        bool rotate = currentProjectileProfile != null && currentProjectileProfile.RotateToDirection;
+        for (int shot = 1; shot < burstCount; shot++)
+        {
+            yield return new WaitForSeconds(burstDelay);
+            if (projectilePrefab == null) yield break;
+            ammoInMagazine = Mathf.Max(0, ammoInMagazine - 1);
+            Projectile p = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
+            p.Initialize(direction, projectileSpeed, projectileLifetime, projectileDamage, transform.root.gameObject, mask, rotate);
+            if (currentProjectileProfile != null) p.ApplyProfile(currentProjectileProfile);
+            p.transform.right = direction;
+            if (gun5StarTrail) p.EnableTrail(projectileTintColor);
+            if (isPiercing) p.SetPiercing(piercingCount);
+            if (isExplosive) p.SetExplosive(explosionRadius);
+            if (isRicochet) p.SetRicochet(ricochetCount);
+            if (isExecutioner) p.SetExecutioner(executionThreshold);
+            ApplySlowToProjectile(p);
+            ApplyMarkToProjectile(p);
+            if (isChainKill) p.SetChainKill();
+            if (shockwaveOnKill) p.SetShockwaveOnKill(shockwaveRadius, shockwaveDamage, shockwaveMarks);
+            if (ammoOnKill > 0) p.SetAmmoOnKillCallback(OnProjectileKill);
+            if (suppressiveFire) ApplySuppressiveFire();
+            ApplyRecoil(direction);
+            OnShotFired?.Invoke();
+            if (ammoInMagazine <= 0) yield break;
+        }
+    }
 
     private IEnumerator FireDelayed(Vector2 direction, float delay)
 {
@@ -386,6 +472,11 @@ if (isExecutioner)
         projectile.transform.right = pelletDirection;
         if (isPiercing) projectile.SetPiercing(piercingCount);
         if (isExplosive) projectile.SetExplosive(explosionRadius);
+        ApplySlowToProjectile(projectile);
+        ApplyMarkToProjectile(projectile);
+        if (isChainKill) projectile.SetChainKill();
+        if (shockwaveOnKill) projectile.SetShockwaveOnKill(shockwaveRadius, shockwaveDamage, shockwaveMarks);
+        if (ammoOnKill > 0) projectile.SetAmmoOnKillCallback(OnProjectileKill);
     }
 }
 
@@ -488,8 +579,10 @@ if (isExecutioner)
             return;
 
         visualRestLocalPosition = gunVisualTransform.localPosition + (Vector3)defaultVisualOffset;
-        visualRestLocalRotation = gunVisualTransform.localRotation;
         gunVisualTransform.localPosition = visualRestLocalPosition;
+        // Always reset rotation so aimRotation isn't compounded when ApplyProfile runs mid-aim
+        gunVisualTransform.localRotation = Quaternion.identity;
+        visualRestLocalRotation = Quaternion.identity;
     }
 
     protected virtual void ApplyWeaponSortingOrder()
@@ -540,6 +633,74 @@ if (isExecutioner)
         return null;
     }
 
+    private void ApplyMarkToProjectile(Projectile p)
+    {
+        if (!marksEnemies) return;
+        if (markEveryNthBullet <= 0)
+        {
+            p.SetMark(markDamageMultiplier, markDuration);
+            return;
+        }
+        if (markIsReady)
+        {
+            p.SetMark(markDamageMultiplier, markDuration);
+            markIsReady = false;
+            markBulletCounter = 0;
+            markGlowPulse = 0f;
+        }
+        else
+        {
+            markBulletCounter++;
+            if (markBulletCounter >= markEveryNthBullet)
+                markIsReady = true;
+        }
+    }
+
+    private void UpdateMarkReadyGlow()
+    {
+        if (!marksEnemies || markEveryNthBullet <= 0 || gunSpriteRenderer == null) return;
+        if (markIsReady)
+        {
+            markGlowPulse += Time.deltaTime * 5f;
+            float t = (Mathf.Sin(markGlowPulse) + 1f) * 0.5f;
+            gunSpriteRenderer.color = Color.Lerp(Color.white, new Color(1f, 0.92f, 0.1f, 1f), t * 0.8f);
+        }
+        else
+        {
+            gunSpriteRenderer.color = Color.white;
+            markGlowPulse = 0f;
+        }
+    }
+
+    private void ApplySlowToProjectile(Projectile p)
+    {
+        if (!slowsEnemies) return;
+        bulletsFiredTotal++;
+        bool isSlowBullet = slowEveryNthBullet <= 0 || bulletsFiredTotal % slowEveryNthBullet == 0;
+        if (isSlowBullet)
+        {
+            p.SetSlow(slowMultiplier, slowDuration);
+            p.SetTint(periodicSlowTint);
+        }
+    }
+
+    private void OnProjectileKill()
+    {
+        ammoInMagazine = Mathf.Min(magazineSize, ammoInMagazine + ammoOnKill);
+    }
+
+    private void ApplySuppressiveFire()
+    {
+        Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.root.position, suppressiveRange);
+        foreach (Collider2D col in nearby)
+        {
+            if (col.CompareTag("Player") || col.transform.root.CompareTag("Player")) continue;
+            Enemy e = col.GetComponentInParent<Enemy>();
+            if (e != null && !e.IsDead)
+                e.ApplySlow(suppressiveSlowMultiplier, fireCooldown * 4f);
+        }
+    }
+
     protected bool CanFire()
 {
     if (isInfiniteMag && playerMovement != null && playerMovement.GetMovementDirection().sqrMagnitude > 0.001f)
@@ -548,6 +709,7 @@ if (isExecutioner)
     return projectilePrefab != null && !isReloading && ammoInMagazine > 0 && Time.time >= nextFireTime;
 }
 
+    public bool LocksMovementWhileFiring => currentProfile != null && currentProfile.LocksMovementWhileFiring && !isInfiniteMag;
     public bool FiredThisFrame() => firedThisFrame;
     public bool IsReloading => isReloading;
     public int AmmoInMagazine => ammoInMagazine;

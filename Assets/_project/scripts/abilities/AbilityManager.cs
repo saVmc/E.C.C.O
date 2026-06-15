@@ -166,9 +166,20 @@ public sealed class AbilityManager : MonoBehaviour
             GunUpgrade gunUpgrade = gun.CurrentProfile.GetUpgradeForStar(nextStar);
             if (gunUpgrade != null)
             {
-                GunUpgradeOffer gunOffer = new GunUpgradeOffer(gunUpgrade, gun.CurrentProfile.DisplayName);
-                allOffers.Add(new UpgradeOffer(null, null, false, gunOffer));
-                Debug.Log($"  + Added gun upgrade: {gunUpgrade.DisplayName} (star {nextStar})");
+                // Higher star levels are rarer; gun upgrades also weighted slightly lower overall.
+                // ★1 = ~82%, ★2 = ~73%, ★3 = ~64%, ★4 = ~55%, ★5 = ~46%
+                float starPenalty = (nextStar - 1) * 0.09f;
+                float gunChance = Mathf.Clamp01(0.9f - starPenalty - 0.08f);
+                if (Random.value < gunChance)
+                {
+                    GunUpgradeOffer gunOffer = new GunUpgradeOffer(gunUpgrade, gun.CurrentProfile.DisplayName);
+                    allOffers.Add(new UpgradeOffer(null, null, false, gunOffer));
+                    Debug.Log($"  + Added gun upgrade: {gunUpgrade.DisplayName} (star {nextStar}, chance {gunChance:P0})");
+                }
+                else
+                {
+                    Debug.Log($"  - Gun upgrade rolled away (star {nextStar}, chance {gunChance:P0})");
+                }
             }
             else
             {
@@ -199,6 +210,67 @@ public sealed class AbilityManager : MonoBehaviour
 
     return result;
 }
+
+    /// <summary>
+    /// Single upgrade offer for boss drops. Weighted toward higher-star upgrades
+    /// (star level = weight, so ★5 is 5× more likely than ★1 — inverse of level-up weighting).
+    /// </summary>
+    public UpgradeOffer GenerateBossDropOffer()
+    {
+        List<UpgradeOffer> pool = new List<UpgradeOffer>();
+        List<float> weights = new List<float>();
+
+        foreach (AbilitySlot slot in slots)
+        {
+            if (!slot.IsEmpty && !slot.Ability.Definition.IsMaxStar)
+            {
+                AbilityDefinition next = slot.Ability.Definition.NextStarDefinition;
+                pool.Add(new UpgradeOffer(next, slot.Ability, false));
+                weights.Add(next.StarLevel);
+            }
+        }
+
+        if (!AllSlotsFull())
+        {
+            foreach (AbilityDefinition def in availableAbilityPool)
+            {
+                bool alreadyHas = false;
+                foreach (AbilitySlot slot in slots)
+                    if (!slot.IsEmpty && slot.Ability.Definition.AbilityName == def.AbilityName) { alreadyHas = true; break; }
+                if (!alreadyHas) { pool.Add(new UpgradeOffer(def, null, true)); weights.Add(1f); }
+            }
+        }
+
+        PlayerShooter shooter = FindAnyObjectByType<PlayerShooter>();
+        if (shooter != null)
+        {
+            Gun gun = shooter.GetActiveGun();
+            if (gun != null && gun.CurrentProfile != null)
+            {
+                int nextStar = gun.appliedUpgrades.Count + 1;
+                GunUpgrade gunUpgrade = gun.CurrentProfile.GetUpgradeForStar(nextStar);
+                if (gunUpgrade != null)
+                {
+                    pool.Add(new UpgradeOffer(null, null, false,
+                        new GunUpgradeOffer(gunUpgrade, gun.CurrentProfile.DisplayName)));
+                    weights.Add(nextStar);
+                }
+            }
+        }
+
+        if (pool.Count == 0) return null;
+
+        float total = 0f;
+        foreach (float w in weights) total += w;
+        float roll = Random.Range(0f, total);
+        float cum = 0f;
+        for (int i = 0; i < pool.Count; i++)
+        {
+            cum += weights[i];
+            if (roll <= cum) return pool[i];
+        }
+        return pool[pool.Count - 1];
+    }
 
     private void Shuffle<T>(List<T> list)
     {

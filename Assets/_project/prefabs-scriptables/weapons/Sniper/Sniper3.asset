@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -12,29 +12,48 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392f39f25a78afd43a9044752d5efd37, type: 3}
   m_Name: Sniper3
   m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
-  displayName: Armor Piercing
-  fireCooldownMultiplier: 0.9
-  projectileSpeedMultiplier: 1.75
+  displayName: Tungsten Core
+  fireCooldownMultiplier: 0.85
+  projectileSpeedMultiplier: 1
   projectileLifetimeMultiplier: 1
-  projectileDamageBonus: 0
+  projectileDamageBonus: 8
   magazineSizeBonus: 0
   reloadTimeMultiplier: 1
   firePointOffsetDelta: {x: 0, y: 0}
   aimPivotOffsetDelta: {x: 0, y: 0}
   isTripleShot: 0
-  isExplosive: 0
-  explosionRadius: 2
-  isExecutioner: 0
-  executionThreshold: 0.2
   isDoubleBarrel: 0
   pelletCountBonus: 0
   spreadAngleDelta: 0
   isRicochet: 0
   ricochetCount: 1
   isInfiniteMag: 0
-  pierceCount: 2
+  enablesBulletTrail: 1
   isPiercing: 1
-  description: Lock in! Bullets now pierce 2 enemies.
-  icon: {fileID: 6495033326967414993, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
+  pierceCount: 1
+  isExplosive: 0
+  explosionRadius: 2
+  isExecutioner: 0
+  executionThreshold: 0.2
+  slowsEnemies: 0
+  slowMultiplier: 0.4
+  slowDuration: 2
+  marksEnemies: 0
+  markDamageMultiplier: 2
+  markDuration: 8
+  isChainKill: 0
+  shockwaveOnKill: 0
+  shockwaveRadius: 3
+  shockwaveDamage: 15
+  shockwaveMarks: 0
+  ammoOnKill: 0
+  speedBoostOnFire: 0
+  speedBoostMultiplier: 1.6
+  speedBoostDuration: 1.5
+  suppressiveFire: 0
+  suppressiveSlowMultiplier: 0.6
+  suppressiveRange: 5
+  description: 'Two birds, one very expensive bullet. +8 dmg, pierces through the first enemy.'
+  icon: {fileID: 0}
   starLevel: 3
   nextStarUpgrade: {fileID: 11400000, guid: cc22190d2ea36cc46a0edda588d80110, type: 2}

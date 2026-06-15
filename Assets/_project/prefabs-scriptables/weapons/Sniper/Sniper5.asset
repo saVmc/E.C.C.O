@@ -1,4 +1,4 @@
-%YAML 1.1
+﻿%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -12,20 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392f39f25a78afd43a9044752d5efd37, type: 3}
   m_Name: Sniper5
   m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
-  displayName: Execution
-  fireCooldownMultiplier: 0.9
-  projectileSpeedMultiplier: 1.75
+  displayName: Chain Kill
+  fireCooldownMultiplier: 0.8
+  projectileSpeedMultiplier: 1.3
   projectileLifetimeMultiplier: 1
-  projectileDamageBonus: 0
-  magazineSizeBonus: 0
+  projectileDamageBonus: 10
+  magazineSizeBonus: 3
   reloadTimeMultiplier: 1
   firePointOffsetDelta: {x: 0, y: 0}
   aimPivotOffsetDelta: {x: 0, y: 0}
   isTripleShot: 0
-  isExplosive: 1
-  explosionRadius: 2
-  isExecutioner: 1
-  executionThreshold: 0.2
   isDoubleBarrel: 0
   pelletCountBonus: 0
   spreadAngleDelta: 0
@@ -33,9 +29,31 @@ MonoBehaviour:
   ricochetCount: 1
   isInfiniteMag: 0
   enablesBulletTrail: 1
-  pierceCount: 2
-  isPiercing: 1
-  description: The final form. Bullets now insta-kill enemies below 20% HP.
-  icon: {fileID: 6495033326967414993, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
+  isPiercing: 0
+  pierceCount: 0
+  isExplosive: 0
+  explosionRadius: 2
+  isExecutioner: 0
+  executionThreshold: 0.2
+  slowsEnemies: 0
+  slowMultiplier: 0.4
+  slowDuration: 2
+  marksEnemies: 0
+  markDamageMultiplier: 2
+  markDuration: 8
+  isChainKill: 1
+  shockwaveOnKill: 0
+  shockwaveRadius: 3
+  shockwaveDamage: 15
+  shockwaveMarks: 0
+  ammoOnKill: 0
+  speedBoostOnFire: 0
+  speedBoostMultiplier: 1.6
+  speedBoostDuration: 1.5
+  suppressiveFire: 0
+  suppressiveSlowMultiplier: 0.6
+  suppressiveRange: 5
+  description: 'The bullet has places to be. Kills pierce through corpses. +10 dmg, 30% faster, +3 mag.'
+  icon: {fileID: 0}
   starLevel: 5
   nextStarUpgrade: {fileID: 0}

@@ -17,6 +17,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     private float slowMultiplier = 1f;
     private float slowRemainingTime = 0f;
     private bool isStunned = false;
+    private bool isMarked = false;
+    private float markDamageMultiplier = 1f;
+    private float markRemainingTime = 0f;
+    private float scaledMaxHealth = 0f;
+    private float scaledSpeedMultiplier = 1f;
+    private float scaledExpMultiplier = 1f;
+    public bool IsBoss { get; private set; }
 
     public event System.Action<int> OnDeath;
 
@@ -58,6 +65,17 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             }
         }
 
+        if (markRemainingTime > 0f)
+        {
+            markRemainingTime -= Time.deltaTime;
+            if (markRemainingTime <= 0f)
+            {
+                isMarked = false;
+                markDamageMultiplier = 1f;
+                UpdateHealthVisual();
+            }
+        }
+
         MoveTowardPlayer();
     }
 
@@ -67,7 +85,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             return;
 
         Vector2 direction = ((Vector2)player.position - rb.position).normalized;
-        rb.linearVelocity = direction * profile.MoveSpeed * slowMultiplier;
+        rb.linearVelocity = direction * profile.MoveSpeed * slowMultiplier * scaledSpeedMultiplier;
     }
 
     public virtual void TakeDamage(int amount)
@@ -75,6 +93,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (isDead)
             return;
 
+        if (isMarked) amount = Mathf.RoundToInt(amount * markDamageMultiplier);
         currentHealth -= amount;
         UpdateHealthVisual();
 
@@ -89,6 +108,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         float t = 1f - Mathf.Clamp01(currentHealth / profile.MaxHealth);
         Color healthColor = Color.Lerp(Color.white, Color.red, t);
+        if (isMarked) healthColor = Color.Lerp(healthColor, new Color(1f, 0.92f, 0.1f), 0.55f);
         spriteRenderer.color = isStunned ? Color.Lerp(healthColor, new Color(0.3f, 0.6f, 1f), 0.6f) : healthColor;
     }
 
@@ -96,7 +116,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         isDead = true;
         rb.linearVelocity = Vector2.zero;
-        OnDeath?.Invoke(profile != null ? profile.CalculateExpDrop() : 0);
+        int exp = Mathf.RoundToInt((profile != null ? profile.CalculateExpDrop() : 0) * scaledExpMultiplier);
+        OnDeath?.Invoke(exp);
     
     if (expOrbPrefab != null && profile != null && profile.ExpOrbProfile != null)
     {
@@ -147,6 +168,14 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         currentHealth = profile.MaxHealth;
         if (profile.Sprite != null)
             spriteRenderer.sprite = profile.Sprite;
+    }
+
+    public void ApplyMark(float multiplier, float duration)
+    {
+        isMarked = true;
+        markDamageMultiplier = Mathf.Max(markDamageMultiplier, multiplier);
+        markRemainingTime = Mathf.Max(markRemainingTime, duration);
+        UpdateHealthVisual();
     }
 
     public void ApplySlow(float multiplier, float duration)
@@ -200,7 +229,17 @@ private IEnumerator ExecutionPoofAndDestroy()
     Destroy(gameObject);
 }
 
+    public void ScaleStats(float healthMult, float speedMult, float expMult, bool isBoss = false)
+    {
+        currentHealth *= healthMult;
+        scaledMaxHealth = currentHealth;
+        scaledSpeedMultiplier = speedMult;
+        scaledExpMultiplier = expMult;
+        IsBoss = isBoss;
+        UpdateHealthVisual();
+    }
+
     public float CurrentHealth => currentHealth;
-    public float MaxHealth => profile != null ? profile.MaxHealth : 1f;
+    public float MaxHealth => scaledMaxHealth > 0f ? scaledMaxHealth : (profile != null ? profile.MaxHealth : 1f);
     public bool IsDead => isDead;
 }

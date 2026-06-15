@@ -1,0 +1,59 @@
+﻿%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 392f39f25a78afd43a9044752d5efd37, type: 3}
+  m_Name: Shotgun3
+  m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
+  displayName: Adrenaline Pump
+  fireCooldownMultiplier: 1
+  projectileSpeedMultiplier: 1
+  projectileLifetimeMultiplier: 1
+  projectileDamageBonus: 1
+  magazineSizeBonus: 0
+  reloadTimeMultiplier: 1
+  firePointOffsetDelta: {x: 0, y: 0}
+  aimPivotOffsetDelta: {x: 0, y: 0}
+  isTripleShot: 0
+  isDoubleBarrel: 0
+  pelletCountBonus: 0
+  spreadAngleDelta: 0
+  isRicochet: 0
+  ricochetCount: 1
+  isInfiniteMag: 0
+  enablesBulletTrail: 0
+  isPiercing: 0
+  pierceCount: 0
+  isExplosive: 0
+  explosionRadius: 2
+  isExecutioner: 0
+  executionThreshold: 0.2
+  slowsEnemies: 0
+  slowMultiplier: 0.4
+  slowDuration: 2
+  marksEnemies: 0
+  markDamageMultiplier: 2
+  markDuration: 8
+  isChainKill: 0
+  shockwaveOnKill: 0
+  shockwaveRadius: 3
+  shockwaveDamage: 15
+  shockwaveMarks: 0
+  ammoOnKill: 0
+  speedBoostOnFire: 1
+  speedBoostMultiplier: 1.5
+  speedBoostDuration: 1.2
+  suppressiveFire: 0
+  suppressiveSlowMultiplier: 0.6
+  suppressiveRange: 5
+  description: 'Fight-or-flight, but make it both. Each shot: 50% speed boost for 1.2s.'
+  icon: {fileID: 0}
+  starLevel: 3
+  nextStarUpgrade: {fileID: 11400000, guid: b4000000000000000000000000000004, type: 2}

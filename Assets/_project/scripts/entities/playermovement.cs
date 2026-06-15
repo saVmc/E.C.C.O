@@ -63,11 +63,20 @@ public sealed class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (movementLockedThisFrame)
+        {
+            rb.linearVelocity = Vector2.zero;
+            movementLockedThisFrame = false;
+            return;
+        }
         float currentSpeed = moveSpeed * (isSprinting ? sprintMultiplier : 1f);
         rb.linearVelocity = moveInput * currentSpeed * externalSpeedMultiplier;
     }
 
     private float externalSpeedMultiplier = 1f;
+    private bool movementLockedThisFrame = false;
+
+    public void LockMovementThisFrame() => movementLockedThisFrame = true;
 
 public void ApplySpeedBoost(float multiplier, float duration)
 {

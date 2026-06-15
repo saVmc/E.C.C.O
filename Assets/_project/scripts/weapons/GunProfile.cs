@@ -36,6 +36,14 @@ public sealed class GunProfile : ScriptableObject
     [Header("Player Stats")]
     [SerializeField] private float playerMoveSpeed = 5f;
 
+    [Header("Burst Fire")]
+    [SerializeField] private bool isBurstFire = false;
+    [SerializeField] private int burstCount = 3;
+    [SerializeField] private float burstDelay = 0.1f;
+
+    [Header("Movement")]
+    [SerializeField] private bool locksMovementWhileFiring = false;
+
     [Header("Upgrades")]
     [SerializeField] private GunUpgrade starOneUpgrade;
     [SerializeField] private GunUpgrade starTwoUpgrade;
@@ -55,7 +63,11 @@ public GunUpgrade GetUpgradeForStar(int star)
         _ => null
     };
 }
+    public bool IsBurstFire => isBurstFire;
+    public int BurstCount => Mathf.Max(1, burstCount);
+    public float BurstDelay => burstDelay;
     public float PlayerMoveSpeed => playerMoveSpeed;
+    public bool LocksMovementWhileFiring => locksMovementWhileFiring;
 
     public string DisplayName => displayName;
     public Projectile ProjectilePrefab => projectilePrefab;
