@@ -27,6 +27,9 @@ public class LevelUpDisplay : MonoBehaviour
 
     private int pendingLevelUps = 0;
 
+    public event System.Action OnLevelUpShown;
+    public event System.Action OnLevelUpHidden;
+
     private void Awake()
     {
         if (cardContainer != null)
@@ -245,6 +248,8 @@ public class LevelUpDisplay : MonoBehaviour
 
     foreach (PulseUI pulser in cardPulsers)
         pulser.SetPulsing(true);
+
+    OnLevelUpShown?.Invoke();
 }
     private IEnumerator FadeInPickPrompt()
     {
@@ -347,6 +352,7 @@ public class LevelUpDisplay : MonoBehaviour
             AbilityManager.Instance.enabled = true;
 
         isShowing = false;
+        OnLevelUpHidden?.Invoke();
 
         if (pendingLevelUps > 0)
         {

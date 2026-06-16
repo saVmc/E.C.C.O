@@ -26,6 +26,12 @@ public sealed class UpgradeCardUI : MonoBehaviour
             return;
         }
 
+        if (upgradeOffer.IsHealOffer)
+        {
+            PopulateHealOffer(levelUpDisplay);
+            return;
+        }
+
         if (upgradeOffer.IsGunUpgrade)
         {
             PopulateGunUpgrade(upgradeOffer.GunUpgrade, levelUpDisplay);
@@ -92,6 +98,42 @@ if (upgradeBackground != null)
         }
 
         // Force layout rebuild for this card
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+    }
+
+    private void PopulateHealOffer(LevelUpDisplay levelUpDisplay)
+    {
+        offer_field = null;
+        gunOffer = null;
+        display = levelUpDisplay;
+        gameObject.SetActive(true);
+
+        if (iconImage != null) iconImage.enabled = false;
+        if (abilityNameText != null) abilityNameText.text = "MEDKIT";
+        if (starText != null) starText.text = "✚✚✚✚✚";
+        if (upgradeNameText != null) upgradeNameText.text = "Emergency Heal";
+
+        int healAmount = PlayerHealth.Instance != null
+            ? Mathf.CeilToInt(PlayerHealth.Instance.MaxHealth * 0.1f)
+            : 0;
+        if (descriptionText != null)
+            descriptionText.text = $"Sacrifice an upgrade. Restore {healAmount} HP ({(PlayerHealth.Instance != null ? PlayerHealth.Instance.CurrentHealth : 0)}/{(PlayerHealth.Instance != null ? PlayerHealth.Instance.MaxHealth : 0)}).";
+
+        if (newAbilityBackground != null) newAbilityBackground.gameObject.SetActive(false);
+        if (upgradeBackground != null) upgradeBackground.gameObject.SetActive(true);
+        if (maxedBackground != null) maxedBackground.gameObject.SetActive(false);
+
+        if (selectButton != null)
+        {
+            selectButton.onClick.RemoveAllListeners();
+            selectButton.onClick.AddListener(() =>
+            {
+                if (PlayerHealth.Instance != null)
+                    PlayerHealth.Instance.Heal(Mathf.CeilToInt(PlayerHealth.Instance.MaxHealth * 0.1f));
+                levelUpDisplay.HideCards();
+            });
+        }
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 

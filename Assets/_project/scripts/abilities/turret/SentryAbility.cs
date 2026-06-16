@@ -7,7 +7,7 @@ public sealed class SentryAbility : Ability
     [SerializeField] private float turretHealth = 10f;
     [SerializeField] private float fireCooldown = 1f;
     [SerializeField] private float detectionRadius = 6f;
-    [SerializeField] private int projectileDamage = 1;
+    [SerializeField] private int projectileDamage = 3;
     [SerializeField] private float projectileSpeed = 10f;
     [SerializeField] private float projectileLifetime = 2f;
     [SerializeField] private LayerMask hitMask = ~0;
@@ -21,6 +21,7 @@ public sealed class SentryAbility : Ability
     [SerializeField] private float stunDuration = 1f;
 
     [SerializeField] private int fireDirections = 1;
+    [SerializeField] private float fireSpreadAngle = 0f;
     [SerializeField] private float placeDistance = 1.5f;
 
     private bool hasSpeedBoost = false;
@@ -65,7 +66,7 @@ public sealed class SentryAbility : Ability
                 projectilePrefab, projectileDamage, projectileSpeed, projectileLifetime, hitMask,
                 isRicochet, ricochetCount,
                 hasStunPulse, stunPulseInterval, stunPulseRadius, stunDuration,
-                fireDirections, transform.root.gameObject,
+                fireDirections, fireSpreadAngle, transform.root.gameObject,
                 OnTurretDestroyed
             );
             activeTurret = turret;
@@ -100,38 +101,44 @@ public sealed class SentryAbility : Ability
         switch (definition.StarLevel)
         {
             case 0:
-                turretHealth = 10f;
-                fireCooldown = 1f;
-                isRicochet = false;
-                hasStunPulse = false;
-                hasSpeedBoost = false;
-                fireDirections = 1;
+                turretHealth    = 15f;
+                fireCooldown    = 0.8f;
+                projectileDamage= 5;
+                isRicochet      = false;
+                hasStunPulse    = false;
+                hasSpeedBoost   = false;
+                fireDirections  = 1;
+                fireSpreadAngle = 0f;
                 break;
             case 1:
-                turretHealth = 18f;
-                fireCooldown = 0.7f;
+                turretHealth = 22f;
+                fireCooldown = 0.65f;
                 hasSpeedBoost = true;
                 break;
             case 2:
-                isRicochet = true;
-                ricochetCount = 1;
+                // Dual barrel: fires two shots in a tight spread at the same target
+                fireDirections  = 2;
+                fireSpreadAngle = 28f;
                 break;
             case 3:
-                hasStunPulse = true;
-                stunPulseInterval = 3f;
-                stunPulseRadius = 3f;
-                stunDuration = 1f;
+                projectileLifetime = 999f;
+                isRicochet         = true;
+                ricochetCount      = 1;
+                hasStunPulse       = true;
+                stunPulseInterval  = 3f;
+                stunPulseRadius    = 3f;
+                stunDuration       = 1f;
                 break;
             case 4:
                 ricochetCount = 3;
                 break;
             case 5:
-                fireDirections = 3;
-                ricochetCount = 5;
-                hasStunPulse = true;
+                fireDirections    = 3;
+                ricochetCount     = 5;
+                hasStunPulse      = true;
                 stunPulseInterval = 1.5f;
-                turretHealth = 50f;
-                fireCooldown = 0.2f;
+                turretHealth      = 50f;
+                fireCooldown      = 0.35f;
                 break;
         }
 
@@ -143,7 +150,7 @@ public sealed class SentryAbility : Ability
                 projectilePrefab, projectileDamage, projectileSpeed, projectileLifetime, hitMask,
                 isRicochet, ricochetCount,
                 hasStunPulse, stunPulseInterval, stunPulseRadius, stunDuration,
-                fireDirections, transform.root.gameObject,
+                fireDirections, fireSpreadAngle, transform.root.gameObject,
                 OnTurretDestroyed
             );
         }

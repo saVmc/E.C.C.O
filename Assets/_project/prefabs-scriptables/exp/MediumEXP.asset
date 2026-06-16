@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: MediumEXP
   m_EditorClassIdentifier: Assembly-CSharp::ExpOrbProfile
   expValue: 15
-  attractRadius: 2
+  attractRadius: 3.5
   flySpeed: 8
   orbColor: {r: 0, g: 1, b: 0.06616211, a: 1}
   orbScale: 0.4

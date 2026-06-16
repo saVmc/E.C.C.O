@@ -28,6 +28,8 @@ public sealed class GunUpgrade : ScriptableObject
     [Header("Explosive")]
     [SerializeField] private bool isExplosive = false;
     [SerializeField] private float explosionRadius = 2f;
+    [Tooltip("0 = every bullet explodes. N = only every Nth bullet explodes.")]
+    [SerializeField] private int explosiveEveryNthBullet = 0;
 
     [Header("Executioner")]
     [SerializeField] private bool isExecutioner = false;
@@ -70,6 +72,21 @@ public sealed class GunUpgrade : ScriptableObject
     [SerializeField] private float suppressiveSlowMultiplier = 0.6f;
     [SerializeField] private float suppressiveRange = 5f;
 
+    [Header("Knockback on Hit")]
+    [SerializeField] private bool knockbackOnHit = false;
+    [SerializeField] private float knockbackForce = 12f;
+
+    [Header("Burn on Hit (Flamethrower)")]
+    [SerializeField] private bool burnsEnemies = false;
+    [SerializeField] private int burnDamage = 4;
+    [SerializeField] private int burnTicks = 3;
+    [SerializeField] private float burnTickInterval = 1f;
+    [SerializeField] private bool burnWildfire = false;
+    [SerializeField] private float burnWildfireRadius = 2.5f;
+    [SerializeField] private bool burnNapalm = false;
+    [SerializeField] private float burnNapalmRadius = 2.5f;
+    [SerializeField] private int burnNapalmDamage = 20;
+
     [Header("Info")]
     [SerializeField] private string description = "Improves your weapon.";
     [SerializeField] private Sprite icon;
@@ -97,6 +114,7 @@ public sealed class GunUpgrade : ScriptableObject
     public int PierceCount => pierceCount;
     public bool IsExplosive => isExplosive;
     public float ExplosionRadius => explosionRadius;
+    public int ExplosiveEveryNthBullet => explosiveEveryNthBullet;
     public bool IsExecutioner => isExecutioner;
     public float ExecutionThreshold => executionThreshold;
     public bool SlowsEnemies => slowsEnemies;
@@ -120,6 +138,17 @@ public sealed class GunUpgrade : ScriptableObject
     public bool SuppressiveFire => suppressiveFire;
     public float SuppressiveSlowMultiplier => suppressiveSlowMultiplier;
     public float SuppressiveRange => suppressiveRange;
+    public bool KnockbackOnHit => knockbackOnHit;
+    public float KnockbackForce => knockbackForce;
+    public bool BurnsEnemies => burnsEnemies;
+    public int BurnDamage => burnDamage;
+    public int BurnTicks => burnTicks;
+    public float BurnTickInterval => burnTickInterval;
+    public bool BurnWildfire => burnWildfire;
+    public float BurnWildfireRadius => burnWildfireRadius;
+    public bool BurnNapalm => burnNapalm;
+    public float BurnNapalmRadius => burnNapalmRadius;
+    public int BurnNapalmDamage => burnNapalmDamage;
     public string Description => description;
     public Sprite Icon => icon;
     public int StarLevel => starLevel;

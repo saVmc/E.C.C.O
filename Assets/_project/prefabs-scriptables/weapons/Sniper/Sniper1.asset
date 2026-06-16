@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -33,14 +33,18 @@ MonoBehaviour:
   pierceCount: 0
   isExplosive: 0
   explosionRadius: 2
+  explosiveEveryNthBullet: 0
   isExecutioner: 0
   executionThreshold: 0.2
   slowsEnemies: 0
   slowMultiplier: 0.4
   slowDuration: 2
+  slowEveryNthBullet: 0
+  periodicSlowTint: {r: 0.2, g: 0.9, b: 1, a: 1}
   marksEnemies: 0
   markDamageMultiplier: 2
   markDuration: 8
+  markEveryNthBullet: 0
   isChainKill: 0
   shockwaveOnKill: 0
   shockwaveRadius: 3
@@ -53,7 +57,19 @@ MonoBehaviour:
   suppressiveFire: 0
   suppressiveSlowMultiplier: 0.6
   suppressiveRange: 5
-  description: 'Sounds like a pop, hits like a freight train. +3 dmg, 70% faster bullets, 40% longer range.'
-  icon: {fileID: 0}
+  knockbackOnHit: 0
+  knockbackForce: 12
+  burnsEnemies: 0
+  burnDamage: 4
+  burnTicks: 3
+  burnTickInterval: 1
+  burnWildfire: 0
+  burnWildfireRadius: 2.5
+  burnNapalm: 0
+  burnNapalmRadius: 2.5
+  burnNapalmDamage: 20
+  description: Sounds like a pop, hits like a freight train. +3 dmg, 70% faster bullets,
+    40% longer range.
+  icon: {fileID: 6495033326967414993, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 1
   nextStarUpgrade: {fileID: 11400000, guid: 97d3812d6cd091244ae23f3cf775033f, type: 2}

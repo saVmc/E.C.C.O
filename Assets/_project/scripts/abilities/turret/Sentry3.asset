@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
   abilityName: Sentry
   displayName: Ultraboost
-  description: Periodically fires an EMP wave that stuns
+  description: "Bullets travel forever until they hit something. EMP pulse stuns nearby enemies every 3s."
   icon: {fileID: 21300000, guid: 4c16b3b4edbafea4a810d9204a97c408, type: 3}
   starLevel: 3
   cooldown: 45

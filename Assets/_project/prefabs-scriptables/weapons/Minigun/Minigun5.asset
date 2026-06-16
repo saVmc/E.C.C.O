@@ -23,7 +23,8 @@ MonoBehaviour:
   aimPivotOffsetDelta: {x: 0, y: 0}
   isTripleShot: 0
   isExplosive: 1
-  explosionRadius: 1.5
+  explosionRadius: 2.8
+  explosiveEveryNthBullet: 8
   isExecutioner: 0
   executionThreshold: 0.2
   isDoubleBarrel: 0
@@ -38,7 +39,7 @@ MonoBehaviour:
   slowDuration: 2
   pierceCount: 2
   isPiercing: 1
-  description: 'Every bullet now has opinions about personal space. Pierce 2 enemies, 1.5u explosion radius, +2 dmg.'
+  description: 'Every 8th round detonates. Big boom (r2.8), pierce 2 enemies, +2 dmg.'
   icon: {fileID: 0}
   starLevel: 5
   nextStarUpgrade: {fileID: 0}

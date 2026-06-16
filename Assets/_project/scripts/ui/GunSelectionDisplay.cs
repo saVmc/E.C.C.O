@@ -12,7 +12,7 @@ public sealed class GunSelectionDisplay : MonoBehaviour
 
     [Header("Overlay")]
     [SerializeField] private CanvasGroup darkOverlay;
-    [SerializeField] private float overlayAlpha = 0.75f;
+    [SerializeField] private float overlayAlpha = 0.92f;
     [SerializeField] private float overlayFadeDuration = 0.4f;
 
     [Header("Card Fade")]

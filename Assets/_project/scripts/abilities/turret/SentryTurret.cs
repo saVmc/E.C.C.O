@@ -30,6 +30,7 @@ public sealed class SentryTurret : MonoBehaviour
     private float nextStunTime;
 
     private int fireDirections = 1;
+    private float fireSpreadAngle = 0f;
     private GameObject ownerObject;
     private Action onDestroyed;
 
@@ -40,7 +41,7 @@ public sealed class SentryTurret : MonoBehaviour
         Projectile projPrefab, int damage, float speed, float lifetime, LayerMask mask,
         bool ricochet, int ricochetCnt,
         bool stunPulse, float stunInterval, float stunRadius, float stunDur,
-        int fireDirs, GameObject owner,
+        int fireDirs, float spreadAngle, GameObject owner,
         Action destroyedCallback)
     {
         maxHealth = health;
@@ -59,7 +60,8 @@ public sealed class SentryTurret : MonoBehaviour
         stunPulseInterval = stunInterval;
         stunPulseRadius = stunRadius;
         stunDuration = stunDur;
-        fireDirections = fireDirs;
+        fireDirections  = fireDirs;
+        fireSpreadAngle = spreadAngle;
         ownerObject = owner;
         onDestroyed = destroyedCallback;
 
@@ -161,8 +163,24 @@ public sealed class SentryTurret : MonoBehaviour
         {
             SpawnProjectile(baseDirection, firePos);
         }
+        else if (fireDirections == 2 && fireSpreadAngle > 0f)
+        {
+            // Dual barrel: two shots at ±half spread aimed at the target
+            float baseAngle  = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg;
+            float halfSpread = fireSpreadAngle * 0.5f;
+            for (int i = 0; i < 2; i++)
+            {
+                float angle = baseAngle + (i == 0 ? -halfSpread : halfSpread);
+                Vector2 dir = new Vector2(
+                    Mathf.Cos(angle * Mathf.Deg2Rad),
+                    Mathf.Sin(angle * Mathf.Deg2Rad)
+                );
+                SpawnProjectile(dir, firePos);
+            }
+        }
         else
         {
+            // Omnidirectional (3+): distribute evenly across 360°
             float angleStep = 360f / fireDirections;
             float baseAngle = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg;
 

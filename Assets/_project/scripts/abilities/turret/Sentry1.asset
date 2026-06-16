@@ -17,7 +17,7 @@ MonoBehaviour:
   description: So shiny! Reactivating while deployed causes a temp atk speed boost.
   icon: {fileID: 21300000, guid: 4c16b3b4edbafea4a810d9204a97c408, type: 3}
   starLevel: 1
-  cooldown: 45
+  cooldown: 20
   nextStarDefinition: {fileID: 11400000, guid: 55a7e993e48e08740becbbfca81e3274, type: 2}
   vfxPrefabA: {fileID: 0}
   vfxPrefabB: {fileID: 0}

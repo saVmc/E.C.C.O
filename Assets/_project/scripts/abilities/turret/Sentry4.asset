@@ -17,7 +17,7 @@ MonoBehaviour:
   description: 'Bullets now ricochet up to 3 times. '
   icon: {fileID: 21300000, guid: 4c16b3b4edbafea4a810d9204a97c408, type: 3}
   starLevel: 4
-  cooldown: 45
+  cooldown: 20
   nextStarDefinition: {fileID: 11400000, guid: 79b10a71511b5c54eabb67b65a8636af, type: 2}
   vfxPrefabA: {fileID: 0}
   vfxPrefabB: {fileID: 0}

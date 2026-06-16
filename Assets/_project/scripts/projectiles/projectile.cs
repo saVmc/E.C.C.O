@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -38,6 +39,45 @@ public abstract class Projectile : MonoBehaviour
     private float shockwaveDamage = 15f;
     private bool shockwaveMarks = false;
     private System.Action ammoOnKillCallback = null;
+    private bool knockbackOnHit = false;
+    private float knockbackForce = 12f;
+    private bool burnsEnemies = false;
+    private int burnDamage = 4;
+    private int burnTicks = 3;
+    private float burnTickInterval = 1f;
+    private bool burnWildfire = false;
+    private float burnWildfireRadius = 2.5f;
+    private bool burnNapalm = false;
+    private float burnNapalmRadius = 2.5f;
+    private int burnNapalmDamage = 20;
+
+    public void SetKnockback(float force) { knockbackOnHit = true; knockbackForce = force; }
+
+    public void SetBurn(int damage, int ticks, float interval, bool wildfire = false, float wildfireRadius = 2.5f, bool napalm = false, float napalmRadius = 2.5f, int napalmDamage = 20)
+    {
+        burnsEnemies = true; burnDamage = damage; burnTicks = ticks; burnTickInterval = interval;
+        burnWildfire = wildfire; burnWildfireRadius = wildfireRadius;
+        burnNapalm = napalm; burnNapalmRadius = napalmRadius; burnNapalmDamage = napalmDamage;
+    }
+
+    public void SetScaleUp(float startFraction, float duration)
+    {
+        StartCoroutine(ScaleUpRoutine(startFraction, duration));
+    }
+
+    private IEnumerator ScaleUpRoutine(float startFraction, float duration)
+    {
+        Vector3 fullScale = transform.localScale;
+        transform.localScale = fullScale * startFraction;
+        float elapsed = 0f;
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            transform.localScale = Vector3.Lerp(fullScale * startFraction, fullScale, elapsed / duration);
+            yield return null;
+        }
+        transform.localScale = fullScale;
+    }
 
     public void SetExplosive(float radius) { isExplosive = true; explosionRadius = radius; }
     public void SetSlow(float multiplier, float duration) { slowsEnemies = true; slowMultiplier = multiplier; slowDuration = duration; }
@@ -168,7 +208,7 @@ public abstract class Projectile : MonoBehaviour
             currentRicochets++;
             if (currentRicochets >= ricochetCount) { Destroy(gameObject); return; }
             GameObject justHit = other.transform.root.gameObject;
-            Enemy[] allEnemies = FindObjectsOfType<Enemy>();
+            Enemy[] allEnemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
             Enemy nearest = null;
             float nearestDist = float.MaxValue;
             foreach (Enemy e in allEnemies)
@@ -217,8 +257,14 @@ public abstract class Projectile : MonoBehaviour
     {
         Enemy enemy = other.GetComponentInParent<Enemy>();
         if (enemy == null) return;
-        if (slowsEnemies) enemy.ApplySlow(slowMultiplier, slowDuration);
-        if (marksEnemies) enemy.ApplyMark(markDamageMultiplier, markDuration);
+        if (slowsEnemies)  enemy.ApplySlow(slowMultiplier, slowDuration);
+        if (marksEnemies)  enemy.ApplyMark(markDamageMultiplier, markDuration);
+        if (burnsEnemies)  enemy.ApplyBurn(burnDamage, burnTicks, burnTickInterval, burnWildfire, burnWildfireRadius, burnNapalm, burnNapalmRadius, burnNapalmDamage);
+        if (knockbackOnHit)
+        {
+            Vector2 dir = ((Vector2)enemy.transform.position - (Vector2)transform.position).normalized;
+            enemy.Knockback(dir, knockbackForce);
+        }
     }
 
     private void DoShockwave()

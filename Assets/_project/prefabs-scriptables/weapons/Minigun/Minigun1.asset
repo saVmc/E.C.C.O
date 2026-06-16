@@ -33,9 +33,9 @@ MonoBehaviour:
   ricochetCount: 1
   isInfiniteMag: 0
   enablesBulletTrail: 1
-  pierceCount: 0
-  isPiercing: 0
-  description: 'Pretty lights going very fast. +2 dmg, 80% faster bullet speed.'
+  pierceCount: 1
+  isPiercing: 1
+  description: 'Pretty lights going very fast. +2 dmg, 80% speed, bullets pierce through 1 enemy.'
   icon: {fileID: 0}
   starLevel: 1
   nextStarUpgrade: {fileID: 11400000, guid: c2000000000000000000000000000002, type: 2}

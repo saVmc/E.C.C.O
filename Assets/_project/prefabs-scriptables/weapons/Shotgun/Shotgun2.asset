@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392f39f25a78afd43a9044752d5efd37, type: 3}
   m_Name: Shotgun2
   m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
-  displayName: Buckshot Salvo
+  displayName: Concussion Load
   fireCooldownMultiplier: 1
-  projectileSpeedMultiplier: 1.15
+  projectileSpeedMultiplier: 1
   projectileLifetimeMultiplier: 1
   projectileDamageBonus: 1
-  magazineSizeBonus: 2
+  magazineSizeBonus: 0
   reloadTimeMultiplier: 1
   firePointOffsetDelta: {x: 0, y: 0}
   aimPivotOffsetDelta: {x: 0, y: 0}
   isTripleShot: 0
   isDoubleBarrel: 0
-  pelletCountBonus: 3
-  spreadAngleDelta: 8
+  pelletCountBonus: 0
+  spreadAngleDelta: -5
   isRicochet: 0
   ricochetCount: 1
   isInfiniteMag: 0
@@ -33,14 +33,18 @@ MonoBehaviour:
   pierceCount: 0
   isExplosive: 0
   explosionRadius: 2
+  explosiveEveryNthBullet: 0
   isExecutioner: 0
   executionThreshold: 0.2
-  slowsEnemies: 0
+  slowsEnemies: 1
   slowMultiplier: 0.4
   slowDuration: 2
+  slowEveryNthBullet: 0
+  periodicSlowTint: {r: 0.2, g: 0.9, b: 1, a: 1}
   marksEnemies: 0
   markDamageMultiplier: 2
   markDuration: 8
+  markEveryNthBullet: 0
   isChainKill: 0
   shockwaveOnKill: 0
   shockwaveRadius: 3
@@ -53,7 +57,18 @@ MonoBehaviour:
   suppressiveFire: 0
   suppressiveSlowMultiplier: 0.6
   suppressiveRange: 5
-  description: 'More pellets, more problems for them. +3 pellets, +8 spread, +1 dmg, +2 mag.'
-  icon: {fileID: 0}
+  knockbackOnHit: 0
+  knockbackForce: 12
+  burnsEnemies: 0
+  burnDamage: 4
+  burnTicks: 3
+  burnTickInterval: 1
+  burnWildfire: 0
+  burnWildfireRadius: 2.5
+  burnNapalm: 0
+  burnNapalmRadius: 2.5
+  burnNapalmDamage: 20
+  description: Every pellet hits like a fist. 60% slow for 2s, -5 spread, +1 dmg.
+  icon: {fileID: 6066325612735239030, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 2
   nextStarUpgrade: {fileID: 11400000, guid: b3000000000000000000000000000003, type: 2}

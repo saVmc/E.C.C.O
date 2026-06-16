@@ -29,8 +29,8 @@ MonoBehaviour:
   ricochetCount: 1
   isInfiniteMag: 1
   enablesBulletTrail: 0
-  isPiercing: 0
-  pierceCount: 0
+  isPiercing: 1
+  pierceCount: 2
   isExplosive: 0
   explosionRadius: 2
   isExecutioner: 0
@@ -53,7 +53,7 @@ MonoBehaviour:
   suppressiveFire: 0
   suppressiveSlowMultiplier: 0.6
   suppressiveRange: 5
-  description: 'Turns out walking and shooting are compatible. Fire while moving, infinite mag, +2 dmg.'
+  description: 'Turns out walking and shooting are compatible. Fire while moving, infinite mag, +2 dmg, pierce 2 enemies.'
   icon: {fileID: 0}
   starLevel: 3
   nextStarUpgrade: {fileID: 11400000, guid: c4000000000000000000000000000004, type: 2}

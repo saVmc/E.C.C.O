@@ -16,23 +16,24 @@ MonoBehaviour:
   gunScale: 4
   projectilePrefab: {fileID: 6300398710149701733, guid: d20405f838e288c41995d821db6a20eb, type: 3}
   projectileProfile: {fileID: 11400000, guid: f1000000000000000000000000000001, type: 2}
-  weaponSprite: {fileID: 0}
+  weaponSprite: {fileID: 21300000, guid: 0b6c4a7ccd3a39640ad06cc799358267, type: 3}
+  cardIconSprite: {fileID: 21300000, guid: 08528bf354e2c8c4991fcfc792492cfb, type: 3}
   fireCooldown: 0.65
   magazineSize: 24
   reloadTime: 1.8
   allowVerticalAim: 1
   firePointLocalPosition: {x: 0.55, y: 0}
   aimPivotLocalPosition: {x: 0, y: 0}
-  visualLocalPosition: {x: 0.6, y: -0.2}
+  visualLocalPosition: {x: 0.28, y: -0.2}
   weight: 3
-  ammoIcon: {fileID: 0}
+  ammoIcon: {fileID: 593741455082068849, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   pelletCount: 1
   spreadAngle: 0
+  playerMoveSpeed: 5
   isBurstFire: 1
   burstCount: 3
   burstDelay: 0.09
   locksMovementWhileFiring: 0
-  playerMoveSpeed: 5
   starOneUpgrade: {fileID: 11400000, guid: e1000000000000000000000000000001, type: 2}
   starTwoUpgrade: {fileID: 11400000, guid: e2000000000000000000000000000002, type: 2}
   starThreeUpgrade: {fileID: 11400000, guid: e3000000000000000000000000000003, type: 2}

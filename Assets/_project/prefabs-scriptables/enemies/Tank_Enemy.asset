@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18287d08a5ac683408eb9c84babfbe09, type: 3}
+  m_Name: Tank_Enemy
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyProfile
+  maxHealth: 70
+  moveSpeed: 1
+  contactDamage: 3
+  poofScalePeak: 2.3
+  poofDuration: 0.28
+  baseExpValue: 18
+  expOrbProfile: {fileID: 11400000, guid: c2ffb9a359f348b40a646688eac7652e, type: 2}

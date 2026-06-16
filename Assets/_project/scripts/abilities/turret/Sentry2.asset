@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
   abilityName: Sentry
   displayName: Ricochet
-  description: Bullets bounce on hit.
+  description: "Bullets ricochet off everything — enemies, walls, all of it."
   icon: {fileID: 21300000, guid: 4c16b3b4edbafea4a810d9204a97c408, type: 3}
   starLevel: 2
   cooldown: 45

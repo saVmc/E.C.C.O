@@ -9,7 +9,6 @@ public sealed class EnemyProfile : ScriptableObject
     [SerializeField] private int contactDamage = 1;
 
     [Header("Visuals")]
-    [SerializeField] private Sprite sprite;
     [SerializeField] private float poofScalePeak = 1.6f;
     [SerializeField] private float poofDuration = 0.18f;
 
@@ -24,7 +23,6 @@ public sealed class EnemyProfile : ScriptableObject
     public float MaxHealth => maxHealth;
     public float MoveSpeed => moveSpeed;
     public int ContactDamage => contactDamage;
-    public Sprite Sprite => sprite;
     public float PoofScalePeak => poofScalePeak;
     public float PoofDuration => poofDuration;
 }

@@ -17,7 +17,7 @@ MonoBehaviour:
   description: Places a turret that fires at the nearest enemy.
   icon: {fileID: 21300000, guid: 4c16b3b4edbafea4a810d9204a97c408, type: 3}
   starLevel: 0
-  cooldown: 45
+  cooldown: 20
   nextStarDefinition: {fileID: 11400000, guid: fc5cc8a7b4174344c98af50923e81a13, type: 2}
   vfxPrefabA: {fileID: 1767244033729353025, guid: b4c9bd02a6bb41a43b15f7848f3e2e3a, type: 3}
   vfxPrefabB: {fileID: 36581235571080448, guid: 4980f291334aedd4d9431931675bb024, type: 3}

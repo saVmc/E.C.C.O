@@ -17,6 +17,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6300398710149701733, guid: 59cc9553ab5cb7b4dab99dfb7303fc7c, type: 3}
   projectileProfile: {fileID: 11400000, guid: eddcf566117eb8544be46a5c3ed70a7c, type: 2}
   weaponSprite: {fileID: 21300000, guid: 5048b6a60f95b6642bc944c26cf28d0f, type: 3}
+  cardIconSprite: {fileID: 21300000, guid: d1ac5d8341b23a84c9082ffa863b660e, type: 3}
   fireCooldown: 0.5
   magazineSize: 3
   reloadTime: 1
@@ -29,6 +30,10 @@ MonoBehaviour:
   pelletCount: 5
   spreadAngle: 30
   playerMoveSpeed: 4.5
+  isBurstFire: 0
+  burstCount: 3
+  burstDelay: 0.1
+  locksMovementWhileFiring: 0
   starOneUpgrade: {fileID: 11400000, guid: b1000000000000000000000000000001, type: 2}
   starTwoUpgrade: {fileID: 11400000, guid: b2000000000000000000000000000002, type: 2}
   starThreeUpgrade: {fileID: 11400000, guid: b3000000000000000000000000000003, type: 2}

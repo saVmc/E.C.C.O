@@ -17,7 +17,7 @@ MonoBehaviour:
   description: What an engineering marvel. Frequent stuns and multi-directional targeting
   icon: {fileID: 21300000, guid: 4c16b3b4edbafea4a810d9204a97c408, type: 3}
   starLevel: 5
-  cooldown: 45
+  cooldown: 20
   nextStarDefinition: {fileID: 0}
   vfxPrefabA: {fileID: 0}
   vfxPrefabB: {fileID: 0}

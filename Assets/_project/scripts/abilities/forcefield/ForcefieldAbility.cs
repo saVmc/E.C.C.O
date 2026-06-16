@@ -66,6 +66,10 @@ public sealed class ForcefieldAbility : Ability
         {
             elapsed += tickInterval;
 
+            // Keep visual scale in sync with radius in case it was upgraded mid-field
+            if (activeVisual != null)
+                activeVisual.transform.localScale = Vector3.one * radius * 2f;
+
             Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, radius);
             foreach (Collider2D hit in hits)
             {
@@ -77,11 +81,10 @@ public sealed class ForcefieldAbility : Ability
                 if (damageable != null)
                     damageable.TakeDamage(damagePerTick);
 
-                if (slowsEnemies)
                 {
                     Enemy enemy = hit.GetComponentInParent<Enemy>();
                     if (enemy != null)
-                        enemy.ApplySlow(slowMultiplier, tickInterval);
+                        enemy.ApplySlow(slowMultiplier, tickInterval * 1.5f);
                 }
             }
 
@@ -157,38 +160,38 @@ public sealed class ForcefieldAbility : Ability
                 damagePerTick = 1;
                 tickInterval = 0.25f;
                 duration = 10f;
-                slowsEnemies = false;
-                slowMultiplier = 0.5f;
+                slowMultiplier = 0.6f;
                 extendsPickupRadius = false;
                 isSingularity = false;
                 break;
             case 1: // +radius
                 radius = 2.5f;
+                slowMultiplier = 0.6f;
                 duration = 10f;
                 break;
             case 2: // +damage
                 damagePerTick = 2;
                 radius = 2.5f;
+                slowMultiplier = 0.55f;
                 duration = 12f;
                 break;
-            case 3: // slow
-                slowsEnemies = true;
+            case 3: // stronger slow
                 damagePerTick = 2;
                 radius = 2.5f;
+                slowMultiplier = 0.5f;
                 duration = 12f;
                 break;
             case 4: // pickup radius
                 extendsPickupRadius = true;
-                slowsEnemies = true;
                 damagePerTick = 2;
                 radius = 2.5f;
+                slowMultiplier = 0.45f;
                 duration = 14f;
                 break;
             case 5: // Singularity - all maxed
                 isSingularity = true;
                 radius = 4f;
                 damagePerTick = 3;
-                slowsEnemies = true;
                 extendsPickupRadius = true;
                 slowMultiplier = 0.3f;
                 duration = 15f;

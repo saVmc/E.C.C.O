@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -22,10 +22,6 @@ MonoBehaviour:
   firePointOffsetDelta: {x: 0, y: 0}
   aimPivotOffsetDelta: {x: 0, y: 0}
   isTripleShot: 0
-  isExplosive: 0
-  explosionRadius: 2
-  isExecutioner: 0
-  executionThreshold: 0.2
   isDoubleBarrel: 0
   pelletCountBonus: 0
   spreadAngleDelta: 0
@@ -33,9 +29,47 @@ MonoBehaviour:
   ricochetCount: 1
   isInfiniteMag: 0
   enablesBulletTrail: 0
-  pierceCount: 0
   isPiercing: 0
-  description: 'Cool gun, literally. 30% faster burst cooldown, 35% faster bullets, +1 dmg.'
-  icon: {fileID: 0}
+  pierceCount: 0
+  isExplosive: 0
+  explosionRadius: 2
+  explosiveEveryNthBullet: 0
+  isExecutioner: 0
+  executionThreshold: 0.2
+  slowsEnemies: 0
+  slowMultiplier: 0.4
+  slowDuration: 2
+  slowEveryNthBullet: 0
+  periodicSlowTint: {r: 0.2, g: 0.9, b: 1, a: 1}
+  marksEnemies: 0
+  markDamageMultiplier: 2
+  markDuration: 8
+  markEveryNthBullet: 0
+  isChainKill: 0
+  shockwaveOnKill: 0
+  shockwaveRadius: 3
+  shockwaveDamage: 15
+  shockwaveMarks: 0
+  ammoOnKill: 0
+  speedBoostOnFire: 0
+  speedBoostMultiplier: 1.6
+  speedBoostDuration: 1.5
+  suppressiveFire: 0
+  suppressiveSlowMultiplier: 0.6
+  suppressiveRange: 5
+  knockbackOnHit: 0
+  knockbackForce: 12
+  burnsEnemies: 0
+  burnDamage: 4
+  burnTicks: 3
+  burnTickInterval: 1
+  burnWildfire: 0
+  burnWildfireRadius: 2.5
+  burnNapalm: 0
+  burnNapalmRadius: 2.5
+  burnNapalmDamage: 20
+  description: Cool gun, literally. 30% faster burst cooldown, 35% faster bullets,
+    +1 dmg.
+  icon: {fileID: 593741455082068849, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 1
   nextStarUpgrade: {fileID: 11400000, guid: e2000000000000000000000000000002, type: 2}

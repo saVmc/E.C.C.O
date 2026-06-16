@@ -17,6 +17,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 6300398710149701733, guid: d20405f838e288c41995d821db6a20eb, type: 3}
   projectileProfile: {fileID: 11400000, guid: 9006a5ae2c2aded4ba740441baf8927d, type: 2}
   weaponSprite: {fileID: 21300000, guid: ae547cc4222ab5745aab4d3a656b0eac, type: 3}
+  cardIconSprite: {fileID: 21300000, guid: 58ee25a5b9b592c4f9e050ef4c082a0e, type: 3}
   fireCooldown: 0.1
   magazineSize: 65
   reloadTime: 7

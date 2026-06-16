@@ -11,6 +11,8 @@ public sealed class GunProfile : ScriptableObject
     [SerializeField] private Projectile projectilePrefab;
     [SerializeField] private ProjectileProfile projectileProfile;
     [SerializeField] private Sprite weaponSprite;
+    [Tooltip("Upscaled version of the sprite used on the gun selection card UI.")]
+    [SerializeField] private Sprite cardIconSprite;
 
     [Header("Fire")]
     [SerializeField] private float fireCooldown = 0.2f;
@@ -73,6 +75,7 @@ public GunUpgrade GetUpgradeForStar(int star)
     public Projectile ProjectilePrefab => projectilePrefab;
     public ProjectileProfile ProjectileProfile => projectileProfile;
     public Sprite WeaponSprite => weaponSprite;
+    public Sprite CardIconSprite => cardIconSprite != null ? cardIconSprite : weaponSprite;
     public float FireCooldown => fireCooldown;
     public float GunScale => Mathf.Max(0.01f, gunScale);
     public int MagazineSize => magazineSize;

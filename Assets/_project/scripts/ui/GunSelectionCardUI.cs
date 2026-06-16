@@ -8,7 +8,7 @@ public sealed class GunSelectionCardUI : MonoBehaviour
     [SerializeField] private TMP_Text gunNameText;
     [SerializeField] private TMP_Text statsText;
     [SerializeField] private Button selectButton;
-    [SerializeField] private Vector2 iconSize = new Vector2(120f, 80f);
+
 
     private GunProfile profile;
     private GunSelectionDisplay display;
@@ -24,20 +24,8 @@ public sealed class GunSelectionCardUI : MonoBehaviour
 
         if (gunIcon != null)
         {
-            gunIcon.sprite = profile.WeaponSprite;
-            gunIcon.enabled = profile.WeaponSprite != null;
-            gunIcon.preserveAspect = false;
-            gunIcon.type = Image.Type.Simple;
-            RectTransform iconRect = gunIcon.GetComponent<RectTransform>();
-            if (iconRect != null)
-                iconRect.sizeDelta = iconSize;
-            // Force layout groups to respect the desired size
-            LayoutElement le = gunIcon.GetComponent<LayoutElement>();
-            if (le == null) le = gunIcon.gameObject.AddComponent<LayoutElement>();
-            le.minWidth = iconSize.x;
-            le.minHeight = iconSize.y;
-            le.preferredWidth = iconSize.x;
-            le.preferredHeight = iconSize.y;
+            gunIcon.sprite = profile.CardIconSprite;
+            gunIcon.enabled = profile.CardIconSprite != null;
         }
 
         if (gunNameText != null)

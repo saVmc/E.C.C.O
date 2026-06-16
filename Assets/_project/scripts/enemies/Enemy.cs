@@ -20,6 +20,17 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     private bool isMarked = false;
     private float markDamageMultiplier = 1f;
     private float markRemainingTime = 0f;
+    private bool isBurning = false;
+    private int burnDamage = 0;
+    private int burnTicksRemaining = 0;
+    private float burnTickInterval = 1f;
+    private float burnTickTimer = 0f;
+    private bool burnWildfireEnabled = false;
+    private float burnWildfireRadius = 2.5f;
+    private float burnWildfireTimer = 0f;
+    private bool burnNapalmEnabled = false;
+    private float burnNapalmRadius = 2.5f;
+    private int burnNapalmDamage = 20;
     private float scaledMaxHealth = 0f;
     private float scaledSpeedMultiplier = 1f;
     private float scaledExpMultiplier = 1f;
@@ -38,11 +49,7 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         spriteRenderer = GetComponent<SpriteRenderer>();
 
         if (profile != null)
-        {
             currentHealth = profile.MaxHealth;
-            if (profile.Sprite != null)
-                spriteRenderer.sprite = profile.Sprite;
-        }
 
         GameObject playerObj = GameObject.FindWithTag("Player");
         if (playerObj != null)
@@ -73,6 +80,37 @@ public abstract class Enemy : MonoBehaviour, IDamageable
                 isMarked = false;
                 markDamageMultiplier = 1f;
                 UpdateHealthVisual();
+            }
+        }
+
+        if (isBurning)
+        {
+            burnTickTimer -= Time.deltaTime;
+            if (burnTickTimer <= 0f)
+            {
+                burnTickTimer = burnTickInterval;
+                if (burnTicksRemaining > 0)
+                {
+                    burnTicksRemaining--;
+                    currentHealth -= burnDamage;
+                    UpdateHealthVisual();
+                    if (currentHealth <= 0f) { Die(); return; }
+                }
+                else
+                {
+                    isBurning = false;
+                    UpdateHealthVisual();
+                }
+            }
+
+            if (burnWildfireEnabled)
+            {
+                burnWildfireTimer -= Time.deltaTime;
+                if (burnWildfireTimer <= 0f)
+                {
+                    burnWildfireTimer = 1.5f;
+                    SpreadBurnToNearby();
+                }
             }
         }
 
@@ -108,22 +146,26 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         float t = 1f - Mathf.Clamp01(currentHealth / profile.MaxHealth);
         Color healthColor = Color.Lerp(Color.white, Color.red, t);
-        if (isMarked) healthColor = Color.Lerp(healthColor, new Color(1f, 0.92f, 0.1f), 0.55f);
-        spriteRenderer.color = isStunned ? Color.Lerp(healthColor, new Color(0.3f, 0.6f, 1f), 0.6f) : healthColor;
+        if (isBurning)              healthColor = Color.Lerp(healthColor, new Color(1f, 0.42f, 0f), 0.55f);
+        if (isMarked)               healthColor = Color.Lerp(healthColor, new Color(1f, 0.92f, 0.1f), 0.55f);
+        bool isSlowed = slowRemainingTime > 0f && slowMultiplier < 1f;
+        if (isSlowed || isStunned)  healthColor = Color.Lerp(healthColor, new Color(0.3f, 0.6f, 1f), 0.6f);
+        spriteRenderer.color = healthColor;
     }
 
     protected virtual void Die()
     {
         isDead = true;
+        if (isBurning && burnNapalmEnabled) DoNapalmExplosion();
         rb.linearVelocity = Vector2.zero;
         int exp = Mathf.RoundToInt((profile != null ? profile.CalculateExpDrop() : 0) * scaledExpMultiplier);
         OnDeath?.Invoke(exp);
     
-    if (expOrbPrefab != null && profile != null && profile.ExpOrbProfile != null)
+    if (expOrbPrefab != null && profile != null && profile.ExpOrbProfile != null && UnityEngine.Random.value < 0.667f)
     {
         ExpOrb orb = Instantiate(expOrbPrefab, transform.position, Quaternion.identity);
         orb.SetProfile(profile.ExpOrbProfile);
-        orb.SetExpValue(profile.CalculateExpDrop());
+        orb.SetExpValue(Mathf.RoundToInt(profile.CalculateExpDrop() * scaledExpMultiplier));
     }
     StartCoroutine(PoofAndDestroy());
 }
@@ -157,8 +199,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            // Hook into player health here when ready
-            // e.g. collision.gameObject.GetComponent<PlayerHealth>()?.TakeDamage(profile.ContactDamage);
+            PlayerHealth ph = collision.gameObject.GetComponent<PlayerHealth>();
+            if (ph != null && profile != null)
+                ph.TakeDamage(profile.ContactDamage);
         }
     }
 
@@ -166,8 +209,6 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     {
         profile = newProfile;
         currentHealth = profile.MaxHealth;
-        if (profile.Sprite != null)
-            spriteRenderer.sprite = profile.Sprite;
     }
 
     public void ApplyMark(float multiplier, float duration)
@@ -193,17 +234,25 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         rb.linearVelocity = direction * pullForce;
     }
 
+    public void Knockback(Vector2 direction, float force)
+    {
+        if (isDead) return;
+        rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
+        if (rb.linearVelocity.magnitude > 7f)
+            rb.linearVelocity = rb.linearVelocity.normalized * 7f;
+    }
+
     public void ExecutionKill()
 {
     if (isDead) return;
     isDead = true;
     rb.linearVelocity = Vector2.zero;
     OnDeath?.Invoke(profile != null ? profile.CalculateExpDrop() : 0);
-    if (expOrbPrefab != null && profile != null && profile.ExpOrbProfile != null)
+    if (expOrbPrefab != null && profile != null && profile.ExpOrbProfile != null && UnityEngine.Random.value < 0.667f)
     {
         ExpOrb orb = Instantiate(expOrbPrefab, transform.position, Quaternion.identity);
         orb.SetProfile(profile.ExpOrbProfile);
-        orb.SetExpValue(profile.CalculateExpDrop());
+        orb.SetExpValue(Mathf.RoundToInt(profile.CalculateExpDrop() * scaledExpMultiplier));
     }
     StartCoroutine(ExecutionPoofAndDestroy());
 }
@@ -237,6 +286,44 @@ private IEnumerator ExecutionPoofAndDestroy()
         scaledExpMultiplier = expMult;
         IsBoss = isBoss;
         UpdateHealthVisual();
+    }
+
+    public void ApplyBurn(int damage, int ticks, float interval, bool wildfire = false, float wildfireRadius = 2.5f, bool napalm = false, float napalmRadius = 2.5f, int napalmDamage = 20)
+    {
+        isBurning = true;
+        burnDamage = Mathf.Max(burnDamage, damage);
+        burnTicksRemaining = Mathf.Max(burnTicksRemaining, ticks);
+        burnTickInterval = interval;
+        if (burnTickTimer <= 0f) burnTickTimer = interval;
+        if (wildfire) { burnWildfireEnabled = true; burnWildfireRadius = Mathf.Max(burnWildfireRadius, wildfireRadius); if (burnWildfireTimer <= 0f) burnWildfireTimer = 1.5f; }
+        if (napalm)   { burnNapalmEnabled = true; burnNapalmRadius = Mathf.Max(burnNapalmRadius, napalmRadius); burnNapalmDamage = Mathf.Max(burnNapalmDamage, napalmDamage); }
+        UpdateHealthVisual();
+    }
+
+    private void SpreadBurnToNearby()
+    {
+        Collider2D[] nearby = Physics2D.OverlapCircleAll(transform.position, burnWildfireRadius);
+        foreach (Collider2D col in nearby)
+        {
+            Enemy e = col.GetComponentInParent<Enemy>();
+            if (e != null && e != this && !e.IsDead)
+                e.ApplyBurn(burnDamage, burnTicksRemaining, burnTickInterval);
+        }
+    }
+
+    private void DoNapalmExplosion()
+    {
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, burnNapalmRadius);
+        foreach (Collider2D hit in hits)
+        {
+            if (hit.CompareTag("Player") || hit.transform.root.CompareTag("Player")) continue;
+            Enemy e = hit.GetComponentInParent<Enemy>();
+            if (e != null && !e.IsDead)
+            {
+                e.TakeDamage(burnNapalmDamage);
+                e.ApplyBurn(burnDamage, 3, burnTickInterval);
+            }
+        }
     }
 
     public float CurrentHealth => currentHealth;

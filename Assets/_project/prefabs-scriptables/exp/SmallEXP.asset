@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: SmallEXP
   m_EditorClassIdentifier: Assembly-CSharp::ExpOrbProfile
   expValue: 5
-  attractRadius: 2
+  attractRadius: 3
   flySpeed: 8
   orbColor: {r: 0, g: 1, b: 1, a: 1}
   orbScale: 0.3

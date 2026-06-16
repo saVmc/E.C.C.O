@@ -6,8 +6,8 @@ public class PlayerProgression : MonoBehaviour
     public static PlayerProgression Instance { get; private set; }
 
     [Header("EXP Curve")]
-    [SerializeField] private int baseExp = 100;
-    [SerializeField] private float levelExponent = 1.6f;
+    [SerializeField] private int baseExp = 80;
+    [SerializeField] private float levelExponent = 2.1f;
 
     private int currentLevel = 1;
     private int currentExp = 0;

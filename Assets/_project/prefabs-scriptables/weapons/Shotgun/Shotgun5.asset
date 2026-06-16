@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -12,33 +12,64 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392f39f25a78afd43a9044752d5efd37, type: 3}
   m_Name: Shotgun5
   m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
-  displayName: Point Blank
+  displayName: Blastback
   fireCooldownMultiplier: 1
   projectileSpeedMultiplier: 1
-  projectileLifetimeMultiplier: 0.2
-  projectileDamageBonus: 10
-  magazineSizeBonus: 0
+  projectileLifetimeMultiplier: 0.35
+  projectileDamageBonus: 2
+  magazineSizeBonus: 2
   reloadTimeMultiplier: 1
   firePointOffsetDelta: {x: 0, y: 0}
   aimPivotOffsetDelta: {x: 0, y: 0}
   isTripleShot: 0
-  isExplosive: 0
-  explosionRadius: 2
-  isExecutioner: 0
-  executionThreshold: 0.2
   isDoubleBarrel: 0
-  pelletCountBonus: 2
+  pelletCountBonus: 0
   spreadAngleDelta: 0
   isRicochet: 0
   ricochetCount: 1
   isInfiniteMag: 0
   enablesBulletTrail: 1
+  isPiercing: 0
+  pierceCount: 0
+  isExplosive: 0
+  explosionRadius: 2
+  explosiveEveryNthBullet: 0
+  isExecutioner: 0
+  executionThreshold: 0.2
   slowsEnemies: 0
   slowMultiplier: 0.4
   slowDuration: 2
-  pierceCount: 0
-  isPiercing: 0
-  description: 'Personal space? Never heard of it. +10 dmg/pellet, +2 pellets, 80% shorter range.'
-  icon: {fileID: 0}
+  slowEveryNthBullet: 0
+  periodicSlowTint: {r: 0.2, g: 0.9, b: 1, a: 1}
+  marksEnemies: 0
+  markDamageMultiplier: 2
+  markDuration: 8
+  markEveryNthBullet: 0
+  isChainKill: 0
+  shockwaveOnKill: 0
+  shockwaveRadius: 3
+  shockwaveDamage: 15
+  shockwaveMarks: 0
+  ammoOnKill: 0
+  speedBoostOnFire: 0
+  speedBoostMultiplier: 1.6
+  speedBoostDuration: 1.5
+  suppressiveFire: 0
+  suppressiveSlowMultiplier: 0.6
+  suppressiveRange: 5
+  knockbackOnHit: 1
+  knockbackForce: 14
+  burnsEnemies: 0
+  burnDamage: 4
+  burnTicks: 3
+  burnTickInterval: 1
+  burnWildfire: 0
+  burnWildfireRadius: 2.5
+  burnNapalm: 0
+  burnNapalmRadius: 2.5
+  burnNapalmDamage: 20
+  description: You are the explosion. Each pellet physically launches enemies away.
+    Run in, blast, scatter the horde.
+  icon: {fileID: 6066325612735239030, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 5
   nextStarUpgrade: {fileID: 0}

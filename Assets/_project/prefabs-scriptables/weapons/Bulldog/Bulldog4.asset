@@ -1,4 +1,4 @@
-﻿%YAML 1.1
+%YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
 --- !u!114 &11400000
 MonoBehaviour:
@@ -33,6 +33,7 @@ MonoBehaviour:
   pierceCount: 0
   isExplosive: 0
   explosionRadius: 2
+  explosiveEveryNthBullet: 0
   isExecutioner: 0
   executionThreshold: 0.2
   slowsEnemies: 1
@@ -43,6 +44,7 @@ MonoBehaviour:
   marksEnemies: 0
   markDamageMultiplier: 2
   markDuration: 8
+  markEveryNthBullet: 0
   isChainKill: 0
   shockwaveOnKill: 0
   shockwaveRadius: 3
@@ -55,7 +57,19 @@ MonoBehaviour:
   suppressiveFire: 0
   suppressiveSlowMultiplier: 0.6
   suppressiveRange: 5
-  description: 'Every 3rd bullet has a strongly-worded suggestion. Cyan bullet slows enemy to 25% speed for 3s, +2 dmg.'
-  icon: {fileID: 0}
+  knockbackOnHit: 0
+  knockbackForce: 12
+  burnsEnemies: 0
+  burnDamage: 4
+  burnTicks: 3
+  burnTickInterval: 1
+  burnWildfire: 0
+  burnWildfireRadius: 2.5
+  burnNapalm: 0
+  burnNapalmRadius: 2.5
+  burnNapalmDamage: 20
+  description: Every 3rd bullet has a strongly-worded suggestion. Cyan bullet slows
+    enemy to 25% speed for 3s, +2 dmg.
+  icon: {fileID: 593741455082068849, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 4
   nextStarUpgrade: {fileID: 11400000, guid: e5000000000000000000000000000005, type: 2}

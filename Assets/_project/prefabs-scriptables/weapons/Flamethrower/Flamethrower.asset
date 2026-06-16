@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 752d71bbb8d7a4e489436e3319ad92ca, type: 3}
+  m_Name: Flamethrower
+  m_EditorClassIdentifier: Assembly-CSharp::GunProfile
+  displayName: Flamethrower
+  gunScale: 1
+  projectilePrefab: {fileID: 7226187940450976316, guid: 0e12e3b815f75f74b8ed702b5fb62dc3, type: 3}
+  projectileProfile: {fileID: 11400000, guid: 5396776d9b4f25043abccc6a6ad4312b, type: 2}
+  weaponSprite: {fileID: 21300000, guid: 6340a8ce138270148bbcfe26cb801508, type: 3}
+  cardIconSprite: {fileID: 0}
+  fireCooldown: 0.07
+  magazineSize: 100
+  reloadTime: 3
+  allowVerticalAim: 1
+  firePointLocalPosition: {x: 0.8, y: 0}
+  aimPivotLocalPosition: {x: 0, y: 0}
+  visualLocalPosition: {x: 0, y: 0}
+  weight: 1
+  ammoIcon: {fileID: 5714641426185769055, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
+  pelletCount: 2
+  spreadAngle: 22
+  playerMoveSpeed: 5
+  isBurstFire: 0
+  burstCount: 3
+  burstDelay: 0.1
+  locksMovementWhileFiring: 0
+  starOneUpgrade: {fileID: 11400000, guid: d238118e7d1d0804e8f163c4e778cfea, type: 2}
+  starTwoUpgrade: {fileID: 11400000, guid: f1000000000000000000000000000002, type: 2}
+  starThreeUpgrade: {fileID: 11400000, guid: f1000000000000000000000000000003, type: 2}
+  starFourUpgrade: {fileID: 11400000, guid: f1000000000000000000000000000004, type: 2}
+  starFiveUpgrade: {fileID: 11400000, guid: f1000000000000000000000000000005, type: 2}

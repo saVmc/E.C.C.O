@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c112cb78b2377d40a9c22b2325222c3, type: 3}
   m_Name: MinigunShot
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileProfile
-  damage: 1
-  speed: 15
-  maxRange: 25
+  damage: 2
+  speed: 22
+  maxRange: 28
   sprite: {fileID: 21300000, guid: 163fa462d67547f4dac02a77df9c38cb, type: 3}
   tintColor: {r: 0.17264181, g: 0.8490566, b: 0.1714133, a: 1}
   scale: 1

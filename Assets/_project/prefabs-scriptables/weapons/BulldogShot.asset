@@ -16,7 +16,7 @@ MonoBehaviour:
   speed: 20
   maxRange: 22
   sprite: {fileID: 0}
-  tintColor: {r: 1, g: 1, b: 1, a: 1}
+  tintColor: {r: 0.72379744, g: 0, b: 1, a: 1}
   scale: 0.9
   hitMask:
     serializedVersion: 2

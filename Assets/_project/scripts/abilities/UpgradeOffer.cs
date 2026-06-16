@@ -7,6 +7,12 @@ public sealed class UpgradeOffer
     public bool IsNewAbility { get; private set; }
     public GunUpgradeOffer GunUpgrade { get; private set; }
     public bool IsGunUpgrade => GunUpgrade != null;
+    public bool IsHealOffer { get; private set; }
+
+    public static UpgradeOffer MakeHealOffer()
+    {
+        return new UpgradeOffer(null, null, false) { IsHealOffer = true };
+    }
 
     public UpgradeOffer(AbilityDefinition definition, Ability existingAbility, bool isNewAbility, GunUpgradeOffer gunUpgrade = null)
     {

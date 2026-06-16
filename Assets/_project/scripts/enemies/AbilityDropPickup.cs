@@ -1,9 +1,5 @@
 using UnityEngine;
 
-/// <summary>
-/// World-space pickup dropped by bosses.
-/// Player walks over it to receive a single boss-weighted upgrade offer.
-/// </summary>
 [RequireComponent(typeof(Collider2D))]
 public sealed class AbilityDropPickup : MonoBehaviour
 {
@@ -41,7 +37,7 @@ public sealed class AbilityDropPickup : MonoBehaviour
         UpgradeOffer offer = AbilityManager.Instance.GenerateBossDropOffer();
         if (offer == null) return;
 
-        LevelUpDisplay display = Object.FindFirstObjectByType<LevelUpDisplay>();
+        LevelUpDisplay display = FindAnyObjectByType<LevelUpDisplay>();
         display?.ShowDropOffer(offer);
 
         Destroy(gameObject);

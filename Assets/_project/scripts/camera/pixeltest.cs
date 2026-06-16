@@ -31,6 +31,14 @@ public class PixelPerfectCamera : MonoBehaviour
         CalculateCameraExtents();
     }
 
+    private void Start()
+    {
+        // Recalculate after all Awakes have run — tilemap may not be ready in Awake
+        CalculateCameraExtents();
+    }
+
+    public void RecalculateBounds() => CalculateCameraExtents();
+
     private void CalculateCameraExtents()
     {
         if (cam == null) cam = Camera.main;

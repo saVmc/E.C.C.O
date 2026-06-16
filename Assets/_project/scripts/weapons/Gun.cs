@@ -60,6 +60,7 @@ public float ProjectileScale => Mathf.Max(0.01f, projectileScale);
     protected bool isTripleShot = false;
 protected bool isExplosive = false;
 protected float explosionRadius = 2f;
+protected int explosiveEveryNthBullet = 0;
 protected bool isExecutioner = false;
 protected float executionThreshold = 0.2f;
 protected bool isDoubleBarrel = false;
@@ -98,6 +99,17 @@ protected bool isInfiniteMag = false;
     protected bool suppressiveFire = false;
     protected float suppressiveSlowMultiplier = 0.6f;
     protected float suppressiveRange = 5f;
+    protected bool burnsEnemies = false;
+    protected int burnDamage = 4;
+    protected int burnTicks = 3;
+    protected float burnTickInterval = 1f;
+    protected bool burnWildfire = false;
+    protected float burnWildfireRadius = 2.5f;
+    protected bool burnNapalm = false;
+    protected float burnNapalmRadius = 2.5f;
+    protected int burnNapalmDamage = 20;
+    protected bool knockbackOnHit = false;
+    protected float knockbackForce = 12f;
 
     public event Action OnShotFired;
 
@@ -291,7 +303,7 @@ public virtual void ApplyProfile(GunProfile profile)
         if (upgrade == null)
             return;
         if (upgrade.IsTripleShot) isTripleShot = true;
-if (upgrade.IsExplosive) { isExplosive = true; explosionRadius = upgrade.ExplosionRadius; }
+if (upgrade.IsExplosive) { isExplosive = true; explosionRadius = upgrade.ExplosionRadius; explosiveEveryNthBullet = upgrade.ExplosiveEveryNthBullet; }
 if (upgrade.IsExecutioner) { isExecutioner = true; executionThreshold = upgrade.ExecutionThreshold; }
 if (upgrade.IsDoubleBarrel) isDoubleBarrel = true;
 if (upgrade.PelletCountBonus != 0) pelletCountBonus += upgrade.PelletCountBonus;
@@ -304,7 +316,12 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         if (upgrade.ShockwaveOnKill) { shockwaveOnKill = true; shockwaveRadius = upgrade.ShockwaveRadius; shockwaveDamage = upgrade.ShockwaveDamage; shockwaveMarks = upgrade.ShockwaveMarks; }
         if (upgrade.AmmoOnKill > 0) ammoOnKill = upgrade.AmmoOnKill;
         if (upgrade.SpeedBoostOnFire) { speedBoostOnFire = true; speedBoostMultiplier = upgrade.SpeedBoostMultiplier; speedBoostDuration = upgrade.SpeedBoostDuration; }
-        if (upgrade.SuppressiveFire) { suppressiveFire = true; suppressiveSlowMultiplier = upgrade.SuppressiveSlowMultiplier; suppressiveRange = upgrade.SuppressiveRange; }
+        if (upgrade.SuppressiveFire) { suppressiveFire = true; suppressiveSlowMultiplier = upgrade.SuppressiveSlowMultiplier; suppressiveRange = upgrade.SuppressiveRange; if (DenialRing.Instance != null) DenialRing.Instance.SetRadius(suppressiveRange); }
+        if (upgrade.BurnsEnemies || upgrade.BurnWildfire || upgrade.BurnNapalm) burnsEnemies = true;
+        if (upgrade.BurnsEnemies) { burnDamage = upgrade.BurnDamage; burnTicks = upgrade.BurnTicks; burnTickInterval = upgrade.BurnTickInterval; }
+        if (upgrade.KnockbackOnHit) { knockbackOnHit = true; knockbackForce = upgrade.KnockbackForce; }
+        if (upgrade.BurnWildfire) { burnWildfire = true; burnWildfireRadius = upgrade.BurnWildfireRadius; }
+        if (upgrade.BurnNapalm)   { burnNapalm = true; burnNapalmRadius = upgrade.BurnNapalmRadius; burnNapalmDamage = upgrade.BurnNapalmDamage; }
 
         appliedUpgrades.Add(upgrade);
         ApplyUpgradeInternal(upgrade);
@@ -366,7 +383,7 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
             projectile.EnableTrail(projectileTintColor);
 
         if (isPiercing) projectile.SetPiercing(piercingCount);
-        if (isExplosive) projectile.SetExplosive(explosionRadius);
+        if (isExplosive && (explosiveEveryNthBullet <= 0 || bulletsFiredTotal % explosiveEveryNthBullet == 0)) projectile.SetExplosive(explosionRadius);
         if (isRicochet) projectile.SetRicochet(ricochetCount);
         if (isExecutioner) projectile.SetExecutioner(executionThreshold);
         ApplySlowToProjectile(projectile);
@@ -374,11 +391,13 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         if (isChainKill) projectile.SetChainKill();
         if (shockwaveOnKill) projectile.SetShockwaveOnKill(shockwaveRadius, shockwaveDamage, shockwaveMarks);
         if (ammoOnKill > 0) projectile.SetAmmoOnKillCallback(OnProjectileKill);
+        if (burnsEnemies) { projectile.SetBurn(burnDamage, burnTicks, burnTickInterval, burnWildfire, burnWildfireRadius, burnNapalm, burnNapalmRadius, burnNapalmDamage); projectile.SetScaleUp(0.15f, 0.1f); }
+        if (knockbackOnHit) projectile.SetKnockback(knockbackForce);
         if (isDoubleBarrel)
-{
-    float doubleBarrelDelay = 0.08f;
-    StartCoroutine(FireDelayed(direction, doubleBarrelDelay));
-}
+    {
+        float doubleBarrelDelay = 0.4f;
+        StartCoroutine(FireDelayed(doubleBarrelDelay));
+    }
         if (isTripleShot)
 {
     Vector2 left = Quaternion.Euler(0, 0, 15f) * direction;
@@ -390,7 +409,7 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         if (currentProjectileProfile != null) tp.ApplyProfile(currentProjectileProfile);
         tp.transform.right = triDir.normalized;
         if (isPiercing) tp.SetPiercing(piercingCount);
-        if (isExplosive) tp.SetExplosive(explosionRadius);
+        if (isExplosive && (explosiveEveryNthBullet <= 0 || bulletsFiredTotal % explosiveEveryNthBullet == 0)) tp.SetExplosive(explosionRadius);
     }
 }
     }
@@ -416,7 +435,7 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
 }
 
 
-    private IEnumerator BurstFireRoutine(Vector2 direction)
+    private IEnumerator BurstFireRoutine(Vector2 initialDirection)
     {
         LayerMask mask = currentProjectileProfile != null ? currentProjectileProfile.HitMask : ~0;
         bool rotate = currentProjectileProfile != null && currentProjectileProfile.RotateToDirection;
@@ -424,6 +443,10 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         {
             yield return new WaitForSeconds(burstDelay);
             if (projectilePrefab == null) yield break;
+            Vector2 direction = GetAimDirection();
+            if (direction.sqrMagnitude < 0.0001f) direction = initialDirection;
+            if (!allowVerticalAim) { direction.y = 0f; if (Mathf.Approximately(direction.x, 0f)) direction.x = 1f; }
+            direction = direction.normalized;
             ammoInMagazine = Mathf.Max(0, ammoInMagazine - 1);
             Projectile p = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
             p.Initialize(direction, projectileSpeed, projectileLifetime, projectileDamage, transform.root.gameObject, mask, rotate);
@@ -431,7 +454,7 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
             p.transform.right = direction;
             if (gun5StarTrail) p.EnableTrail(projectileTintColor);
             if (isPiercing) p.SetPiercing(piercingCount);
-            if (isExplosive) p.SetExplosive(explosionRadius);
+            if (isExplosive && (explosiveEveryNthBullet <= 0 || bulletsFiredTotal % explosiveEveryNthBullet == 0)) p.SetExplosive(explosionRadius);
             if (isRicochet) p.SetRicochet(ricochetCount);
             if (isExecutioner) p.SetExecutioner(executionThreshold);
             ApplySlowToProjectile(p);
@@ -439,6 +462,8 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
             if (isChainKill) p.SetChainKill();
             if (shockwaveOnKill) p.SetShockwaveOnKill(shockwaveRadius, shockwaveDamage, shockwaveMarks);
             if (ammoOnKill > 0) p.SetAmmoOnKillCallback(OnProjectileKill);
+            if (burnsEnemies) { p.SetBurn(burnDamage, burnTicks, burnTickInterval, burnWildfire, burnWildfireRadius, burnNapalm, burnNapalmRadius, burnNapalmDamage); p.SetScaleUp(0.15f, 0.1f); }
+            if (knockbackOnHit) p.SetKnockback(knockbackForce);
             if (suppressiveFire) ApplySuppressiveFire();
             ApplyRecoil(direction);
             OnShotFired?.Invoke();
@@ -446,9 +471,18 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         }
     }
 
-    private IEnumerator FireDelayed(Vector2 direction, float delay)
+    private IEnumerator FireDelayed(float delay)
 {
     yield return new WaitForSeconds(delay);
+    Vector2 direction = GetAimDirection();
+    if (direction.sqrMagnitude < 0.0001f)
+        direction = Vector2.right;
+    if (!allowVerticalAim)
+    {
+        direction.y = 0f;
+        if (Mathf.Approximately(direction.x, 0f))
+            direction.x = 1f;
+    }
     int pellets = (currentProfile != null ? Mathf.Max(1, currentProfile.PelletCount) : 1) + pelletCountBonus;
     float spread = (currentProfile != null ? currentProfile.SpreadAngle : 0f) + spreadAngleDelta;
     LayerMask mask = currentProjectileProfile != null ? currentProjectileProfile.HitMask : ~0;
@@ -471,12 +505,14 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         if (currentProjectileProfile != null) projectile.ApplyProfile(currentProjectileProfile);
         projectile.transform.right = pelletDirection;
         if (isPiercing) projectile.SetPiercing(piercingCount);
-        if (isExplosive) projectile.SetExplosive(explosionRadius);
+        if (isExplosive && (explosiveEveryNthBullet <= 0 || bulletsFiredTotal % explosiveEveryNthBullet == 0)) projectile.SetExplosive(explosionRadius);
         ApplySlowToProjectile(projectile);
         ApplyMarkToProjectile(projectile);
         if (isChainKill) projectile.SetChainKill();
         if (shockwaveOnKill) projectile.SetShockwaveOnKill(shockwaveRadius, shockwaveDamage, shockwaveMarks);
         if (ammoOnKill > 0) projectile.SetAmmoOnKillCallback(OnProjectileKill);
+        if (burnsEnemies) { projectile.SetBurn(burnDamage, burnTicks, burnTickInterval, burnWildfire, burnWildfireRadius, burnNapalm, burnNapalmRadius, burnNapalmDamage); projectile.SetScaleUp(0.15f, 0.1f); }
+        if (knockbackOnHit) projectile.SetKnockback(knockbackForce);
     }
 }
 
