@@ -14,9 +14,10 @@ public sealed class WaveAnnouncerUI : MonoBehaviour
 
         if (HordeSpawner.Instance != null)
         {
-            HordeSpawner.Instance.OnWaveStarted   += OnWaveStarted;
-            HordeSpawner.Instance.OnWaveCompleted += OnWaveCompleted;
-            HordeSpawner.Instance.OnBossSpawned   += OnBossSpawned;
+            HordeSpawner.Instance.OnWaveStarted    += OnWaveStarted;
+            HordeSpawner.Instance.OnWaveCompleted  += OnWaveCompleted;
+            HordeSpawner.Instance.OnBossSpawned    += OnBossSpawned;
+            HordeSpawner.Instance.OnWeaponUnlocked += OnWeaponUnlocked;
         }
     }
 
@@ -24,9 +25,10 @@ public sealed class WaveAnnouncerUI : MonoBehaviour
     {
         if (HordeSpawner.Instance != null)
         {
-            HordeSpawner.Instance.OnWaveStarted   -= OnWaveStarted;
-            HordeSpawner.Instance.OnWaveCompleted -= OnWaveCompleted;
-            HordeSpawner.Instance.OnBossSpawned   -= OnBossSpawned;
+            HordeSpawner.Instance.OnWaveStarted    -= OnWaveStarted;
+            HordeSpawner.Instance.OnWaveCompleted  -= OnWaveCompleted;
+            HordeSpawner.Instance.OnBossSpawned    -= OnBossSpawned;
+            HordeSpawner.Instance.OnWeaponUnlocked -= OnWeaponUnlocked;
         }
     }
 
@@ -47,6 +49,34 @@ public sealed class WaveAnnouncerUI : MonoBehaviour
         if (!gameObject.activeInHierarchy) return;
         StopAllCoroutines();
         StartCoroutine(AnnounceRoutine("BOSS SPAWNED!"));
+    }
+
+    private void OnWeaponUnlocked(string weaponName)
+    {
+        if (!gameObject.activeInHierarchy) return;
+        StopAllCoroutines();
+        StartCoroutine(WeaponUnlockRoutine(weaponName));
+    }
+
+    private IEnumerator WeaponUnlockRoutine(string weaponName)
+    {
+        if (waveText == null) yield break;
+
+        waveText.text = $"<color=#FFD700> NEW GUN UNLOCKED </color>";
+        waveText.alpha = 1f;
+        waveText.gameObject.SetActive(true);
+
+        yield return new WaitForSeconds(3.5f);
+
+        float t = 0f;
+        while (t < fadeDuration * 2f)
+        {
+            t += Time.unscaledDeltaTime;
+            waveText.alpha = 1f - t / (fadeDuration * 2f);
+            yield return null;
+        }
+
+        waveText.gameObject.SetActive(false);
     }
 
     private IEnumerator AnnounceRoutine(string message)

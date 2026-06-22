@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,17 +14,10 @@ public struct EnemySpawnEntry
     public int unlockAtWave;
 }
 
-/// <summary>
-/// Vampire-Survivors-style horde spawner.
-/// Enemies stream in continuously from just outside the camera edges.
-/// Difficulty (count, speed, health, EXP) scales with player level.
-/// Bosses spawn at every multiple of <see cref="bossLevelInterval"/>.
-/// </summary>
 public sealed class HordeSpawner : MonoBehaviour
 {
     public static HordeSpawner Instance { get; private set; }
 
-    // ── Enemy pool ────────────────────────────────────────────────────────────
     [Header("Enemy Pool")]
     [SerializeField] private List<EnemySpawnEntry> enemyPool = new List<EnemySpawnEntry>();
 
@@ -38,84 +31,79 @@ public sealed class HordeSpawner : MonoBehaviour
     [Range(0f, 1f)]
     [SerializeField] private float healthDropChance = 0.05f;
 
-    // ── Spawn rate ────────────────────────────────────────────────────────────
     [Header("Spawn Rate")]
-    [Tooltip("Seconds between spawns at level 1. Slow to start — player is weak.")]
     [SerializeField] private float baseSpawnInterval = 2.5f;
-    [Tooltip("Interval shrinks by this per level. Noticeable ramp by level 10.")]
     [SerializeField] private float intervalReductionPerLevel = 0.1f;
+    [SerializeField] private float intervalReductionPerWave  = 0.05f;
     [SerializeField] private float minSpawnInterval = 0.22f;
 
-    // ── Live cap ──────────────────────────────────────────────────────────────
     [Header("Live Enemy Cap")]
     [SerializeField] private int baseMaxLive = 8;
     [SerializeField] private int maxLiveGrowthPerLevel = 2;
     [SerializeField] private int absoluteMaxLive = 100;
 
-    // ── Stat scaling per level ────────────────────────────────────────────────
     [Header("Stat Scaling (per player level)")]
-    [Tooltip("+N% health per level above 1.")]
     [SerializeField] private float healthScalingPerLevel = 0.14f;
-    [Tooltip("+N% move speed per level above 1.")]
     [SerializeField] private float speedScalingPerLevel = 0.025f;
-    [Tooltip("+N% exp per level above 1.")]
     [SerializeField] private float expScalingPerLevel = 0.08f;
 
-    // ── Boss multipliers ──────────────────────────────────────────────────────
     [Header("Boss Multipliers (stacks with normal scaling)")]
     [SerializeField] private float bossHealthBase = 30f;
-    [SerializeField] private float bossHealthPerBoss = 8f;   // grows each boss
+    [SerializeField] private float bossHealthPerBoss = 8f;
     [SerializeField] private float bossSpeedBonus = 0.3f;
     [SerializeField] private float bossExpBase = 20f;
     [SerializeField] private float bossExpPerBoss = 5f;
 
-    // ── Spawn zone ────────────────────────────────────────────────────────────
     [Header("Spawn Zone")]
-    [Tooltip("Extra units beyond camera edge.")]
     [SerializeField] private float spawnMargin = 1.5f;
-    [Tooltip("Follows Player tag if empty.")]
     [SerializeField] private Transform spawnCenter;
-    [Tooltip("Assign the wall/floor Tilemap so enemies can't spawn outside it.")]
+    [SerializeField] private BoxCollider2D spawnAreaCollider;
     [SerializeField] private Tilemap boundsTilemap;
 
-    // ── Wave settings ─────────────────────────────────────────────────────────
+    [Header("Out-of-Bounds Cleanup")]
+    [SerializeField] private float oobCheckInterval = 2f;
+    [SerializeField] private float oobKillMargin = 1f;
+
     [Header("Wave Settings")]
     [SerializeField] private int baseWaveSize = 10;
     [SerializeField] private int waveSizeGrowth = 4;
     [SerializeField] private float restBetweenWaves = 10f;
     [SerializeField] private int bossWaveInterval = 5;
 
-    // ── State ─────────────────────────────────────────────────────────────────
     public int LiveEnemyCount { get; private set; }
+    public int WaveEnemiesRemaining { get; private set; }
     public bool IsActive { get; private set; }
     public Enemy ActiveBoss { get; private set; }
     public int CurrentWave { get; private set; }
+    public static int HighestWaveCompleted { get; private set; } = 0;
 
-    public event Action<int> OnBossSpawned;
-    public event Action    OnBossKilled;
-    public event Action<int> OnWaveStarted;
-    public event Action<int> OnWaveCompleted;
+    public event Action<int>    OnBossSpawned;
+    public event Action         OnBossKilled;
+    public event Action<int>    OnWaveStarted;
+    public event Action<int>    OnWaveCompleted;
+    public event Action<string> OnWeaponUnlocked;
 
     private int playerLevel = 1;
     private int bossesSpawned = 0;
+    private int waveSpawnedSoFar = 0;
     private Camera mainCam;
     private Bounds mapBounds;
     private int waveEnemiesRemaining = 0;
 
-    // ── Computed helpers ──────────────────────────────────────────────────────
     private float SpawnInterval =>
-        Mathf.Max(minSpawnInterval, baseSpawnInterval - (playerLevel - 1) * intervalReductionPerLevel);
+        Mathf.Max(minSpawnInterval,
+            baseSpawnInterval
+            - (playerLevel  - 1) * intervalReductionPerLevel
+            - (CurrentWave  - 1) * intervalReductionPerWave);
 
     private int MaxLive =>
         Mathf.Min(absoluteMaxLive, baseMaxLive + (playerLevel - 1) * maxLiveGrowthPerLevel);
 
-    private float HealthMult  => 1f + (playerLevel - 1) * healthScalingPerLevel;
-    private float SpeedMult   => 1f + (playerLevel - 1) * speedScalingPerLevel;
+    private float HealthMult  => (1f + (playerLevel - 1) * healthScalingPerLevel) * GameProgress.EnemyHealthMultiplier * PrestigeEffects.EnemyHealthScale;
+    private float SpeedMult   => (1f + (playerLevel - 1) * speedScalingPerLevel)  * GameProgress.EnemySpeedMultiplier  * PrestigeEffects.EnemySpeedScale;
     private float ExpMult     => 1f + (playerLevel - 1) * expScalingPerLevel;
 
-    // ─────────────────────────────────────────────────────────────────────────
-
-    private void Awake()
+private void Awake()
     {
         if (Instance != null && Instance != this) { Destroy(gameObject); return; }
         Instance = this;
@@ -132,18 +120,25 @@ public sealed class HordeSpawner : MonoBehaviour
         }
         if (spawnCenter == null) spawnCenter = transform;
 
-        if (boundsTilemap == null)
-            boundsTilemap = FindAnyObjectByType<Tilemap>();
-        if (boundsTilemap != null)
+        if (spawnAreaCollider != null)
         {
-            boundsTilemap.CompressBounds();
-            mapBounds = boundsTilemap.localBounds;
-            // convert to world space
-            mapBounds.center += boundsTilemap.transform.position;
+            mapBounds = spawnAreaCollider.bounds;
+            spawnAreaCollider.enabled = false;
         }
         else
         {
-            mapBounds = new Bounds(Vector3.zero, Vector3.one * 10000f);
+            if (boundsTilemap == null)
+                boundsTilemap = FindAnyObjectByType<Tilemap>();
+            if (boundsTilemap != null)
+            {
+                boundsTilemap.CompressBounds();
+                mapBounds = boundsTilemap.localBounds;
+                mapBounds.center += boundsTilemap.transform.position;
+            }
+            else
+            {
+                mapBounds = new Bounds(Vector3.zero, Vector3.one * 10000f);
+            }
         }
 
         if (PlayerProgression.Instance != null)
@@ -151,12 +146,13 @@ public sealed class HordeSpawner : MonoBehaviour
 
         if (enemyPool.Count == 0)
         {
-            Debug.LogWarning("[HordeSpawner] Enemy pool is empty — add entries in the Inspector.");
+            Debug.LogWarning("[HordeSpawner] Enemy pool is empty â€” add entries in the Inspector.");
             return;
         }
 
         IsActive = true;
         StartCoroutine(SpawnLoop());
+        StartCoroutine(OobCleanupLoop());
     }
 
     private void OnDestroy()
@@ -165,16 +161,12 @@ public sealed class HordeSpawner : MonoBehaviour
             PlayerProgression.Instance.OnLevelUp -= HandleLevelUp;
     }
 
-    // ── Level-up handler ──────────────────────────────────────────────────────
-
-    private void HandleLevelUp(int newLevel)
+private void HandleLevelUp(int newLevel)
     {
         playerLevel = newLevel;
     }
 
-    // ── Main spawn coroutine ──────────────────────────────────────────────────
-
-    private IEnumerator SpawnLoop()
+private IEnumerator SpawnLoop()
     {
         yield return new WaitUntil(() => Time.timeScale > 0f);
         yield return new WaitForSeconds(2f);
@@ -183,40 +175,56 @@ public sealed class HordeSpawner : MonoBehaviour
             CurrentWave++;
             int waveSize = baseWaveSize + (CurrentWave - 1) * waveSizeGrowth;
             waveEnemiesRemaining = waveSize;
+            WaveEnemiesRemaining = waveSize;
+            waveSpawnedSoFar = 0;
 
             OnWaveStarted?.Invoke(CurrentWave);
 
-            // Boss wave
-            if (CurrentWave % bossWaveInterval == 0 && bossEntry.prefab != null)
+if (CurrentWave % bossWaveInterval == 0)
                 yield return StartCoroutine(SpawnBossRoutine());
 
-            // Spawn all enemies in this wave
-            int spawned = 0;
+int spawned = 0;
             while (spawned < waveSize)
             {
                 if (LiveEnemyCount < MaxLive)
                 {
                     SpawnNormalEnemy();
                     spawned++;
+                    waveSpawnedSoFar = spawned;
                 }
                 yield return new WaitForSeconds(SpawnInterval);
             }
 
-            // Wait for all wave enemies to die
-            while (LiveEnemyCount > 0)
+while (LiveEnemyCount > 0)
                 yield return new WaitForSeconds(0.5f);
 
             OnWaveCompleted?.Invoke(CurrentWave);
+            if (CurrentWave > HighestWaveCompleted)
+            {
+                HighestWaveCompleted = CurrentWave;
+                CheckWeaponUnlocks(CurrentWave);
+            }
 
-            // Rest between waves
-            yield return new WaitForSeconds(restBetweenWaves);
+yield return new WaitForSeconds(restBetweenWaves);
         }
     }
 
     private IEnumerator SpawnBossRoutine()
     {
-        // Brief delay so the level-up card clears first
         yield return new WaitForSeconds(3f);
+
+        // Resolve boss prefab — fall back to the heaviest enemy in the pool
+        Enemy bossPrefab = bossEntry.prefab;
+        EnemyProfile bossProfileOverride = bossEntry.profileOverride;
+        if (bossPrefab == null && enemyPool.Count > 0)
+        {
+            EnemySpawnEntry best = enemyPool[0];
+            foreach (EnemySpawnEntry e in enemyPool)
+                if (CurrentWave >= e.unlockAtWave && e.weight >= best.weight) best = e;
+            bossPrefab = best.prefab;
+            bossProfileOverride = best.profileOverride;
+        }
+        if (bossPrefab == null) yield break;
 
         bossesSpawned++;
 
@@ -224,7 +232,7 @@ public sealed class HordeSpawner : MonoBehaviour
         float bossSpeed  = SpeedMult + bossSpeedBonus;
         float bossExp    = (bossExpBase  + (bossesSpawned - 1) * bossExpPerBoss)  * ExpMult;
 
-        Enemy boss = SpawnAt(bossEntry.prefab, bossEntry.profileOverride,
+        Enemy boss = SpawnAt(bossPrefab, bossProfileOverride,
                              bossHealth, bossSpeed, bossExp, isBoss: true);
 
         if (boss != null)
@@ -235,9 +243,7 @@ public sealed class HordeSpawner : MonoBehaviour
         }
     }
 
-    // ── Spawn helpers ─────────────────────────────────────────────────────────
-
-    private void SpawnNormalEnemy()
+private void SpawnNormalEnemy()
     {
         EnemySpawnEntry entry = PickWeightedEntry();
         if (entry.prefab == null) return;
@@ -250,10 +256,7 @@ public sealed class HordeSpawner : MonoBehaviour
                           float healthMult, float speedMult, float expMult,
                           bool isBoss)
     {
-        Vector2 pos = GetScreenEdgePosition();
-        // Clamp inside map so enemies don't appear in void
-        pos.x = Mathf.Clamp(pos.x, mapBounds.min.x + 1f, mapBounds.max.x - 1f);
-        pos.y = Mathf.Clamp(pos.y, mapBounds.min.y + 1f, mapBounds.max.y - 1f);
+        Vector2 pos = GetMapEdgePosition();
         Enemy enemy = Instantiate(prefab, pos, Quaternion.identity);
 
         if (profileOverride != null)
@@ -265,6 +268,7 @@ public sealed class HordeSpawner : MonoBehaviour
         enemy.OnDeath += _ =>
         {
             LiveEnemyCount--;
+            if (!isBoss) WaveEnemiesRemaining = Mathf.Max(0, WaveEnemiesRemaining - 1);
             if (!isBoss && healthPickupPrefab != null && UnityEngine.Random.value < healthDropChance)
                 Instantiate(healthPickupPrefab, enemy.transform.position, Quaternion.identity);
         };
@@ -280,42 +284,54 @@ public sealed class HordeSpawner : MonoBehaviour
             Instantiate(abilityDropPickupPrefab, boss.transform.position, Quaternion.identity);
     }
 
-    // ── Screen-edge spawn position ────────────────────────────────────────────
-
-    private Vector2 GetScreenEdgePosition()
+private IEnumerator OobCleanupLoop()
     {
-        if (mainCam == null || !mainCam.orthographic)
-            return (Vector2)spawnCenter.position + UnityEngine.Random.insideUnitCircle.normalized * 14f;
+        while (IsActive)
+        {
+            yield return new WaitForSeconds(oobCheckInterval);
 
-        float m  = spawnMargin;
-        float hH = mainCam.orthographicSize + m;
-        float hW = mainCam.orthographicSize * mainCam.aspect + m;
-        Vector2 c = mainCam.transform.position;
+            Bounds killBounds = mapBounds;
+            killBounds.Expand(oobKillMargin * 2f);
 
-        // Distribute evenly along the full perimeter
-        float top    = hW * 2f;
-        float right  = hH * 2f;
-        float bottom = hW * 2f;
-        float left   = hH * 2f;
-        float perimeter = top + right + bottom + left;
-
-        float t = UnityEngine.Random.Range(0f, perimeter);
-
-        if (t < top)
-            return c + new Vector2(-hW + t, hH);
-        t -= top;
-        if (t < right)
-            return c + new Vector2(hW, hH - t);
-        t -= right;
-        if (t < bottom)
-            return c + new Vector2(hW - t, -hH);
-        t -= bottom;
-        return c + new Vector2(-hW, -hH + t);
+            Enemy[] alive = FindObjectsByType<Enemy>();
+            foreach (Enemy e in alive)
+            {
+                if (e == null || e.IsDead) continue;
+                if (!killBounds.Contains(e.transform.position))
+                {
+                    LiveEnemyCount        = Mathf.Max(0, LiveEnemyCount - 1);
+                    WaveEnemiesRemaining  = Mathf.Max(0, WaveEnemiesRemaining - 1);
+                    Destroy(e.gameObject);
+                }
+            }
+        }
     }
 
-    // ── Weighted random ───────────────────────────────────────────────────────
+private Vector2 GetMapEdgePosition()
+    {
+        float minX = mapBounds.min.x + spawnMargin;
+        float maxX = mapBounds.max.x - spawnMargin;
+        float minY = mapBounds.min.y + spawnMargin;
+        float maxY = mapBounds.max.y - spawnMargin;
 
-    private EnemySpawnEntry PickWeightedEntry()
+        if (maxX <= minX || maxY <= minY)
+            return (Vector2)spawnCenter.position + UnityEngine.Random.insideUnitCircle.normalized * 6f;
+
+        float w = maxX - minX;
+        float h = maxY - minY;
+        float perimeter = 2f * (w + h);
+        float t = UnityEngine.Random.Range(0f, perimeter);
+
+        if (t < w)         return new Vector2(minX + t,      minY);
+        t -= w;
+        if (t < h)         return new Vector2(maxX,          minY + t);
+        t -= h;
+        if (t < w)         return new Vector2(maxX - t,      maxY);
+        t -= w;
+                           return new Vector2(minX,          maxY - t);
+    }
+
+private EnemySpawnEntry PickWeightedEntry()
     {
         float total = 0f;
         foreach (EnemySpawnEntry e in enemyPool)
@@ -329,15 +345,22 @@ public sealed class HordeSpawner : MonoBehaviour
             cum += Mathf.Max(0.001f, e.weight);
             if (roll <= cum) return e;
         }
-        // Fallback: first unlocked entry
+
         foreach (EnemySpawnEntry e in enemyPool)
             if (CurrentWave >= e.unlockAtWave) return e;
         return enemyPool[0];
     }
 
-    // ── Control ───────────────────────────────────────────────────────────────
+private static readonly (int wave, string name)[] WeaponUnlockTable = { (6, "THE ZARKINATOR") };
 
-    public void StopSpawning() => IsActive = false;
+private void CheckWeaponUnlocks(int waveJustCompleted)
+{
+    foreach (var (wave, name) in WeaponUnlockTable)
+        if (waveJustCompleted == wave)
+            OnWeaponUnlocked?.Invoke(name);
+}
+
+public void StopSpawning() => IsActive = false;
 
     public void ResumeSpawning()
     {
@@ -348,21 +371,19 @@ public sealed class HordeSpawner : MonoBehaviour
         }
     }
 
-    // ── Gizmos ───────────────────────────────────────────────────────────────
-
-    private void OnDrawGizmosSelected()
+private void OnDrawGizmosSelected()
     {
-        Camera cam = Camera.main;
-        if (cam == null || spawnCenter == null) return;
+        Bounds b;
+        if (spawnAreaCollider != null)
+            b = spawnAreaCollider.bounds;
+        else
+            return;
 
-        float hH = cam.orthographicSize + spawnMargin;
-        float hW = cam.orthographicSize * cam.aspect + spawnMargin;
-        Vector3 c = cam.transform.position;
-
-        Gizmos.color = new Color(1f, 0.2f, 0.2f, 0.35f);
-        Gizmos.DrawLine(c + new Vector3(-hW, hH), c + new Vector3(hW, hH));
-        Gizmos.DrawLine(c + new Vector3(hW, hH), c + new Vector3(hW, -hH));
-        Gizmos.DrawLine(c + new Vector3(hW, -hH), c + new Vector3(-hW, -hH));
-        Gizmos.DrawLine(c + new Vector3(-hW, -hH), c + new Vector3(-hW, hH));
+        Gizmos.color = new Color(1f, 0.2f, 0.2f, 0.6f);
+        Vector3 min = b.min, max = b.max;
+        Gizmos.DrawLine(new Vector3(min.x, min.y), new Vector3(max.x, min.y));
+        Gizmos.DrawLine(new Vector3(max.x, min.y), new Vector3(max.x, max.y));
+        Gizmos.DrawLine(new Vector3(max.x, max.y), new Vector3(min.x, max.y));
+        Gizmos.DrawLine(new Vector3(min.x, max.y), new Vector3(min.x, min.y));
     }
 }

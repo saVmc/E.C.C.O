@@ -1,3 +1,4 @@
+﻿using System.Collections;
 using UnityEngine;
 
 public sealed class SentryAbility : Ability
@@ -25,6 +26,7 @@ public sealed class SentryAbility : Ability
     [SerializeField] private float placeDistance = 1.5f;
 
     private bool hasSpeedBoost = false;
+    private bool isOverclock   = false;
     private const float BoostDuration = 5f;
 
     private const float DeployedCooldown = 15f;
@@ -40,6 +42,14 @@ public sealed class SentryAbility : Ability
     {
         if (activeTurret != null)
         {
+            if (isOverclock)
+            {
+                activeTurret.TriggerOverclock(BoostDuration);
+                StartCoroutine(OverclockCameraShake());
+                lastUsedTime = Time.time;
+                return;
+            }
+
             if (hasSpeedBoost)
                 activeTurret.TriggerSpeedBoost(BoostDuration);
 
@@ -79,7 +89,7 @@ public sealed class SentryAbility : Ability
     {
         activeTurret = null;
         runtimeCooldown = DestroyedCooldown;
-        lastUsedTime = Time.time; // start the 45s cooldown from now
+        lastUsedTime = Time.time;
     }
 
     public override void TryActivate()
@@ -107,6 +117,7 @@ public sealed class SentryAbility : Ability
                 isRicochet      = false;
                 hasStunPulse    = false;
                 hasSpeedBoost   = false;
+                isOverclock     = false;
                 fireDirections  = 1;
                 fireSpreadAngle = 0f;
                 break;
@@ -116,7 +127,6 @@ public sealed class SentryAbility : Ability
                 hasSpeedBoost = true;
                 break;
             case 2:
-                // Dual barrel: fires two shots in a tight spread at the same target
                 fireDirections  = 2;
                 fireSpreadAngle = 28f;
                 break;
@@ -139,10 +149,11 @@ public sealed class SentryAbility : Ability
                 stunPulseInterval = 1.5f;
                 turretHealth      = 50f;
                 fireCooldown      = 0.35f;
+                hasSpeedBoost     = true;
+                isOverclock       = true;
                 break;
         }
 
-        // If a turret is already deployed, reconfigure it with the new stats
         if (activeTurret != null)
         {
             activeTurret.Configure(
@@ -154,5 +165,25 @@ public sealed class SentryAbility : Ability
                 OnTurretDestroyed
             );
         }
+    }
+
+    private IEnumerator OverclockCameraShake()
+    {
+        yield return new WaitForSecondsRealtime(0.20f); // let the surge fire first
+        Camera cam = Camera.main;
+        if (cam == null) yield break;
+        Vector3 basePos = cam.transform.position;
+        float elapsed = 0f;
+        while (elapsed < 0.55f)
+        {
+            elapsed += Time.unscaledDeltaTime;
+            float rm = 0.20f * (1f - elapsed / 0.55f);
+            rm *= rm;
+            cam.transform.position = basePos + new Vector3(
+                UnityEngine.Random.Range(-rm, rm),
+                UnityEngine.Random.Range(-rm, rm), 0f);
+            yield return null;
+        }
+        cam.transform.position = basePos;
     }
 }

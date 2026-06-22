@@ -20,7 +20,7 @@ MonoBehaviour:
   cardIconSprite: {fileID: 21300000, guid: 58ee25a5b9b592c4f9e050ef4c082a0e, type: 3}
   fireCooldown: 0.1
   magazineSize: 65
-  reloadTime: 7
+  reloadTime: 5
   allowVerticalAim: 1
   firePointLocalPosition: {x: 0.55, y: 0}
   aimPivotLocalPosition: {x: 0, y: 0}
@@ -29,7 +29,7 @@ MonoBehaviour:
   ammoIcon: {fileID: -7173003525342006096, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   pelletCount: 1
   spreadAngle: 0
-  playerMoveSpeed: 3
+  playerMoveSpeed: 4.03
   isBurstFire: 0
   burstCount: 3
   burstDelay: 0.1

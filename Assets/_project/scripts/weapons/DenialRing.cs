@@ -38,18 +38,11 @@ public sealed class DenialRing : MonoBehaviour
     {
         if (!active) return;
 
-        float pulse = 1f + Mathf.Sin(Time.time * pulseSpeed) * pulseAmplitude;
-        float r = radius * pulse;
         for (int i = 0; i < segments; i++)
         {
             float a = i * Mathf.PI * 2f / segments;
-            lr.SetPosition(i, new Vector3(Mathf.Cos(a) * r, Mathf.Sin(a) * r, 0f));
+            lr.SetPosition(i, new Vector3(Mathf.Cos(a) * radius, Mathf.Sin(a) * radius, 0f));
         }
-
-        Color c = ringColor;
-        c.a = ringColor.a * (0.7f + 0.3f * Mathf.Sin(Time.time * pulseSpeed));
-        lr.startColor = c;
-        lr.endColor   = c;
     }
 
     public void SetRadius(float r)
@@ -57,5 +50,7 @@ public sealed class DenialRing : MonoBehaviour
         radius = r;
         active = r > 0f;
         lr.enabled = active;
+        lr.startColor = ringColor;
+        lr.endColor   = ringColor;
     }
 }

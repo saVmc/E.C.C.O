@@ -14,15 +14,55 @@ public class AmmoDisplay : MonoBehaviour
     [SerializeField] private Color emptyColor = Color.red;
     [SerializeField] private UnityEngine.UI.Image ammoIconImage;
 
+    public static AmmoDisplay Instance { get; private set; }
+
     private Gun activeGun;
     private Coroutine flashRoutine;
     private Coroutine reloadCountRoutine;
-    private bool wasReloading = false;
+    private Coroutine zarkRoutine;
+    private bool wasReloading    = false;
+    private bool zarkRainbowActive = false;
 
     private void Awake()
     {
+        Instance = this;
         if (playerShooter == null)
             playerShooter = FindAnyObjectByType<PlayerShooter>();
+    }
+
+    public void StartZarkRainbow()
+    {
+        zarkRainbowActive = true;
+        if (zarkRoutine != null) StopCoroutine(zarkRoutine);
+        zarkRoutine = StartCoroutine(ZarkRainbowRoutine());
+    }
+
+    public void StopZarkRainbow()
+    {
+        zarkRainbowActive = false;
+        if (zarkRoutine != null) { StopCoroutine(zarkRoutine); zarkRoutine = null; }
+        SetTextColor(normalColor);
+        UpdateDisplay();
+    }
+
+    private IEnumerator ZarkRainbowRoutine()
+    {
+        float t = 0f;
+        while (zarkRainbowActive)
+        {
+            t += Time.unscaledDeltaTime * 1.8f;
+            if (currentAmmoText != null)
+            {
+                currentAmmoText.text  = "1";
+                currentAmmoText.color = Color.HSVToRGB(t % 1f, 1f, 1f);
+            }
+            if (maxAmmoText != null)
+            {
+                maxAmmoText.text  = "1";
+                maxAmmoText.color = Color.HSVToRGB((t + 0.33f) % 1f, 1f, 1f);
+            }
+            yield return null;
+        }
     }
 
     private void Start()
@@ -115,6 +155,7 @@ public class AmmoDisplay : MonoBehaviour
 
     private void UpdateDisplay()
     {
+        if (zarkRainbowActive) return;
         if (activeGun == null)
         {
             if (currentAmmoText != null) currentAmmoText.text = "--";
@@ -164,6 +205,7 @@ public class AmmoDisplay : MonoBehaviour
 
     private void SetTextColor(Color color)
     {
+        if (zarkRainbowActive) return;
         if (currentAmmoText != null) currentAmmoText.color = color;
         if (maxAmmoText != null) maxAmmoText.color = color;
         if (reloadingText != null && reloadingText.enabled) reloadingText.color = color;

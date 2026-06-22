@@ -12,7 +12,7 @@ public sealed class UpgradeCardUI : MonoBehaviour
     [SerializeField] private Button selectButton;
     [SerializeField] private Image newAbilityBackground;
     [SerializeField] private Image upgradeBackground;
-    [SerializeField] private Image maxedBackground; 
+    [SerializeField] private Image maxedBackground;
 
     private UpgradeOffer offer_field;
     private LevelUpDisplay display;
@@ -29,6 +29,12 @@ public sealed class UpgradeCardUI : MonoBehaviour
         if (upgradeOffer.IsHealOffer)
         {
             PopulateHealOffer(levelUpDisplay);
+            return;
+        }
+
+        if (upgradeOffer.IsPrestigeOffer)
+        {
+            PopulatePrestigeOffer(upgradeOffer, levelUpDisplay);
             return;
         }
 
@@ -175,6 +181,39 @@ if (upgradeBackground != null)
         }
 
         // Force layout rebuild for this card
+        LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
+    }
+
+    private void PopulatePrestigeOffer(UpgradeOffer offer, LevelUpDisplay levelUpDisplay)
+    {
+        offer_field = null;
+        gunOffer    = null;
+        display     = levelUpDisplay;
+        gameObject.SetActive(true);
+
+        var data = PrestigeEffects.GetData(offer.PrestigeType.Value);
+
+        if (iconImage != null) iconImage.enabled = false;
+        if (abilityNameText != null) abilityNameText.text  = "PRESTIGE";
+        if (starText != null)        starText.text         = "★★★★★";
+        if (upgradeNameText != null) upgradeNameText.text  = data.Title;
+        if (descriptionText != null) descriptionText.text  = data.Description;
+
+        if (newAbilityBackground != null) newAbilityBackground.gameObject.SetActive(false);
+        if (upgradeBackground    != null) upgradeBackground.gameObject.SetActive(false);
+        if (maxedBackground      != null) maxedBackground.gameObject.SetActive(true);
+
+        if (selectButton != null)
+        {
+            selectButton.onClick.RemoveAllListeners();
+            PrestigeUpgradeType typeCapture = offer.PrestigeType.Value;
+            selectButton.onClick.AddListener(() =>
+            {
+                PrestigeEffects.Apply(typeCapture);
+                levelUpDisplay.HideCards();
+            });
+        }
+
         LayoutRebuilder.ForceRebuildLayoutImmediate(GetComponent<RectTransform>());
     }
 

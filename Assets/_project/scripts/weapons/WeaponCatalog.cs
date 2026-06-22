@@ -10,22 +10,31 @@ public sealed class WeaponCatalog : ScriptableObject
 
     public List<GunProfile> GetRandomChoices(int count)
     {
-        List<GunProfile> availableProfiles = new List<GunProfile>();
+        var guaranteed = new List<GunProfile>();
+        var pool       = new List<GunProfile>();
 
         for (int i = 0; i < weaponProfiles.Count; i++)
         {
-            if (weaponProfiles[i] != null)
-                availableProfiles.Add(weaponProfiles[i]);
+            if (weaponProfiles[i] == null) continue;
+            if (!weaponProfiles[i].IsUnlocked) continue;   // skip locked weapons
+            if (weaponProfiles[i].AlwaysOffer) guaranteed.Add(weaponProfiles[i]);
+            else                               pool.Add(weaponProfiles[i]);
         }
 
-        List<GunProfile> result = new List<GunProfile>();
-        int targetCount = Mathf.Clamp(count, 0, availableProfiles.Count);
+        var result = new List<GunProfile>();
 
+        // Always-offer guns first (up to count)
+        for (int i = 0; i < guaranteed.Count && result.Count < count; i++)
+            result.Add(guaranteed[i]);
+
+        // Fill remaining slots randomly
+        int remaining = count - result.Count;
+        int targetCount = Mathf.Clamp(remaining, 0, pool.Count);
         for (int i = 0; i < targetCount; i++)
         {
-            int index = Random.Range(0, availableProfiles.Count);
-            result.Add(availableProfiles[index]);
-            availableProfiles.RemoveAt(index);
+            int index = Random.Range(0, pool.Count);
+            result.Add(pool[index]);
+            pool.RemoveAt(index);
         }
 
         return result;

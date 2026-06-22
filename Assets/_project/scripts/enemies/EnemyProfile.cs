@@ -17,9 +17,9 @@ public sealed class EnemyProfile : ScriptableObject
     [SerializeField] private ExpOrbProfile expOrbProfile;
     public ExpOrbProfile ExpOrbProfile => expOrbProfile;
 
-    private const float referenceHealth = 3f;
+    private const float referenceHealth = 25f;
 
-    public int CalculateExpDrop() => Mathf.Max(1, Mathf.RoundToInt(baseExpValue * (maxHealth / referenceHealth)));
+    public int CalculateExpDrop() => Mathf.Max(1, Mathf.RoundToInt(baseExpValue * Mathf.Max(1f, maxHealth / referenceHealth)));
     public float MaxHealth => maxHealth;
     public float MoveSpeed => moveSpeed;
     public int ContactDamage => contactDamage;

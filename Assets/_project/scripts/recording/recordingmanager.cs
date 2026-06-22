@@ -38,6 +38,8 @@ public sealed class RecordingManager : MonoBehaviour
 
         if (device == null)
             device = GetComponent<RecordingDevice>();
+        if (device == null)
+            device = gameObject.AddComponent<RecordingDevice>(); // auto-create if missing
         if (actionRecorder == null)
             actionRecorder = FindAnyObjectByType<PlayerActionRecorder>();
 

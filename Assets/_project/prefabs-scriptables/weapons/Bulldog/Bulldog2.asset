@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 392f39f25a78afd43a9044752d5efd37, type: 3}
   m_Name: Bulldog2
   m_EditorClassIdentifier: Assembly-CSharp::GunUpgrade
-  displayName: Overpressure Loads
+  displayName: Overpressure
   fireCooldownMultiplier: 1
   projectileSpeedMultiplier: 1
   projectileLifetimeMultiplier: 1

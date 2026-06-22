@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c112cb78b2377d40a9c22b2325222c3, type: 3}
   m_Name: BulldogShot
   m_EditorClassIdentifier: Assembly-CSharp::ProjectileProfile
-  damage: 4
+  damage: 2
   speed: 20
   maxRange: 22
   sprite: {fileID: 0}

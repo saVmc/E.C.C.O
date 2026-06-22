@@ -13,12 +13,14 @@ MonoBehaviour:
   m_Name: Forcefield0
   m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
   abilityName: Forcefield
-  displayName: Forcefield
-  description: 'Creates a protective field damaging nearby enemies. '
+  displayName: Reactive Barrier
+  description: Activate to gain +5 HP and start a 6s barrier. All damage taken is stored as charge. When the timer ends, it explodes.
   icon: {fileID: -2837727968435297238, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 0
-  cooldown: 40
+  cooldown: 35
   nextStarDefinition: {fileID: 11400000, guid: 668ca83862325684d92e5a00739ee423, type: 2}
-  vfxPrefabA: {fileID: 8078758628600919609, guid: 739d998ec82c8c249874535d4951c32c, type: 3}
-  vfxPrefabB: {fileID: 3608189458974500628, guid: a726c20d2a68d2d46a8a6632aeed727e, type: 3}
-  vfxPrefabC: {fileID: 7740287261119942573, guid: 149bff3fe7c8e474a981235a3b63eaf1, type: 3}
+  vfxPrefabA: {fileID: 0}
+  vfxPrefabB: {fileID: 0}
+  vfxPrefabC: {fileID: 0}
+  visualSprite: {fileID: 0}
+  visualSpriteWidth: 0

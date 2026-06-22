@@ -8,9 +8,10 @@ public abstract class Ability : MonoBehaviour
 
     public AbilityDefinition Definition => definition;
     public AbilityDefinition BaseDefinition => baseDefinition;
-    public virtual bool IsReady => Time.time >= lastUsedTime + (definition != null ? definition.Cooldown : 5f);
+    public virtual bool IsReady => Time.time >= lastUsedTime + (definition != null ? definition.Cooldown * PrestigeEffects.CooldownMultiplier : 5f);
+    public virtual bool IsInActiveState => false;
     public virtual float CooldownProgress => definition != null
-        ? Mathf.Clamp01((Time.time - lastUsedTime) / definition.Cooldown)
+        ? Mathf.Clamp01((Time.time - lastUsedTime) / (definition.Cooldown * PrestigeEffects.CooldownMultiplier))
         : 1f;
 
     public virtual void Initialise(AbilityDefinition def)

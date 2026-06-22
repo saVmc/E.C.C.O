@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sentry2
   m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
   abilityName: Sentry
-  displayName: Ricochet
-  description: "Bullets ricochet off everything — enemies, walls, all of it."
+  displayName: DoubleTrouble
+  description: 2 is always better than 1! Upgraded to double barrel.
   icon: {fileID: 21300000, guid: 4c16b3b4edbafea4a810d9204a97c408, type: 3}
   starLevel: 2
   cooldown: 45
@@ -22,3 +22,5 @@ MonoBehaviour:
   vfxPrefabA: {fileID: 0}
   vfxPrefabB: {fileID: 0}
   vfxPrefabC: {fileID: 0}
+  visualSprite: {fileID: 0}
+  visualSpriteWidth: 2

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -112,6 +112,9 @@ protected bool isInfiniteMag = false;
     protected float knockbackForce = 12f;
 
     public event Action OnShotFired;
+    protected void InvokeOnShotFired() => OnShotFired?.Invoke();
+
+public static float GlobalDamageMultiplier { get; set; } = 1f;
 
     protected virtual void Awake()
     {
@@ -227,7 +230,7 @@ public virtual void ApplyProfile(GunProfile profile)
 {
     if (profile == null)
         return;
-    
+
     if (playerMovement != null)
         playerMovement.SetMoveSpeed(profile.PlayerMoveSpeed);
 
@@ -293,12 +296,59 @@ public virtual void ApplyProfile(GunProfile profile)
     markIsReady = false;
     markGlowPulse = 0f;
 
+    // Reset all upgrade-driven flags before re-applying so gun-switch can't bleed state
+    isTripleShot = false;
+    isExplosive = false;
+    isExecutioner = false;
+    isDoubleBarrel = false;
+    pelletCountBonus = 0;
+    spreadAngleDelta = 0f;
+    isRicochet = false;
+    gun5StarTrail = false;
+    isInfiniteMag = false;
+    isPiercing = false;
+    slowsEnemies = false;
+    marksEnemies = false;
+    isChainKill = false;
+    shockwaveOnKill = false;
+    ammoOnKill = 0;
+    speedBoostOnFire = false;
+    suppressiveFire = false;
+    burnsEnemies = false;
+    burnWildfire = false;
+    burnNapalm = false;
+    knockbackOnHit = false;
+
     for (int i = 0; i < appliedUpgrades.Count; i++)
-        ApplyUpgradeInternal(appliedUpgrades[i]);
+    {
+        var u = appliedUpgrades[i];
+        ApplyUpgradeInternal(u);
+        if (u.PelletCountBonus != 0) pelletCountBonus += u.PelletCountBonus;
+        if (u.SpreadAngleDelta != 0) spreadAngleDelta  += u.SpreadAngleDelta;
+        // Re-apply upgrade flags that ApplyUpgrade sets but ApplyUpgradeInternal doesn't
+        if (u.IsTripleShot) isTripleShot = true;
+        if (u.IsExplosive) { isExplosive = true; explosionRadius = u.ExplosionRadius; explosiveEveryNthBullet = u.ExplosiveEveryNthBullet; }
+        if (u.IsExecutioner) { isExecutioner = true; executionThreshold = u.ExecutionThreshold; }
+        if (u.IsDoubleBarrel) isDoubleBarrel = true;
+        if (u.IsRicochet) { isRicochet = true; ricochetCount = u.RicochetCount; }
+        if (u.IsInfiniteMag) isInfiniteMag = true;
+        if (u.EnablesBulletTrail) gun5StarTrail = true;
+        if (u.SlowsEnemies) { slowsEnemies = true; slowMultiplier = u.SlowMultiplier; slowDuration = u.SlowDuration; slowEveryNthBullet = u.SlowEveryNthBullet; periodicSlowTint = u.PeriodicSlowTint; }
+        if (u.MarksEnemies) { marksEnemies = true; markDamageMultiplier = u.MarkDamageMultiplier; markDuration = u.MarkDuration; markEveryNthBullet = u.MarkEveryNthBullet; }
+        if (u.IsChainKill) isChainKill = true;
+        if (u.ShockwaveOnKill) { shockwaveOnKill = true; shockwaveRadius = u.ShockwaveRadius; shockwaveDamage = u.ShockwaveDamage; shockwaveMarks = u.ShockwaveMarks; }
+        if (u.AmmoOnKill > 0) ammoOnKill = u.AmmoOnKill;
+        if (u.SpeedBoostOnFire) { speedBoostOnFire = true; speedBoostMultiplier = u.SpeedBoostMultiplier; speedBoostDuration = u.SpeedBoostDuration; }
+        if (u.SuppressiveFire) { suppressiveFire = true; suppressiveSlowMultiplier = u.SuppressiveSlowMultiplier; suppressiveRange = u.SuppressiveRange; }
+        if (u.BurnsEnemies || u.BurnWildfire || u.BurnNapalm) burnsEnemies = true;
+        if (u.BurnsEnemies) { burnDamage = u.BurnDamage; burnTicks = u.BurnTicks; burnTickInterval = u.BurnTickInterval; }
+        if (u.KnockbackOnHit) { knockbackOnHit = true; knockbackForce = u.KnockbackForce; }
+        if (u.BurnWildfire) { burnWildfire = true; burnWildfireRadius = u.BurnWildfireRadius; }
+        if (u.BurnNapalm)   { burnNapalm = true; burnNapalmRadius = u.BurnNapalmRadius; burnNapalmDamage = u.BurnNapalmDamage; }
+    }
 }
 
-
-    public virtual void ApplyUpgrade(GunUpgrade upgrade)
+public virtual void ApplyUpgrade(GunUpgrade upgrade)
     {
         if (upgrade == null)
             return;
@@ -310,6 +360,7 @@ if (upgrade.PelletCountBonus != 0) pelletCountBonus += upgrade.PelletCountBonus;
 if (upgrade.SpreadAngleDelta != 0) spreadAngleDelta += upgrade.SpreadAngleDelta;
 if (upgrade.IsRicochet) { isRicochet = true; ricochetCount = upgrade.RicochetCount; }
 if (upgrade.IsInfiniteMag) isInfiniteMag = true;
+if (upgrade.EnablesBulletTrail) gun5StarTrail = true;
         if (upgrade.SlowsEnemies) { slowsEnemies = true; slowMultiplier = upgrade.SlowMultiplier; slowDuration = upgrade.SlowDuration; slowEveryNthBullet = upgrade.SlowEveryNthBullet; periodicSlowTint = upgrade.PeriodicSlowTint; }
         if (upgrade.MarksEnemies) { marksEnemies = true; markDamageMultiplier = upgrade.MarkDamageMultiplier; markDuration = upgrade.MarkDuration; markEveryNthBullet = upgrade.MarkEveryNthBullet; }
         if (upgrade.IsChainKill) isChainKill = true;
@@ -354,6 +405,7 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
     LayerMask mask = currentProjectileProfile != null ? currentProjectileProfile.HitMask : ~0;
     bool rotate = currentProjectileProfile != null && currentProjectileProfile.RotateToDirection;
 
+    int finalDamage = Mathf.Max(1, Mathf.RoundToInt(projectileDamage * GlobalDamageMultiplier));
     for (int i = 0; i < pellets; i++)
     {
         Vector2 pelletDirection = direction.normalized;
@@ -373,7 +425,7 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         }
 
         Projectile projectile = Instantiate(projectilePrefab, firePoint.position, Quaternion.identity);
-        projectile.Initialize(pelletDirection, projectileSpeed, projectileLifetime, projectileDamage, transform.root.gameObject, mask, rotate);
+        projectile.Initialize(pelletDirection, projectileSpeed, projectileLifetime, finalDamage, transform.root.gameObject, mask, rotate);
 
         if (currentProjectileProfile != null)
             projectile.ApplyProfile(currentProjectileProfile);
@@ -408,8 +460,12 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         tp.Initialize(triDir.normalized, projectileSpeed, projectileLifetime, projectileDamage, transform.root.gameObject, mask, rotate);
         if (currentProjectileProfile != null) tp.ApplyProfile(currentProjectileProfile);
         tp.transform.right = triDir.normalized;
+        if (gun5StarTrail) tp.EnableTrail(projectileTintColor);
         if (isPiercing) tp.SetPiercing(piercingCount);
         if (isExplosive && (explosiveEveryNthBullet <= 0 || bulletsFiredTotal % explosiveEveryNthBullet == 0)) tp.SetExplosive(explosionRadius);
+        if (isRicochet) tp.SetRicochet(ricochetCount);
+        if (ammoOnKill > 0) tp.SetAmmoOnKillCallback(OnProjectileKill);
+        if (knockbackOnHit) tp.SetKnockback(knockbackForce);
     }
 }
     }
@@ -434,8 +490,7 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
     }
 }
 
-
-    private IEnumerator BurstFireRoutine(Vector2 initialDirection)
+private IEnumerator BurstFireRoutine(Vector2 initialDirection)
     {
         LayerMask mask = currentProjectileProfile != null ? currentProjectileProfile.HitMask : ~0;
         bool rotate = currentProjectileProfile != null && currentProjectileProfile.RotateToDirection;
@@ -514,6 +569,9 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
         if (burnsEnemies) { projectile.SetBurn(burnDamage, burnTicks, burnTickInterval, burnWildfire, burnWildfireRadius, burnNapalm, burnNapalmRadius, burnNapalmDamage); projectile.SetScaleUp(0.15f, 0.1f); }
         if (knockbackOnHit) projectile.SetKnockback(knockbackForce);
     }
+
+    if (isBurstFire && burstCount > 1)
+        StartCoroutine(BurstFireRoutine(direction));
 }
 
     protected virtual IEnumerator MuzzleFlashCoroutine()
@@ -575,11 +633,10 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
 
         if (firePoint != null)
             firePoint.localPosition += (Vector3)upgrade.FirePointOffsetDelta;
-        
 
-        if (aimPivot != null)
+if (aimPivot != null)
             aimPivot.localPosition += (Vector3)upgrade.AimPivotOffsetDelta;
-        
+
         if (upgrade.IsPiercing)
 {
     isPiercing = true;
@@ -616,7 +673,7 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
 
         visualRestLocalPosition = gunVisualTransform.localPosition + (Vector3)defaultVisualOffset;
         gunVisualTransform.localPosition = visualRestLocalPosition;
-        // Always reset rotation so aimRotation isn't compounded when ApplyProfile runs mid-aim
+
         gunVisualTransform.localRotation = Quaternion.identity;
         visualRestLocalRotation = Quaternion.identity;
     }
@@ -754,4 +811,29 @@ if (upgrade.IsInfiniteMag) isInfiniteMag = true;
     public float GetReloadTime() => reloadTime;
     public float GetFireCooldown() => fireCooldown;
     public GunProfile CurrentProfile => currentProfile;
+
+    // Returns the set of directions the ghost should fire when replaying a shot.
+    // Derived guns (e.g. ZarkinatorGun) override this for form-specific patterns.
+    public virtual List<Vector2> GetGhostFireDirections(Vector2 aimDir)
+    {
+        int   pellets = Mathf.Max(1, (currentProfile != null ? Mathf.Max(1, currentProfile.PelletCount) : 1) + pelletCountBonus);
+        float spread  = (currentProfile != null ? currentProfile.SpreadAngle : 0f) + spreadAngleDelta;
+
+        var dirs = new List<Vector2>(pellets);
+        for (int i = 0; i < pellets; i++)
+        {
+            float angleDeg = 0f;
+            if (pellets > 1 && spread > 0f)
+                angleDeg = Mathf.Lerp(-spread / 2f, spread / 2f, (float)i / (pellets - 1));
+            dirs.Add(GunRotateVector(aimDir.normalized, angleDeg));
+        }
+        return dirs;
+    }
+
+    protected static Vector2 GunRotateVector(Vector2 v, float angleDeg)
+    {
+        float rad = angleDeg * Mathf.Deg2Rad;
+        float cos = Mathf.Cos(rad), sin = Mathf.Sin(rad);
+        return new Vector2(v.x * cos - v.y * sin, v.x * sin + v.y * cos);
+    }
 }

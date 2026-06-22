@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a4cb279f06d20f4d93542fd46993788, type: 3}
+  m_Name: Sword2
+  m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
+  abilityName: ChupaSword
+  displayName: Grapevine
+  description: I can feel the power growing... 4 phantom grape rings ripple from
+    the impact point over 2s
+  icon: {fileID: 21300000, guid: 5b8ed54b6dadf8247b8cb83be58622ea, type: 3}
+  starLevel: 2
+  cooldown: 15
+  nextStarDefinition: {fileID: 11400000, guid: 0c2e3f2138ac4eb47a16e73f38268ea8, type: 2}
+  vfxPrefabA: {fileID: 0}
+  vfxPrefabB: {fileID: 0}
+  vfxPrefabC: {fileID: 0}

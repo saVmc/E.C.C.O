@@ -86,10 +86,19 @@ public abstract class Projectile : MonoBehaviour
     public void SetPiercing(bool value) => isPiercing = value;
     public void SetPiercing(int maxPierces) { isPiercing = true; maxPierceCount = maxPierces; }
     public void SetMark(float multiplier, float duration) { marksEnemies = true; markDamageMultiplier = multiplier; markDuration = duration; }
-    public void SetTint(Color color) { SpriteRenderer sr = GetComponent<SpriteRenderer>(); if (sr != null) sr.color = color; }
+    public void SetTint(Color color)
+    {
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        if (sr != null) sr.color = color;
+        Light2D lt = GetComponentInChildren<Light2D>();
+        if (lt != null) lt.color = new Color(color.r, color.g, color.b, 1f);
+    }
     public void SetChainKill() { isChainKill = true; }
     public void SetShockwaveOnKill(float radius, float damage, bool marks) { shockwaveOnKill = true; shockwaveRadius = radius; shockwaveDamage = damage; shockwaveMarks = marks; }
     public void SetAmmoOnKillCallback(System.Action callback) { ammoOnKillCallback = callback; }
+
+    // Fired for every valid collision, before damage is applied — used by ZarkinatorGun classification
+    public System.Action<Collider2D> OnProjectileImpact;
 
     public virtual void Initialize(Vector2 moveDirection, float moveSpeed, float lifeSeconds, int projectileDamage, GameObject projectileOwner, LayerMask mask, bool rotate)
     {
@@ -180,6 +189,12 @@ public abstract class Projectile : MonoBehaviour
         if (killedEnemies.Contains(other.transform.root.gameObject))
             return;
 
+        OnProjectileImpact?.Invoke(other);
+
+        // Non-damageable triggers (pickups, etc.) should not stop bullets
+        if (other.GetComponentInParent<Enemy>() == null && other.GetComponentInParent<IDamageable>() == null)
+            return;
+
         if (isExecutioner)
         {
             Enemy enemy = other.GetComponentInParent<Enemy>();
@@ -208,12 +223,13 @@ public abstract class Projectile : MonoBehaviour
             currentRicochets++;
             if (currentRicochets >= ricochetCount) { Destroy(gameObject); return; }
             GameObject justHit = other.transform.root.gameObject;
-            Enemy[] allEnemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude, FindObjectsSortMode.None);
+            Enemy[] allEnemies = FindObjectsByType<Enemy>(FindObjectsInactive.Exclude);
             Enemy nearest = null;
             float nearestDist = float.MaxValue;
             foreach (Enemy e in allEnemies)
             {
                 if (e.gameObject == justHit) continue;
+                if (e.IsDead) continue;
                 float d = Vector2.Distance(transform.position, e.transform.position);
                 if (d < nearestDist) { nearestDist = d; nearest = e; }
             }
@@ -287,6 +303,7 @@ public abstract class Projectile : MonoBehaviour
         if (explosionVFXPrefab != null)
         {
             GameObject vfx = Instantiate(explosionVFXPrefab, transform.position, Quaternion.identity);
+            vfx.transform.localScale = Vector3.one * 0.30f;
             Destroy(vfx, 1f);
         }
 

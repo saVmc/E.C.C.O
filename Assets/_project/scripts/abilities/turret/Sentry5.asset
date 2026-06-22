@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AbilityDefinition
   abilityName: Sentry
   displayName: Overclocked
-  description: What an engineering marvel. Frequent stuns and multi-directional targeting
+  description: WITNESS THE POWER OF MECHATRONICS!
   icon: {fileID: 21300000, guid: 4c16b3b4edbafea4a810d9204a97c408, type: 3}
   starLevel: 5
   cooldown: 20
@@ -22,3 +22,5 @@ MonoBehaviour:
   vfxPrefabA: {fileID: 0}
   vfxPrefabB: {fileID: 0}
   vfxPrefabC: {fileID: 0}
+  visualSprite: {fileID: 0}
+  visualSpriteWidth: 2

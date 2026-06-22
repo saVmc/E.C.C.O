@@ -68,7 +68,7 @@ MonoBehaviour:
   burnNapalm: 0
   burnNapalmRadius: 2.5
   burnNapalmDamage: 20
-  description: Tim endorsed!!. Hits apply burn - 4 dmg per tick, 3 ticks. Burning
+  description: Tim endorsed!! Hits apply burn - 4 dmg per tick, 3 ticks. Burning
     enemies glow orange.
   icon: {fileID: 5714641426185769055, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 2

@@ -68,8 +68,8 @@ MonoBehaviour:
   burnNapalm: 1
   burnNapalmRadius: 2.5
   burnNapalmDamage: 20
-  description: The chain reaction to end all arguments. Enemies that die burning
-    explode - 2.5u radius, 20 dmg, applies burn.
+  description: SET IT ALL ABLAZE!! Enemies that die burning explode and spread more
+    burning!
   icon: {fileID: 5714641426185769055, guid: 7f16fa97a0e0da947aa17a72d7eb8808, type: 3}
   starLevel: 5
   nextStarUpgrade: {fileID: 0}

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
@@ -6,10 +6,13 @@ public sealed class PlayerHealth : MonoBehaviour
 {
     public static PlayerHealth Instance { get; private set; }
 
+    public static event Action OnLastStandActivated;
+
     [Header("Stats")]
     [SerializeField] private int maxHealth = 10;
-    [SerializeField] private int healthPerLevel = 2;
+    private int healthPerLevel = 1;
     [SerializeField] private float iFrameDuration = 1.2f;
+
 
     [Header("Damage Flash (sprite)")]
     [SerializeField] private Color damageFlashColor = new Color(1f, 0.15f, 0.15f, 1f);
@@ -17,11 +20,14 @@ public sealed class PlayerHealth : MonoBehaviour
 
     public int CurrentHealth { get; private set; }
     public int MaxHealth => maxHealth;
-    public bool IsInvincible { get; private set; }
+
+private bool forcedInvincible = false;
+    private bool iframeInvincible = false;
+    public  bool IsInvincible => forcedInvincible || iframeInvincible;
     public bool IsDead { get; private set; }
 
-    public event Action<int, int> OnHealthChanged; // (current, max)
-    public event Action<int>      OnDamaged;        // passes damage amount for screen fx scaling
+    public event Action<int, int> OnHealthChanged;
+    public event Action<int>      OnDamaged;
     public event Action           OnDeath;
 
     private SpriteRenderer sr;
@@ -32,8 +38,7 @@ public sealed class PlayerHealth : MonoBehaviour
         if (Instance != null && Instance != this) { Destroy(this); return; }
         Instance = this;
 
-        // Safety clamp — Inspector value may still be old 100
-        if (maxHealth > 20) maxHealth = 10;
+if (maxHealth > 20) maxHealth = 10;
         CurrentHealth = maxHealth;
         sr = GetComponentInChildren<SpriteRenderer>();
         if (sr != null) originalColor = sr.color;
@@ -74,6 +79,8 @@ public sealed class PlayerHealth : MonoBehaviour
             StartCoroutine(IFrameRoutine());
     }
 
+    public void SetInvincible(bool state) => forcedInvincible = state;
+
     public void Heal(int amount)
     {
         if (IsDead || amount <= 0) return;
@@ -81,24 +88,42 @@ public sealed class PlayerHealth : MonoBehaviour
         OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
     }
 
+    public void AddMaxHP(int amount)
+    {
+        if (amount <= 0) return;
+        maxHealth += amount;
+        CurrentHealth = Mathf.Min(CurrentHealth + amount, maxHealth);
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+    }
+
     private void Die()
     {
+        // Last Stand: survive once at 1 HP with red border shield
+        if (PrestigeEffects.HasLastStand && !PrestigeEffects.LastStandUsed)
+        {
+            PrestigeEffects.UseLastStand();
+            CurrentHealth = 1;
+            OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+            StartCoroutine(IFrameRoutine());
+            StartCoroutine(LastStandShieldRoutine());
+            OnLastStandActivated?.Invoke();
+            return;
+        }
+
         IsDead = true;
-        IsInvincible = true;
+        forcedInvincible = true;
 
-        // ScreenFX listens here to start the red-flash death sequence
-        OnDeath?.Invoke();
+OnDeath?.Invoke();
 
-        // TimeParadoxDeathController handles: animator Die trigger, disabling movement/shooting, explosion VFX
-        TimeParadoxDeathController dc = GetComponent<TimeParadoxDeathController>();
+TimeParadoxDeathController dc = GetComponent<TimeParadoxDeathController>();
         if (dc != null) dc.ForceDeath();
     }
 
     private IEnumerator IFrameRoutine()
     {
-        IsInvincible = true;
+        iframeInvincible = true;
         yield return new WaitForSeconds(iFrameDuration);
-        IsInvincible = false;
+        iframeInvincible = false;
     }
 
     private IEnumerator DamageFlashRoutine()
@@ -106,5 +131,63 @@ public sealed class PlayerHealth : MonoBehaviour
         sr.color = damageFlashColor;
         yield return new WaitForSeconds(damageFlashDuration);
         sr.color = originalColor;
+    }
+
+    private IEnumerator LastStandShieldRoutine()
+    {
+        const int   ringPoints = 48;
+        const float radius     = 1.2f;
+
+        GameObject ringGO = new GameObject("_LastStandRing");
+        ringGO.transform.SetParent(transform);
+        ringGO.transform.localPosition = Vector3.zero;
+
+        LineRenderer lr = ringGO.AddComponent<LineRenderer>();
+        lr.useWorldSpace = false;
+        lr.loop          = true;
+        lr.positionCount = ringPoints;
+        lr.startWidth    = 0.12f;
+        lr.endWidth      = 0.12f;
+        lr.sortingOrder  = 25;
+
+        Shader sh = Shader.Find("Sprites/Default")
+                 ?? Shader.Find("Universal Render Pipeline/2D/Sprite-Lit-Default");
+        Material mat = sh != null ? new Material(sh) : null;
+        if (mat != null) lr.material = mat;
+
+        for (int i = 0; i < ringPoints; i++)
+        {
+            float a = (i / (float)ringPoints) * Mathf.PI * 2f;
+            lr.SetPosition(i, new Vector3(Mathf.Cos(a) * radius, Mathf.Sin(a) * radius, 0f));
+        }
+
+        // Pulse red for the iFrame duration
+        float elapsed = 0f;
+        while (elapsed < iFrameDuration)
+        {
+            elapsed += Time.deltaTime;
+            if (lr == null) yield break;
+            float pulse = 0.5f + 0.5f * Mathf.Sin(elapsed * 10f);
+            float alpha = 0.6f + 0.4f * pulse;
+            lr.startColor = new Color(1f, 0.05f, 0.05f, alpha);
+            lr.endColor   = new Color(1f, 0.05f, 0.05f, alpha * 0.3f);
+            yield return null;
+        }
+
+        // Fade out
+        float fadeElapsed = 0f;
+        const float fadeDur = 0.4f;
+        while (fadeElapsed < fadeDur)
+        {
+            fadeElapsed += Time.deltaTime;
+            if (lr == null) yield break;
+            float a = Mathf.Lerp(1f, 0f, fadeElapsed / fadeDur);
+            lr.startColor = new Color(1f, 0.05f, 0.05f, a);
+            lr.endColor   = new Color(1f, 0.05f, 0.05f, a * 0.3f);
+            yield return null;
+        }
+
+        if (mat != null) Destroy(mat);
+        if (ringGO != null) Destroy(ringGO);
     }
 }

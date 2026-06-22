@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Scout_Enemy
   m_EditorClassIdentifier: Assembly-CSharp::EnemyProfile
   maxHealth: 10
-  moveSpeed: 3.75
+  moveSpeed: 3.2
   contactDamage: 1
   poofScalePeak: 1.6
   poofDuration: 0.18
-  baseExpValue: 4
+  baseExpValue: 15
   expOrbProfile: {fileID: 11400000, guid: cf3616498e77bfe45804bde7d8639641, type: 2}

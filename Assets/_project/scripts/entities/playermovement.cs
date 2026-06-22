@@ -70,7 +70,7 @@ public sealed class PlayerMovement : MonoBehaviour
             return;
         }
         float currentSpeed = moveSpeed * (isSprinting ? sprintMultiplier : 1f);
-        rb.linearVelocity = moveInput * currentSpeed * externalSpeedMultiplier;
+        rb.linearVelocity = moveInput * currentSpeed * externalSpeedMultiplier * PrestigeEffects.SpeedMultiplier;
     }
 
     private float externalSpeedMultiplier = 1f;

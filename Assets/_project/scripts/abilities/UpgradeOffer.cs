@@ -8,10 +8,17 @@ public sealed class UpgradeOffer
     public GunUpgradeOffer GunUpgrade { get; private set; }
     public bool IsGunUpgrade => GunUpgrade != null;
     public bool IsHealOffer { get; private set; }
+    public PrestigeUpgradeType? PrestigeType { get; private set; }
+    public bool IsPrestigeOffer => PrestigeType.HasValue;
 
     public static UpgradeOffer MakeHealOffer()
     {
         return new UpgradeOffer(null, null, false) { IsHealOffer = true };
+    }
+
+    public static UpgradeOffer MakePrestigeOffer(PrestigeUpgradeType type)
+    {
+        return new UpgradeOffer(null, null, false) { PrestigeType = type };
     }
 
     public UpgradeOffer(AbilityDefinition definition, Ability existingAbility, bool isNewAbility, GunUpgradeOffer gunUpgrade = null)
@@ -33,9 +40,14 @@ public sealed class UpgradeOffer
 
         if (IsNewAbility)
         {
-            Ability newAbility = playerObject.AddComponent(
-                System.Type.GetType(Definition.AbilityName + "Ability")
-            ) as Ability;
+            System.Type abilityType = System.Type.GetType(Definition.AbilityName + "Ability");
+            if (abilityType == null) return;
+
+            // Reuse an existing component of this type if one is already on the object
+            // (e.g. manually placed in the Inspector with serialized fields assigned).
+            Ability newAbility = playerObject.GetComponent(abilityType) as Ability;
+            if (newAbility == null)
+                newAbility = playerObject.AddComponent(abilityType) as Ability;
 
             if (newAbility != null)
             {

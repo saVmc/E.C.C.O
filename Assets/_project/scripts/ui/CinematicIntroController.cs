@@ -72,8 +72,9 @@ public sealed class CinematicIntroController : MonoBehaviour
 
     // ── Scene ──────────────────────────────────────────────────────────────
     [Header("Scene")]
-    [SerializeField] private string menuSceneName    = "";    // game scene (or legacy compat)
-    [SerializeField] private string tutorialSceneName = "";   // if set, Play goes here first
+    [SerializeField] private string tutorialSceneName      = "Tutorial";
+    [SerializeField] private string difficultySceneName    = "DifficultySelect";
+    [SerializeField] private string menuSceneName          = "";    // legacy fallback only
 
     // ── Runtime state ──────────────────────────────────────────────────────
     private enum IntroPhase { None, LogoConvergence, LogoHold, TitleReveal, Menu }
@@ -871,9 +872,10 @@ public sealed class CinematicIntroController : MonoBehaviour
             yield return null;
         }
 
-        // 3. Fade to black while zoom continues (0.5 s)
+        // 3. Fade to black while zoom continues (0.5 s); music fades out in parallel
         elapsed = 0f;
         Vector3 midScale = titleArtwork != null ? titleArtwork.rectTransform.localScale : zoomStart;
+        float musicStartVol = musicSource != null ? musicSource.volume : 1f;
 
         while (elapsed < 0.5f)
         {
@@ -889,16 +891,23 @@ public sealed class CinematicIntroController : MonoBehaviour
             SetAlpha(logoGhostCyan,    cFade * 0.55f);
             SetAlpha(logoGhostMagenta, cFade * 0.55f);
 
+            if (musicSource != null) musicSource.volume = Mathf.Lerp(musicStartVol, 0f, t);
+
             yield return null;
         }
 
         if (screenBackdrop != null) screenBackdrop.color = Color.black;
         SetAlpha(logoGhostCyan,    0f);
         SetAlpha(logoGhostMagenta, 0f);
+        if (musicSource != null) { musicSource.volume = 0f; musicSource.Stop(); }
 
         yield return new WaitForSeconds(0.12f);
 
-        string target = !string.IsNullOrWhiteSpace(tutorialSceneName) ? tutorialSceneName : menuSceneName;
+        bool tutorialSeen = GameProgress.Instance != null && GameProgress.Instance.HasSeenTutorial;
+        string target = (!tutorialSeen && !string.IsNullOrWhiteSpace(tutorialSceneName))
+            ? tutorialSceneName
+            : (!string.IsNullOrWhiteSpace(difficultySceneName) ? difficultySceneName : menuSceneName);
+
         if (!string.IsNullOrWhiteSpace(target))
             SceneManager.LoadScene(target);
     }

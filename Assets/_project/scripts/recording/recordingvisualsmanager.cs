@@ -7,8 +7,9 @@ public sealed class RecordingVisualsManager : MonoBehaviour
     [SerializeField] private CanvasGroup overlayCanvasGroup;
     [SerializeField] private Text timerText;
     [SerializeField] private TextMeshProUGUI timerTextTMP;
+    [SerializeField] private TextMeshProUGUI recIndicatorText;
     [SerializeField] private float overlayFadeDuration = 0.2f;
-    [SerializeField] private float overlayAlphaTarget = 0.3f;
+    [SerializeField] private float overlayAlphaTarget = 0.55f;
     [SerializeField] private Transform playerTransform; // for a glow
     [SerializeField] private SpriteRenderer playerSpriteRenderer; // ""
     [SerializeField] private ParticleSystem pixelFireTrailPrefab;
@@ -87,15 +88,12 @@ public sealed class RecordingVisualsManager : MonoBehaviour
                 overlayFading = false;
         }
 
-        if (isRecording && playerSpriteRenderer != null)
+        if (isRecording && recIndicatorText != null)
         {
-            glowTimer += Time.deltaTime;
-            float glowIntensity = Mathf.Sin(glowTimer * Mathf.PI * 0.5f) * 0.15f; 
-            Color glowColor = originalSpriteColor;
-            glowColor.r = Mathf.Clamp01(originalSpriteColor.r + glowIntensity);
-            glowColor.g = Mathf.Clamp01(originalSpriteColor.g + glowIntensity);
-            glowColor.b = Mathf.Clamp01(originalSpriteColor.b + glowIntensity);
-            playerSpriteRenderer.color = glowColor;
+            glowTimer += Time.unscaledDeltaTime;
+            bool blink = ((int)(glowTimer / 0.5f) % 2) == 0;
+            recIndicatorText.text  = blink ? "<color=#FF4444>● REC</color>" : "● REC";
+            recIndicatorText.alpha = 1f;
         }
 
         if (isRecording && activePixelTrail != null && playerMovement != null)
@@ -114,9 +112,10 @@ public sealed class RecordingVisualsManager : MonoBehaviour
     {
         isRecording = true;
         glowTimer = 0f;
-        overlayAlphaTarget = 0.3f;
+        overlayAlphaTarget = 0.55f;
         overlayFading = true;
         overlayFadeTimer = 0f;
+        if (recIndicatorText != null) { recIndicatorText.gameObject.SetActive(true); recIndicatorText.alpha = 1f; }
 
         if (pixelFireTrailPrefab != null && playerTransform != null)
         {
@@ -139,13 +138,10 @@ public sealed class RecordingVisualsManager : MonoBehaviour
         overlayFading = true;
         overlayFadeTimer = 0f;
 
-        if (timerTextTMP != null)
-            timerTextTMP.text = "";
-        else if (timerText != null)
-            timerText.text = "";
+        if (timerTextTMP != null) timerTextTMP.text = "";
+        else if (timerText != null) timerText.text = "";
 
-        if (playerSpriteRenderer != null)
-            playerSpriteRenderer.color = originalSpriteColor;
+        if (recIndicatorText != null) { recIndicatorText.alpha = 0f; recIndicatorText.gameObject.SetActive(false); }
 
         if (activePixelTrail != null)
         {

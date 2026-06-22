@@ -89,6 +89,18 @@ public sealed class AbilityManager : MonoBehaviour
         return true;
     }
 
+    private bool AllAbilitiesMaxStar()
+    {
+        bool hasAny = false;
+        foreach (AbilitySlot slot in slots)
+        {
+            if (slot.IsEmpty) continue;
+            hasAny = true;
+            if (slot.Ability.Definition == null || !slot.Ability.Definition.IsMaxStar) return false;
+        }
+        return hasAny;
+    }
+
     public List<UpgradeOffer> GenerateUpgradeOffers(int count = 3)
 {
     List<UpgradeOffer> allOffers = new List<UpgradeOffer>();
@@ -194,6 +206,14 @@ public sealed class AbilityManager : MonoBehaviour
     else
     {
         Debug.Log($"  - PlayerShooter not found");
+    }
+
+    // Prestige offers: show when all equipped abilities are at max star
+    if (AllAbilitiesMaxStar())
+    {
+        foreach (PrestigeUpgradeType type in PrestigeEffects.GetAvailableTypes())
+            allOffers.Add(UpgradeOffer.MakePrestigeOffer(type));
+        Debug.Log($"  Added prestige offers (all abilities maxed)");
     }
 
     Debug.Log($"  === TOTAL OFFERS BEFORE SHUFFLE: {allOffers.Count} ===");

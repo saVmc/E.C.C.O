@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -14,6 +14,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     protected Transform player;
 
     private bool isDead = false;
+    private float hitGlow = 0f;
+    private const float HitGlowDecaySpeed = 5f;
+    private Coroutine flashCoroutine;
     private float slowMultiplier = 1f;
     private float slowRemainingTime = 0f;
     private bool isStunned = false;
@@ -37,6 +40,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
     public bool IsBoss { get; private set; }
 
     public event System.Action<int> OnDeath;
+
+    public static event System.Action<Enemy> AnyEnemyDied;
 
     protected virtual void Awake()
     {
@@ -83,6 +88,12 @@ public abstract class Enemy : MonoBehaviour, IDamageable
             }
         }
 
+        if (hitGlow > 0f)
+        {
+            hitGlow = Mathf.Max(0f, hitGlow - HitGlowDecaySpeed * Time.deltaTime);
+            UpdateHealthVisual();
+        }
+
         if (isBurning)
         {
             burnTickTimer -= Time.deltaTime;
@@ -122,8 +133,22 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (profile == null)
             return;
 
-        Vector2 direction = ((Vector2)player.position - rb.position).normalized;
-        rb.linearVelocity = direction * profile.MoveSpeed * slowMultiplier * scaledSpeedMultiplier;
+        Vector2 toPlayer = ((Vector2)player.position - rb.position).normalized;
+
+        // Mild separation from nearby enemies so they don't perfectly stack
+        Vector2 separation = Vector2.zero;
+        Collider2D[] nearby = Physics2D.OverlapCircleAll(rb.position, 0.9f);
+        foreach (Collider2D col in nearby)
+        {
+            if (col.gameObject == gameObject) continue;
+            if (col.GetComponent<Enemy>() == null) continue;
+            Vector2 away = rb.position - (Vector2)col.transform.position;
+            float dist = away.magnitude;
+            if (dist > 0.01f) separation += away.normalized / dist;
+        }
+
+        Vector2 finalDir = (toPlayer + separation * 0.35f).normalized;
+        rb.linearVelocity = finalDir * profile.MoveSpeed * slowMultiplier * scaledSpeedMultiplier;
     }
 
     public virtual void TakeDamage(int amount)
@@ -133,6 +158,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
 
         if (isMarked) amount = Mathf.RoundToInt(amount * markDamageMultiplier);
         currentHealth -= amount;
+
+        // Accumulate hit glow — clamps so rapid-fire stacks to a bright cap
+        hitGlow = Mathf.Min(1f, hitGlow + 0.65f);
         UpdateHealthVisual();
 
         if (currentHealth <= 0f)
@@ -150,6 +178,11 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         if (isMarked)               healthColor = Color.Lerp(healthColor, new Color(1f, 0.92f, 0.1f), 0.55f);
         bool isSlowed = slowRemainingTime > 0f && slowMultiplier < 1f;
         if (isSlowed || isStunned)  healthColor = Color.Lerp(healthColor, new Color(0.3f, 0.6f, 1f), 0.6f);
+
+        // Hit glow: blend toward a bright white, accumulates for rapid-fire weapons
+        if (hitGlow > 0f)
+            healthColor = Color.Lerp(healthColor, new Color(2.0f, 0.15f, 0.15f, 1f), hitGlow * 0.9f);
+
         spriteRenderer.color = healthColor;
     }
 
@@ -160,7 +193,8 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         rb.linearVelocity = Vector2.zero;
         int exp = Mathf.RoundToInt((profile != null ? profile.CalculateExpDrop() : 0) * scaledExpMultiplier);
         OnDeath?.Invoke(exp);
-    
+        AnyEnemyDied?.Invoke(this);
+
     if (expOrbPrefab != null && profile != null && profile.ExpOrbProfile != null && UnityEngine.Random.value < 0.667f)
     {
         ExpOrb orb = Instantiate(expOrbPrefab, transform.position, Quaternion.identity);
@@ -211,6 +245,9 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         currentHealth = profile.MaxHealth;
     }
 
+    public float HealthFraction => profile != null
+        ? Mathf.Clamp01(currentHealth / profile.MaxHealth) : 1f;
+
     public void ApplyMark(float multiplier, float duration)
     {
         isMarked = true;
@@ -240,6 +277,13 @@ public abstract class Enemy : MonoBehaviour, IDamageable
         rb.AddForce(direction.normalized * force, ForceMode2D.Impulse);
         if (rb.linearVelocity.magnitude > 7f)
             rb.linearVelocity = rb.linearVelocity.normalized * 7f;
+    }
+
+public void ForceKnockback(Vector2 direction, float speed)
+    {
+        if (isDead) return;
+        rb.linearVelocity = direction.normalized * speed;
+        ApplySlow(0f, 1.5f);
     }
 
     public void ExecutionKill()

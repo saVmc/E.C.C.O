@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [CreateAssetMenu(menuName = "E.C.C.O/Abilities/Ability Definition", fileName = "AbilityDefinition")]
 public sealed class AbilityDefinition : ScriptableObject
@@ -17,13 +17,19 @@ public sealed class AbilityDefinition : ScriptableObject
     [SerializeField] private AbilityDefinition nextStarDefinition;
 
     [Header("VFX Prefabs")]
-[SerializeField] private GameObject vfxPrefabA;
-[SerializeField] private GameObject vfxPrefabB;
-[SerializeField] private GameObject vfxPrefabC;
+    [SerializeField] private GameObject vfxPrefabA;
+    [SerializeField] private GameObject vfxPrefabB;
+    [SerializeField] private GameObject vfxPrefabC;
+    [Tooltip("Sprite shown in-world during the ability (e.g. the chupa lance).")]
+    [SerializeField] private Sprite visualSprite;
+    [Tooltip("How wide the visual sprite should appear in world units. Adjust until it looks right in-game.")]
+    [SerializeField] private float  visualSpriteWidth = 2f;
 
-public GameObject VfxPrefabA => vfxPrefabA;
-public GameObject VfxPrefabB => vfxPrefabB;
-public GameObject VfxPrefabC => vfxPrefabC;
+    public GameObject VfxPrefabA       => vfxPrefabA;
+    public GameObject VfxPrefabB       => vfxPrefabB;
+    public GameObject VfxPrefabC       => vfxPrefabC;
+    public Sprite     VisualSprite     => visualSprite;
+    public float      VisualSpriteWidth => visualSpriteWidth;
 
     public string AbilityName => abilityName;
     public string DisplayName => displayName;

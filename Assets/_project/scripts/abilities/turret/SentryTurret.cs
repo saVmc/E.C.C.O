@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 
@@ -96,6 +96,110 @@ public sealed class SentryTurret : MonoBehaviour
         nextFireTime = Time.time + fireCooldown;
     }
 
+    // ─── ★5 Overlock — cinematic reactivation ────────────────────────────────
+
+    public void TriggerOverclock(float boostDuration)
+    {
+        if (isBoosted) StopAllCoroutines();
+        StartCoroutine(OverclockRoutine(boostDuration));
+    }
+
+    private IEnumerator OverclockRoutine(float boostDuration)
+    {
+        isBoosted = true;
+
+        // ─ SURGE: rings expand, world slows ─
+        EMPRingEffect.Spawn(transform.position, 1.2f, 0.10f);
+        StartCoroutine(SentryBloom(transform.position, 3.5f, new Color(0.30f, 0.85f, 1f, 0.88f), 0.20f));
+
+        try
+        {
+            Time.timeScale = 0.18f;
+            yield return new WaitForSecondsRealtime(0.06f);
+            EMPRingEffect.Spawn(transform.position, 2.8f, 0.16f);
+            yield return new WaitForSecondsRealtime(0.06f);
+            EMPRingEffect.Spawn(transform.position, 4.5f, 0.24f);
+            yield return new WaitForSecondsRealtime(0.10f);
+        }
+        finally { Time.timeScale = 1f; }
+
+        // ─ DEATH BLOSSOM: 18 bullets in a full circle ─
+        StartCoroutine(SentryBloom(transform.position, 6f, new Color(1f, 1f, 1f, 1f), 0.18f));
+        Vector3 firePos = firePoint != null ? firePoint.position : transform.position;
+        if (projectilePrefab != null)
+        {
+            const int shots = 18;
+            for (int i = 0; i < shots; i++)
+            {
+                float angle = (i / (float)shots) * 360f;
+                Vector2 dir = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad));
+                SpawnProjectile(dir, firePos);
+            }
+        }
+        EMPRingEffect.Spawn(transform.position, 2.2f, 0.18f);
+        EMPRingEffect.Spawn(transform.position, 4.0f, 0.32f);
+
+        // ─ OVERCLOCK: fire at 30% of base cooldown, aura pulses ─
+        fireCooldown = baseFirCooldown * 0.30f;
+
+        if (boostParticles != null) { boostParticles.Clear(); boostParticles.Play(); }
+
+        float elapsed = 0f, nextPulse = 1.0f;
+        while (elapsed < boostDuration)
+        {
+            elapsed  += Time.deltaTime;
+            nextPulse -= Time.deltaTime;
+            if (nextPulse <= 0f)
+            {
+                nextPulse = 1.0f;
+                EMPRingEffect.Spawn(transform.position, 2.0f, 0.28f);
+            }
+            yield return null;
+        }
+
+        fireCooldown = baseFirCooldown;
+        isBoosted    = false;
+        if (boostParticles != null) boostParticles.Stop();
+    }
+
+    private IEnumerator SentryBloom(Vector2 center, float radius, Color col, float dur)
+    {
+        const int sz = 32;
+        var tex = new Texture2D(sz, sz, TextureFormat.RGBA32, false);
+        tex.filterMode = FilterMode.Bilinear;
+        float half = sz * 0.5f;
+        for (int y = 0; y < sz; y++)
+            for (int x = 0; x < sz; x++)
+            {
+                float d = Mathf.Sqrt((x - half) * (x - half) + (y - half) * (y - half));
+                float a = Mathf.Clamp01(1f - d / half);
+                tex.SetPixel(x, y, new Color(1f, 1f, 1f, a * a));
+            }
+        tex.Apply();
+
+        var go  = new GameObject("_SentryBloom");
+        var sr  = go.AddComponent<SpriteRenderer>();
+        sr.sprite = Sprite.Create(tex, new Rect(0, 0, sz, sz), Vector2.one * 0.5f, sz);
+        sr.sortingOrder = 945;
+        var sh  = Shader.Find("Particles/Additive") ?? Shader.Find("Legacy Shaders/Particles/Additive") ?? Shader.Find("Sprites/Default");
+        var mat = sh != null ? new Material(sh) : null;
+        if (mat != null) sr.material = mat;
+        go.transform.position   = new Vector3(center.x, center.y, 0f);
+        go.transform.localScale = Vector3.one * radius * 2f;
+        sr.color = col;
+
+        float t = 0f;
+        while (t < dur)
+        {
+            t += Time.unscaledDeltaTime;
+            if (sr != null) sr.color = new Color(col.r, col.g, col.b, Mathf.Lerp(col.a, 0f, t / dur));
+            yield return null;
+        }
+        if (mat != null) Destroy(mat);
+        Destroy(tex);
+        if (go != null) Destroy(go);
+    }
+
     public void TriggerSpeedBoost(float duration, float multiplier = 0.5f)
     {
         if (isBoosted)
@@ -165,7 +269,7 @@ public sealed class SentryTurret : MonoBehaviour
         }
         else if (fireDirections == 2 && fireSpreadAngle > 0f)
         {
-            // Dual barrel: two shots at ±half spread aimed at the target
+
             float baseAngle  = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg;
             float halfSpread = fireSpreadAngle * 0.5f;
             for (int i = 0; i < 2; i++)
@@ -180,7 +284,7 @@ public sealed class SentryTurret : MonoBehaviour
         }
         else
         {
-            // Omnidirectional (3+): distribute evenly across 360°
+
             float angleStep = 360f / fireDirections;
             float baseAngle = Mathf.Atan2(baseDirection.y, baseDirection.x) * Mathf.Rad2Deg;
 
@@ -227,5 +331,11 @@ public sealed class SentryTurret : MonoBehaviour
             onDestroyed?.Invoke();
             Destroy(gameObject);
         }
+    }
+
+    private void OnDestroy()
+    {
+        // Safety: if destroyed mid-overlock the time scale must be restored
+        if (Time.timeScale < 0.5f) Time.timeScale = 1f;
     }
 }

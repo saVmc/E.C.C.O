@@ -5,15 +5,20 @@ using UnityEngine.UI;
 
 public sealed class UIHealthBar : MonoBehaviour
 {
-    [Header("Bar")]
-    [SerializeField] private RectTransform fillRect;   // the sliced fill image's RectTransform
-    [SerializeField] private Image fillImage;           // same object, for colour
+    [Header("HP Bar")]
+    [SerializeField] private RectTransform fillRect;
+    [SerializeField] private Image fillImage;
     [SerializeField] private TMP_Text healthText;
 
+    // Shield bar — created automatically at runtime, no Inspector setup needed
+    private RectTransform shieldFillRect;
+    private Image         shieldFillImage;
+
     [Header("Colours")]
-    [SerializeField] private Color fullColor = new Color(0.18f, 0.88f, 0.35f);
-    [SerializeField] private Color halfColor = new Color(1f,    0.82f, 0.1f);
-    [SerializeField] private Color lowColor  = new Color(0.95f, 0.15f, 0.15f);
+    [SerializeField] private Color fullColor   = new Color(0.18f, 0.88f, 0.35f);
+    [SerializeField] private Color halfColor   = new Color(1f,    0.82f, 0.1f);
+    [SerializeField] private Color lowColor    = new Color(0.95f, 0.15f, 0.15f);
+    [SerializeField] private Color shieldColor = new Color(0.1f,  0.85f, 1f,  1f);
     [SerializeField] private float lowThreshold  = 0.3f;
     [SerializeField] private float halfThreshold = 0.6f;
 
@@ -22,66 +27,141 @@ public sealed class UIHealthBar : MonoBehaviour
     [SerializeField] private float shakeDuration  = 0.25f;
 
     private PlayerHealth playerHealth;
-    private RectTransform rt;           // this object's RectTransform (for shake)
+    private RectTransform rt;
     private Vector2 basePos;
-    private float fullWidth;            // cached max width of the fill rect
+    private float fullWidth;
+
+    private bool  shieldActive;
+    private float shieldCurrent;
+    private float shieldMax = 1f;
 
     private void Start()
     {
         rt = GetComponent<RectTransform>();
         if (rt != null) basePos = rt.anchoredPosition;
-
-        // Cache the full width so we can scale it by HP ratio
         if (fillRect != null) fullWidth = fillRect.sizeDelta.x;
 
-        playerHealth = PlayerHealth.Instance ?? FindAnyObjectByType<PlayerHealth>();
-        if (playerHealth == null) return;
+        CreateShieldFill();
 
-        playerHealth.OnHealthChanged += UpdateBar;
-        playerHealth.OnDamaged       += _ => TriggerShake();
-        UpdateBar(playerHealth.CurrentHealth, playerHealth.MaxHealth);
+        playerHealth = PlayerHealth.Instance ?? FindAnyObjectByType<PlayerHealth>();
+        if (playerHealth != null)
+        {
+            playerHealth.OnHealthChanged += OnHealthChanged;
+            playerHealth.OnDamaged       += _ => TriggerShake();
+            OnHealthChanged(playerHealth.CurrentHealth, playerHealth.MaxHealth);
+        }
+
+        ForcefieldAbility.OnShieldChanged += OnShieldChanged;
     }
 
     private void OnDestroy()
     {
-        if (playerHealth == null) return;
-        playerHealth.OnHealthChanged -= UpdateBar;
+        if (playerHealth != null)
+            playerHealth.OnHealthChanged -= OnHealthChanged;
+        ForcefieldAbility.OnShieldChanged -= OnShieldChanged;
     }
 
-    private void UpdateBar(int current, int max)
+    private void CreateShieldFill()
     {
-        float t = max > 0 ? (float)current / max : 0f;
+        if (fillRect == null) return;
 
-        if (fillRect != null)
+        GameObject go = new GameObject("ShieldFill");
+        go.transform.SetParent(fillRect.parent, false);
+        go.transform.SetAsLastSibling();
+
+        shieldFillRect = go.AddComponent<RectTransform>();
+        shieldFillRect.anchorMin        = fillRect.anchorMin;
+        shieldFillRect.anchorMax        = fillRect.anchorMax;
+        shieldFillRect.anchoredPosition = fillRect.anchoredPosition;
+        shieldFillRect.sizeDelta        = fillRect.sizeDelta;
+        shieldFillRect.pivot            = fillRect.pivot;
+
+        shieldFillImage       = go.AddComponent<Image>();
+        shieldFillImage.color = shieldColor;
+        if (fillImage != null) shieldFillImage.sprite = fillImage.sprite;
+
+        go.SetActive(false);
+    }
+
+    private void OnShieldChanged(float current, float max)
+    {
+        shieldCurrent = current;
+        shieldMax     = Mathf.Max(1f, max);
+        shieldActive  = current > 0f;
+        RefreshDisplay();
+    }
+
+    private void OnHealthChanged(int current, int max)
+    {
+        RefreshDisplay();
+    }
+
+    private void RefreshDisplay()
+    {
+        // HP bar always shows actual HP
+        if (playerHealth != null)
         {
-            // Scale width — sliced image stays crisp at any size
-            Vector2 size = fillRect.sizeDelta;
-            size.x = fullWidth * t;
-            fillRect.sizeDelta = size;
+            float t = playerHealth.MaxHealth > 0
+                ? (float)playerHealth.CurrentHealth / playerHealth.MaxHealth
+                : 0f;
+            SetFill(t, GetHpColor(t));
         }
 
-        if (fillImage != null)
-            fillImage.color = GetBarColor(t);
+        // Shield bar: full blue circle width at full shield, depletes as damage taken
+        if (shieldFillRect != null && shieldFillImage != null)
+        {
+            if (shieldActive)
+            {
+                shieldFillRect.gameObject.SetActive(true);
+                float sf = Mathf.Clamp01(shieldCurrent / shieldMax);
+                Vector2 size = shieldFillRect.sizeDelta;
+                size.x = fullWidth * sf;
+                shieldFillRect.sizeDelta = size;
+                shieldFillImage.color    = shieldColor;
+            }
+            else
+            {
+                shieldFillRect.gameObject.SetActive(false);
+            }
+        }
 
-        if (healthText != null)
-            healthText.text = $"{current} / {max}";
+        // Text
+        if (healthText != null && playerHealth != null)
+        {
+            if (shieldActive)
+                healthText.text = $"{playerHealth.CurrentHealth}/{playerHealth.MaxHealth}  +{Mathf.CeilToInt(shieldCurrent)} SHIELD";
+            else
+                healthText.text = $"{playerHealth.CurrentHealth} / {playerHealth.MaxHealth}";
+        }
     }
 
-    private Color GetBarColor(float t)
+    private void SetFill(float t, Color color)
     {
-        if (t <= lowThreshold)
-            return lowColor;
-        if (t <= halfThreshold)
-            return Color.Lerp(lowColor, halfColor, (t - lowThreshold) / (halfThreshold - lowThreshold));
-        return Color.Lerp(halfColor, fullColor, (t - halfThreshold) / (1f - halfThreshold));
+        if (fillRect != null)
+        {
+            Vector2 size = fillRect.sizeDelta;
+            size.x = fullWidth * Mathf.Clamp01(t);
+            fillRect.sizeDelta = size;
+        }
+        if (fillImage != null) fillImage.color = color;
+    }
+
+    private Color GetHpColor(float t)
+    {
+        if (t <= lowThreshold)  return lowColor;
+        if (t <= halfThreshold) return Color.Lerp(lowColor,  halfColor, (t - lowThreshold)  / (halfThreshold - lowThreshold));
+        return                         Color.Lerp(halfColor, fullColor,  (t - halfThreshold) / (1f - halfThreshold));
     }
 
     private Coroutine shakeRoutine;
 
     private void TriggerShake()
     {
-        if (shakeRoutine != null) StopCoroutine(shakeRoutine);
-        shakeRoutine = StartCoroutine(ShakeRoutine());
+        if (!shieldActive)
+        {
+            if (shakeRoutine != null) StopCoroutine(shakeRoutine);
+            shakeRoutine = StartCoroutine(ShakeRoutine());
+        }
     }
 
     private IEnumerator ShakeRoutine()
@@ -91,8 +171,7 @@ public sealed class UIHealthBar : MonoBehaviour
         while (elapsed < shakeDuration)
         {
             elapsed += Time.unscaledDeltaTime;
-            float strength = Mathf.Lerp(shakeMagnitude, 0f, elapsed / shakeDuration);
-            rt.anchoredPosition = basePos + Random.insideUnitCircle * strength;
+            rt.anchoredPosition = basePos + Random.insideUnitCircle * Mathf.Lerp(shakeMagnitude, 0f, elapsed / shakeDuration);
             yield return null;
         }
         rt.anchoredPosition = basePos;

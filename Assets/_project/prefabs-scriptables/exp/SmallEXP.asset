@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fcc7428bbe7f648851efff74545a33, type: 3}
   m_Name: SmallEXP
   m_EditorClassIdentifier: Assembly-CSharp::ExpOrbProfile
-  expValue: 5
+  expValue: 10
   attractRadius: 3
   flySpeed: 8
   orbColor: {r: 0, g: 1, b: 1, a: 1}

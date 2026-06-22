@@ -46,6 +46,12 @@ public sealed class GunProfile : ScriptableObject
     [Header("Movement")]
     [SerializeField] private bool locksMovementWhileFiring = false;
 
+    [Header("Unlock Requirement")]
+    [Tooltip("Gun is locked until this many waves have been completed. 0 = always available.")]
+    [SerializeField] private int waveLockRequirement = 0;
+    [Tooltip("When true this gun is always included in the selection (even when locked).")]
+    [SerializeField] private bool alwaysOffer = false;
+
     [Header("Upgrades")]
     [SerializeField] private GunUpgrade starOneUpgrade;
     [SerializeField] private GunUpgrade starTwoUpgrade;
@@ -65,6 +71,10 @@ public GunUpgrade GetUpgradeForStar(int star)
         _ => null
     };
 }
+    public int  WaveLockRequirement => waveLockRequirement;
+    public bool AlwaysOffer         => alwaysOffer;
+    public bool IsUnlocked          => waveLockRequirement <= 0 || HordeSpawner.HighestWaveCompleted >= waveLockRequirement;
+
     public bool IsBurstFire => isBurstFire;
     public int BurstCount => Mathf.Max(1, burstCount);
     public float BurstDelay => burstDelay;

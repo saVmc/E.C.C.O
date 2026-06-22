@@ -15,8 +15,7 @@ MonoBehaviour:
   maxHealth: 25
   moveSpeed: 2
   contactDamage: 1
-  sprite: {fileID: 0}
   poofScalePeak: 1.6
   poofDuration: 0.18
-  baseExpValue: 5
+  baseExpValue: 10
   expOrbProfile: {fileID: 11400000, guid: c2ffb9a359f348b40a646688eac7652e, type: 2}
